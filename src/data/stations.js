@@ -1,0 +1,60 @@
+// Lista completa de estaciones del Metro de Bilbao con sus códigos
+// Fuente: https://cms.metrobilbao.eus/get/open_data/estaciones/es
+
+export const STATIONS = [
+  { code: 'ABA', name: 'Abando' },
+  { code: 'ABT', name: 'Abatxolo' },
+  { code: 'AIB', name: 'Aiboa' },
+  { code: 'ALG', name: 'Algorta' },
+  { code: 'ANS', name: 'Ansio' },
+  { code: 'ARE', name: 'Areneta' },
+  { code: 'ARZ', name: 'Ariz' },
+  { code: 'AST', name: 'Asti' },
+  { code: 'BAG', name: 'Bagaza' },
+  { code: 'BAR', name: 'Barakaldo' },
+  { code: 'BAS', name: 'Basarrate' },
+  { code: 'BSR', name: 'Basauri' },
+  { code: 'BER', name: 'Berango' },
+  { code: 'BID', name: 'Bidezabal' },
+  { code: 'BOL', name: 'Bolueta' },
+  { code: 'CAV', name: 'Casco Viejo' },
+  { code: 'DEU', name: 'Deusto' },
+  { code: 'ERA', name: 'Erandio' },
+  { code: 'ETX', name: 'Etxebarri' },
+  { code: 'GOB', name: 'Gobela' },
+  { code: 'GUR', name: 'Gurutzeta/Cruces' },
+  { code: 'IBB', name: 'Ibarbengoa' },
+  { code: 'IND', name: 'Indautxu' },
+  { code: 'KAB', name: 'Kabiezes' },
+  { code: 'LAM', name: 'Lamiako' },
+  { code: 'LAR', name: 'Larrabasterra' },
+  { code: 'LEI', name: 'Leioa' },
+  { code: 'LUT', name: 'Lutxana' },
+  { code: 'MOY', name: 'Moyua' },
+  { code: 'NEG', name: 'Neguri' },
+  { code: 'PEN', name: 'Peñota' },
+  { code: 'PLE', name: 'Plentzia' },
+  { code: 'POR', name: 'Portugalete' },
+  { code: 'SIN', name: 'San Ignazio' },
+  { code: 'SAM', name: 'San Mamés' },
+  { code: 'SAN', name: 'Santutxu' },
+  { code: 'STZ', name: 'Santurtzi' },
+  { code: 'SAR', name: 'Sarriko' },
+  { code: 'SES', name: 'Sestao' },
+  { code: 'SOP', name: 'Sopela' },
+  { code: 'URB', name: 'Urbinaga' },
+  { code: 'URD', name: 'Urduliz' },
+  { code: 'ZZA', name: 'Matiko (L3)' },
+  { code: 'ZZB', name: 'Uribarri (L3)' },
+  { code: 'ZZC', name: 'Casco Viejo (L3)' },
+  { code: 'ZZD', name: 'Zurbaranbarri (L3)' },
+  { code: 'ZZE', name: 'Miribilla (L3)' },
+  { code: 'ZZF', name: 'Kukullaga (L3)' },
+  { code: 'ZZG', name: 'Basauri (L3)' },
+];
+
+// Crear un mapa de código -> nombre para búsqueda rápida
+export const STATION_MAP = {};
+STATIONS.forEach((s) => {
+  STATION_MAP[s.code] = s.name;
+});
