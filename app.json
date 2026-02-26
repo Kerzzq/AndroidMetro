@@ -1,29 +1,46 @@
 {
   "expo": {
-    "name": "metro",
-    "slug": "metro",
+    "name": "Metro Bilbao",
+    "slug": "metro-bilbao",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
+      "backgroundColor": "#1A1A2E"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#E31937",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "package": "com.metrobilbao.widget"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      [
+        "react-native-android-widget",
+        {
+          "widgets": [
+            {
+              "name": "MetroBilbaoWidget",
+              "label": "Metro Bilbao",
+              "minWidth": "320dp",
+              "minHeight": "320dp",
+              "description": "Próximos trenes del Metro de Bilbao - 4 paneles configurables",
+              "previewImage": "./assets/widget-preview.png",
+              "updatePeriodMillis": 1800000,
+              "resizeMode": "horizontal|vertical",
+              "widgetFeatures": "reconfigurable",
+              "targetCellWidth": 4,
+              "targetCellHeight": 4
+            }
+          ]
+        }
+      ]
+    ]
   }
 }
