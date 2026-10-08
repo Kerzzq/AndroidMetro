@@ -1,0 +1,14 @@
+{
+  "apk": "C:\\Users\\W11\\AMetro\\artifacts\\androidmetro-baseline-test.apk",
+  "size": 62918313,
+  "sha256": "6ffe136f331dc6d4785b82cdad1de87c3525bc4d2c80de18657c7cc02b0a75a1",
+  "bundle_size": 1075440,
+  "bundle_sha256": "b9d73c39464e1ec4b286ceb4836c9f36849e17e0b27591de2f839d84d2af9540",
+  "hermes_header": "c61fbc03c103191f",
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ]
+}

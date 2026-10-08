@@ -1,0 +1,316 @@
+{
+  "file": "metroBilbao-release-apk.apk",
+  "size": 62918257,
+  "sha256": "f2e28a2a001fd4d1c3ca86ce42e4fc9442acc9ecd8b6a78cc1b37f97770310bc",
+  "manifest": [
+    {
+      "element": "manifest",
+      "attributes": {
+        "versionCode": 1,
+        "versionName": "1.0.0",
+        "compileSdkVersion": 36,
+        "compileSdkVersionCodename": "16",
+        "package": "com.metrobilbao.widget",
+        "platformBuildVersionCode": 36,
+        "platformBuildVersionName": 16
+      }
+    },
+    {
+      "element": "uses-sdk",
+      "attributes": {
+        "minSdkVersion": 24,
+        "targetSdkVersion": 36
+      }
+    },
+    {
+      "element": "application",
+      "attributes": {
+        "theme": "@0x7f10000d",
+        "label": "@0x7f0f001d",
+        "icon": "@0x7f0d0000",
+        "name": "com.metrobilbao.widget.MainApplication",
+        "allowBackup": true,
+        "supportsRtl": true,
+        "extractNativeLibs": false,
+        "roundIcon": "@0x7f0d0004",
+        "appComponentFactory": "androidx.core.app.CoreComponentFactory",
+        "enableOnBackInvokedCallback": false
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "expo.modules.updates.ENABLED",
+        "value": false
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH",
+        "value": "ALWAYS"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS",
+        "value": 0
+      }
+    },
+    {
+      "element": "service",
+      "attributes": {
+        "name": "com.reactnativeandroidwidget.RNWidgetCollectionService",
+        "permission": "android.permission.BIND_REMOTEVIEWS"
+      }
+    },
+    {
+      "element": "activity",
+      "attributes": {
+        "theme": "@0x7f10025f",
+        "name": "com.metrobilbao.widget.MainActivity",
+        "exported": true,
+        "launchMode": 2,
+        "screenOrientation": 1,
+        "configChanges": 4016,
+        "windowSoftInputMode": 16
+      }
+    },
+    {
+      "element": "activity",
+      "attributes": {
+        "name": "com.metrobilbao.widget.WidgetConfigurationActivity",
+        "exported": true
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "label": "Metro Bilbao",
+        "name": "com.metrobilbao.widget.widget.MetroBilbaoWidget",
+        "exported": false
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "android.appwidget.provider",
+        "resource": "@0x7f120006"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "org.unimodules.core.AppLoader#react-native-headless",
+        "value": "expo.modules.adapters.react.apploader.RNHeadlessAppLoader"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "com.facebook.soloader.enabled",
+        "value": true
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "android.support.FILE_PROVIDER_PATHS",
+        "resource": "@0x7f120000"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "androidx.work.WorkManagerInitializer",
+        "value": "androidx.startup"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "androidx.emoji2.text.EmojiCompatInitializer",
+        "value": "androidx.startup"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "androidx.lifecycle.ProcessLifecycleInitializer",
+        "value": "androidx.startup"
+      }
+    },
+    {
+      "element": "meta-data",
+      "attributes": {
+        "name": "androidx.profileinstaller.ProfileInstallerInitializer",
+        "value": "androidx.startup"
+      }
+    },
+    {
+      "element": "service",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.SystemAlarmService",
+        "enabled": "@0x7f040002",
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "service",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemjob.SystemJobService",
+        "permission": "android.permission.BIND_JOB_SERVICE",
+        "enabled": "@0x7f040004",
+        "exported": true,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "service",
+      "attributes": {
+        "name": "androidx.work.impl.foreground.SystemForegroundService",
+        "enabled": "@0x7f040003",
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver",
+        "enabled": true,
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy",
+        "enabled": false,
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy",
+        "enabled": false,
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy",
+        "enabled": false,
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy",
+        "enabled": false,
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.RescheduleReceiver",
+        "enabled": false,
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver",
+        "enabled": "@0x7f040002",
+        "exported": false,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.work.impl.diagnostics.DiagnosticsReceiver",
+        "permission": "android.permission.DUMP",
+        "enabled": true,
+        "exported": true,
+        "directBootAware": false
+      }
+    },
+    {
+      "element": "service",
+      "attributes": {
+        "name": "androidx.room.MultiInstanceInvalidationService",
+        "exported": false,
+        "directBootAware": true
+      }
+    },
+    {
+      "element": "receiver",
+      "attributes": {
+        "name": "androidx.profileinstaller.ProfileInstallReceiver",
+        "permission": "android.permission.DUMP",
+        "enabled": true,
+        "exported": true,
+        "directBootAware": false
+      }
+    }
+  ],
+  "native_abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "bundles": [
+    {
+      "path": "assets/index.android.bundle",
+      "size": 1075440,
+      "header_hex": "c61fbc03c103191f"
+    }
+  ],
+  "signature_v1_entries": [],
+  "bundle_string_indicators": {
+    "metro_widget_settings": true,
+    "showWagons": true,
+    "timeRounded": true,
+    "registerWidgetConfigurationScreen": true,
+    "api.metrobilbao.eus": true,
+    "demoTrains": false
+  },
+  "signing_block_ids": [
+    "0x7109871a",
+    "0x504b4453",
+    "0x42726577"
+  ],
+  "certificates": [
+    {
+      "scheme": "v2",
+      "subject": "CN=,OU=,O=,L=,ST=,C=US",
+      "issuer": "CN=,OU=,O=,L=,ST=,C=US",
+      "sha256": "91bc77ae484bc3ff3408f13950894e4ed7a3d49674a20f7a634b798747e026c0",
+      "not_before": "2026-02-26T16:25:32+01:00",
+      "not_after": "2053-07-14T17:25:32+02:00"
+    }
+  ],
+  "signature_validation": "Certificate extraction only; full apksigner verification pending Android SDK/JDK.",
+  "apksigner_verification": {
+    "exitCode": 0,
+    "signers": 1,
+    "date": "2026-10-08",
+    "verifiedV2": true,
+    "tool": "apksigner 36.0.0"
+  }
+}

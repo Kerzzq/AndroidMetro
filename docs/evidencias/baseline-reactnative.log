@@ -1,0 +1,13 @@
+--------- beginning of main
+10-08 15:39:04.558  4907  4964 I ReactNativeJS: Running "main"
+10-08 15:39:04.560  4907  4964 W ReactNativeJS: SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context
+10-08 15:48:17.988  6071  6093 I ReactNativeJS: Running "main"
+10-08 15:48:17.989  6071  6093 W ReactNativeJS: SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context
+10-08 15:50:51.490  6071  6093 I ReactNativeJS: Running "RNWidgetConfigurationScreen"
+10-08 15:50:51.588  6071  6093 I ReactNativeJS: Detectada configuración previa, cerrando pantalla de configuración de widget...
+10-08 15:52:05.682  6487  6506 E ReactNativeJS: 'Error fetching trains from API:', [TypeError: Network request failed]
+10-08 15:52:05.683  6487  6506 E ReactNativeJS: 'Error fetching trains from API:', [TypeError: Network request failed]
+10-08 15:52:05.683  6487  6506 E ReactNativeJS: 'Error fetching trains from API:', [TypeError: Network request failed]
+10-08 15:52:05.683  6487  6506 E ReactNativeJS: 'Error fetching trains from API:', [TypeError: Network request failed]
+10-08 15:52:31.834  6487  6506 I ReactNativeJS: Running "main"
+10-08 15:52:31.836  6487  6506 W ReactNativeJS: SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context
