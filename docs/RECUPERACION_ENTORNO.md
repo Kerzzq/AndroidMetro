@@ -1,6 +1,6 @@
 # Recuperación del entorno AndroidMetro
 
-Fecha: 8 de octubre de 2026 (Europe/Madrid). Estado: FASE A validada en emulador Android 16/API 36, con APK autónomo de pruebas y widget real. Fase B aún no iniciada.
+Fecha: 8 de octubre de 2026 (Europe/Madrid). Estado: FASE A validada en emulador Android 16/API 36, con APK autónomo de pruebas y widget real. Fase B documentada en CAMBIO_ICONO.md, con un segundo APK independiente y recursos del lanzador.
 
 ## Fuentes y ramas
 
@@ -35,7 +35,7 @@ Fecha: 8 de octubre de 2026 (Europe/Madrid). Estado: FASE A validada en emulador
 | Android Studio | No encontrado en PATH, rutas habituales ni inventario de programas |
 | Expo/EAS globales | No encontrados; Expo CLI procede de las dependencias del proyecto; EAS no instalado ni autenticado |
 
-Al principio tampoco estaban en PATH Git, Node/npm, Java, ADB o JAVA_HOME/ANDROID_HOME/ANDROID_SDK_ROOT. Las herramientas preparadas son locales. `activar.ps1` solo configura el proceso actual; no se usó setx ni se modificaron variables permanentes.
+Al principio tampoco estaban en PATH Git, Node/npm, Java, ADB o JAVA_HOME/ANDROID_HOME/ANDROID_SDK_ROOT. Las herramientas preparadas son locales. `scripts/activar-entorno.ps1` solo configura el proceso actual; no se usó setx ni se modificaron variables permanentes.
 
 ## Dependencias preservadas
 
@@ -111,3 +111,24 @@ MainApplication, MainActivity, WidgetConfigurationActivity, RNWidgetProvider, ma
 
 Resultado de Gradle: BUILD SUCCESSFUL in 4m 18s, 363 tareas ejecutadas. No fue necesario modificar dependencias, arquitectura, Gradle ni lógica para compilar. Hubo un aviso de Metaspace 512 MiB al final; el build terminó correctamente. NODE_ENV no estaba definido en esa primera invocación y expo-constants emitió un aviso; no hay archivos .env de la app recuperada y el bundle final fue probado autónomamente. Ver BASELINE_FUNCIONAL.md para metadatos, capturas y límites de las pruebas.
 
+## Reproducir las pruebas en el emulador aislado
+
+El AVD AndroidMetro_API36 ya está creado en android-home/avd. Para un entorno nuevo, después de instalar la imagen y activar el entorno, crearlo una sola vez (no sobrescribir un AVD existente):
+
+```powershell
+. .\scripts\activar-entorno.ps1
+'no' | & "$env:ANDROID_HOME\cmdline-tools\19.0\bin\avdmanager.bat" create avd -n AndroidMetro_API36 -k 'system-images;android-36;google_apis;x86_64' -d pixel_6
+```
+
+Para reutilizarlo e instalar exclusivamente la variante de pruebas:
+
+```powershell
+Start-Process -FilePath "$env:ANDROID_HOME\emulator\emulator.exe" -WindowStyle Hidden -ArgumentList @('-avd','AndroidMetro_API36','-port','5556','-memory','2048','-gpu','swiftshader','-no-window','-no-audio','-no-snapshot')
+& "$env:ANDROID_HOME\platform-tools\adb.exe" -s emulator-5556 wait-for-device
+# Esperar hasta que este comando devuelva 1 antes de instalar.
+& "$env:ANDROID_HOME\platform-tools\adb.exe" -s emulator-5556 shell getprop sys.boot_completed
+& "$env:ANDROID_HOME\platform-tools\adb.exe" -s emulator-5556 install -r C:\Users\W11\AMetro\artifacts\androidmetro-icono-minimal-test.apk
+& "$env:ANDROID_HOME\platform-tools\adb.exe" -s emulator-5556 shell am start -W -n com.metrobilbao.widget.pruebas/.MainActivity
+```
+
+Quitar -no-window permite ver la ventana del emulador; el arranque del proceso auxiliar sigue oculto. No ejecutar un install sin selector de dispositivo ni instalar un paquete que use el applicationId original para estas pruebas. Para conservar el widget, actualizar con install -r sin desinstalar ni borrar datos. El emulador se cerró tras guardar la evidencia para liberar memoria; sus datos y el AVD permanecen en disco.

@@ -1,0 +1,5 @@
+BUILD SUCCESSFUL in 28s
+363 actionable tasks: 29 executed, 334 up-to-date
+Verifies
+Verified using v2 scheme (APK Signature Scheme v2): true
+Signer #1 certificate SHA-256 digest: 5822756d7982c9c612d283f007d55f08e62b7a4224cc9b5b9409b1297891026d

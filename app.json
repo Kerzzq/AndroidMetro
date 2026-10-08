@@ -4,7 +4,7 @@
     "slug": "metro-bilbao",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/metroBilbaoIcon.png",
+    "icon": "./assets/androidmetro-icon-minimal-512.png",
     "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -13,12 +13,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E31937",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#011228",
+        "foregroundImage": "./assets/androidmetro-icon-foreground.png",
+        "monochromeImage": "./assets/androidmetro-icon-monochrome.png"
       },
-      "package": "com.metrobilbao.widget"
+      "package": "com.metrobilbao.widget",
+      "icon": "./assets/androidmetro-icon-minimal-512.png"
     },
     "plugins": [
       [
