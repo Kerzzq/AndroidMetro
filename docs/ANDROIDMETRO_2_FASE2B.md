@@ -140,3 +140,7 @@ Siguiente paso recomendado: revisión visual de este APK y, con autorización es
 [Galería local de capturas](evidencias/mapa-android/galeria.html) · [Resultados estructurados](evidencias/mapa-android/resultados.json).
 
 Commits locales: `34fc89a` (mapa y gestos, etapa A), `71e11fe` (consulta real y favoritos, etapa B). La documentación, capturas y controlador de pruebas se registran después en un commit independiente; `git log` identifica ese último punto. La rama permanece local y limpia al entregar.
+
+## Publicación posterior autorizada
+
+Después de finalizar la validación local, el propietario autoriza publicar la rama y el APK como las pre-releases anteriores, con descripción breve. Esta petición posterior cambia la restricción de publicación de la fase inicial. Véase [Publicación del mapa](PUBLICACION_MAPA_ANDROID.md) para tag, firma, SHA-256 y verificación remota; no se modifica main ni se usa firma de distribución.
