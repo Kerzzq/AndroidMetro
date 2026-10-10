@@ -1,5 +1,6 @@
 import React, {useEffect,useState} from 'react';
 import {ActivityIndicator,FlatList,StatusBar,StyleSheet,Text,TouchableOpacity,View} from 'react-native';
+import SafeScreen from './SafeScreen';
 import {STATION_MAP} from '../data/stations';
 import {errorMessage} from '../domain/trainModel';
 export const C = { bg: '#011228', surface: '#12283F', line: '#28435D', text: '#F5FAFF', muted: '#B7CADD', accent: '#60D7EF', warning: '#FFD391' };
@@ -48,13 +49,13 @@ export function DataStatus({ entry, now }) {
 export function TrainDetail({ route, entry, settings, onClose, onRefresh, names = STATION_MAP, mapRoute = false }) {
   const [now,setNow]=useState(Date.now());
   useEffect(()=>{setNow(Date.now());const timer=setInterval(()=>setNow(Date.now()),30000);return()=>clearInterval(timer);},[]);
-  return <View style={s.screen}><StatusBar barStyle="light-content" />
+  return <SafeScreen><StatusBar barStyle="light-content" />
     <View style={s.header}><Text style={[s.title,s.headerTitle]}>Próximos trenes</Text><Button text="Volver" onPress={onClose} /></View>
     <FlatList data={entry?.data?.trains||[]} keyExtractor={(_,i)=>String(i)} contentContainerStyle={s.body}
       ListHeaderComponent={<View><RouteHeading favorite={route} full names={names} /><DataStatus entry={entry} now={now} /><View style={s.detailActions}><Text style={s.secondary}>Todos los resultados del servicio{entry?.data?.trains ? ' · '+entry.data.trains.length : ''}</Text><Button text="Refrescar" disabled={entry?.loading} onPress={onRefresh} /></View></View>}
       renderItem={({item,index})=><TrainRow train={item} settings={settings} first={index===0} />}
       ListFooterComponent={<Text style={s.hint}>{mapRoute?'El mapa resalta la conexión física; no garantiza tren directo. ':''}La dirección indica el destino anunciado del tren. Las horas y, si están activados, los minutos corresponden a la consulta indicada.</Text>} />
-  </View>;
+  </SafeScreen>;
 }
 export const s = StyleSheet.create({
   screen: { flex: 1, backgroundColor: C.bg, paddingTop: (StatusBar.currentHeight || 24) + 8, paddingBottom: 24 },

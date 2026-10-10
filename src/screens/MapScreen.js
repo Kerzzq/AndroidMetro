@@ -3,6 +3,8 @@ import { AppState, FlatList, Keyboard, Modal, ScrollView, StatusBar, StyleSheet,
 import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import MetroMap from '../components/MetroMap';
+import SafeScreen from '../components/SafeScreen';
+import { idlePinch, pinchPointers, anchorPinch, updatePinch } from '../domain/mapCamera';
 import { data, stations, hitStations, selectStation } from '../domain/mapModel';
 import { normalizeSearch } from '../domain/favoritesModel';
 import { TrainDetail } from '../components/TrainComponents';
@@ -45,7 +47,8 @@ export default function MapScreen({ onClose, visible }) {
   }
   const scale = useSharedValue(1), tx = useSharedValue(0), ty = useSharedValue(0);
   const minScale = useSharedValue(.1), vw = useSharedValue(0), vh = useSharedValue(0);
-  const startScale = useSharedValue(1), startX = useSharedValue(0), startY = useSharedValue(0), anchorX = useSharedValue(0), anchorY = useSharedValue(0);
+  const startX = useSharedValue(0), startY = useSharedValue(0);
+  const pinchSession = useSharedValue(idlePinch());
   function fit(width = viewport.width, height = viewport.height) {
     if (!width || !height) return;
     vw.value=width; vh.value=height;
@@ -73,8 +76,23 @@ export default function MapScreen({ onClose, visible }) {
     tx.value=w<vw.value?(vw.value-w)/2:Math.min(24,Math.max(vw.value-w-24,tx.value));
     ty.value=h<vh.value?(vh.value-h)/2:Math.min(24,Math.max(vh.value-h-24,ty.value));
   }
-  const pan=Gesture.Pan().maxPointers(1).minDistance(8).onStart(()=>{startX.value=tx.value;startY.value=ty.value;}).onUpdate(e=>{tx.value=startX.value+e.translationX;ty.value=startY.value+e.translationY;clampCamera();});
-  const pinch=Gesture.Pinch().onStart(e=>{startScale.value=scale.value;anchorX.value=(e.focalX-tx.value)/scale.value;anchorY.value=(e.focalY-ty.value)/scale.value;}).onUpdate(e=>{scale.value=Math.max(minScale.value,Math.min(2,startScale.value*e.scale));tx.value=e.focalX-anchorX.value*scale.value;ty.value=e.focalY-anchorY.value*scale.value;clampCamera();});
+  const pan=Gesture.Pan().maxPointers(1).minDistance(8)
+    .onStart(()=>{startX.value=tx.value;startY.value=ty.value;})
+    .onUpdate(e=>{
+      if(pinchSession.value.active || e.numberOfPointers!==1)return;
+      tx.value=startX.value+e.translationX;ty.value=startY.value+e.translationY;clampCamera();
+    });
+  const pinch=Gesture.Pinch()
+    .onTouchesDown(e=>{pinchSession.value=pinchPointers(pinchSession.value,e.numberOfTouches);})
+    .onTouchesUp(e=>{pinchSession.value=pinchPointers(pinchSession.value,e.numberOfTouches);})
+    .onStart(e=>{pinchSession.value=anchorPinch({scale:scale.value,x:tx.value,y:ty.value},e,pinchSession.value.pointers);})
+    .onUpdate(e=>{
+      const next=updatePinch(pinchSession.value,{scale:scale.value,x:tx.value,y:ty.value},e,minScale.value);
+      pinchSession.value=next.session;
+      scale.value=next.camera.scale;tx.value=next.camera.x;ty.value=next.camera.y;clampCamera();
+    })
+    .onTouchesCancelled(()=>{pinchSession.value=idlePinch();})
+    .onFinalize(()=>{pinchSession.value=idlePinch();});
   const press=Gesture.Tap().maxDistance(8).onEnd((e,success)=>{if(success)runOnJS(tap)(e.x,e.y,scale.value,tx.value,ty.value);});
   const camera=useAnimatedStyle(()=>({ transform:[{translateX:tx.value},{translateY:ty.value},{scale:scale.value}] }));
   function zoom(multiplier) {
@@ -87,7 +105,7 @@ export default function MapScreen({ onClose, visible }) {
     ty.value=h<viewport.height?(viewport.height-h)/2:Math.min(24,Math.max(viewport.height-h-24,nextY));scale.value=z;
   }
   const list=(picker||data.stations).filter(st=>normalizeSearch(st.displayName).includes(normalizeSearch(search))).sort((a,b)=>a.displayName.localeCompare(b.displayName,'es'));
-  return <GestureHandlerRootView style={s.screen}>
+  return <GestureHandlerRootView style={s.screen}><SafeScreen>
     <StatusBar barStyle="light-content" />
     <View style={s.header}><MapButton text="Volver" onPress={onClose} /><Text style={s.title}>Mapa</Text><MapButton text="RESET" label="Borrar origen y destino" onPress={()=>setSelection({from:null,to:null,editing:'from',error:''})} /></View>
     <View style={s.selection}>
@@ -103,17 +121,17 @@ export default function MapScreen({ onClose, visible }) {
       </View></GestureDetector>
       <View style={[s.controls,viewport.width>viewport.height && {flexDirection: 'row'}]}><MapButton text="−" label="Alejar mapa" onPress={()=>zoom(1/1.6)} /><MapButton text="+" label="Ampliar mapa" onPress={()=>zoom(1.6)} /><MapButton text="⌖" label="Ver mapa completo" onPress={()=>fit()} /></View>
     </View>
-    <View style={s.footer}><Text accessibilityLiveRegion="polite" style={s.hint}>{message||(key?'Recorrido físico · consulta el servicio':'Selecciona '+(selection.editing==='from'?'origen':'destino'))}</Text><View style={s.footerActions}><MapButton text="Origen" label="Cambiar origen en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'from',error:''}));focusStation(selection.from);}} /><MapButton text="Destino" label="Cambiar destino en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'to',error:''}));focusStation(selection.to);}} /><MapButton text="Consultar" primary disabled={!key} onPress={()=>{setResults(true);controller.query();}} /><MapButton text="Guardar" label="Guardar trayecto como favorito" disabled={!key} onPress={()=>{setSaveDraft({...route});setAlias('');setSaveError('');}} /></View></View>
+    <ScrollView style={s.footer} contentContainerStyle={{paddingHorizontal:8}} keyboardShouldPersistTaps="handled"><Text accessibilityLiveRegion="polite" style={s.hint}>{message||(key?'Recorrido físico · consulta el servicio':'Selecciona '+(selection.editing==='from'?'origen':'destino'))}</Text><View style={s.footerActions}><MapButton text="Origen" label="Cambiar origen en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'from',error:''}));focusStation(selection.from);}} /><MapButton text="Destino" label="Cambiar destino en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'to',error:''}));focusStation(selection.to);}} /><MapButton text="Consultar" primary disabled={!key} onPress={()=>{setResults(true);controller.query();}} /><MapButton text="Guardar" label="Guardar trayecto como favorito" disabled={!key} onPress={()=>{setSaveDraft({...route});setAlias('');setSaveError('');}} /></View></ScrollView>
     <Modal visible={results} animationType="slide" onRequestClose={()=>setResults(false)}>{results?<TrainDetail route={route} entry={currentEntry} settings={settings} names={mapNames} mapRoute onClose={()=>setResults(false)} onRefresh={()=>controller.query()} />:null}</Modal>
-    <Modal visible={!!saveDraft} animationType="slide" onRequestClose={()=>{if(!saving)setSaveDraft(null);}}><View style={s.screen}><View style={s.header}><Text style={s.title}>Guardar favorito</Text><MapButton text="Volver" disabled={saving} onPress={()=>setSaveDraft(null)} /></View><ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{padding:16}}><Text style={s.fieldText}>{mapNames[saveDraft?.from]} → {mapNames[saveDraft?.to]}</Text><TextInput accessibilityLabel="Alias opcional" placeholder="Alias opcional" placeholderTextColor="#B7CADD" value={alias} onChangeText={setAlias} editable={!saving} maxLength={80} style={s.search} />{saveError?<Text accessibilityLiveRegion="polite" style={s.warning}>{saveError}</Text>:null}<MapButton text={saving?'Guardando…':'Guardar favorito'} disabled={saving} primary onPress={save} /></ScrollView></View></Modal>
-    <Modal visible={!!picker} animationType="slide" onRequestClose={()=>setPicker(null)}><View style={s.screen}><View style={s.header}><Text style={[s.title,{flex:1}]}>{selection.editing==='from'?'Origen':'Destino'}</Text><MapButton text="Volver" onPress={()=>setPicker(null)} /></View><TextInput accessibilityLabel="Buscar estación" placeholder="Buscar estación" placeholderTextColor="#B7CADD" value={search} onChangeText={setSearch} style={s.search} autoCorrect={false} /><FlatList data={list} keyExtractor={st=>st.id} keyboardShouldPersistTaps="handled" renderItem={({item})=><TouchableOpacity accessibilityRole="button" onPress={()=>choose(item.id)} style={s.listItem}><Text style={s.fieldText}>{item.displayName}</Text><Text style={s.hint}>{item.lines.join(' · ')}</Text></TouchableOpacity>} ListEmptyComponent={<Text style={s.warning}>No se encuentra la estación.</Text>} /></View></Modal>
-  </GestureHandlerRootView>;
+    <Modal visible={!!saveDraft} animationType="slide" onRequestClose={()=>{if(!saving)setSaveDraft(null);}}><SafeScreen><View style={s.header}><Text style={s.title}>Guardar favorito</Text><MapButton text="Volver" disabled={saving} onPress={()=>setSaveDraft(null)} /></View><ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{padding:16}}><Text style={s.fieldText}>{mapNames[saveDraft?.from]} → {mapNames[saveDraft?.to]}</Text><TextInput accessibilityLabel="Alias opcional" placeholder="Alias opcional" placeholderTextColor="#B7CADD" value={alias} onChangeText={setAlias} editable={!saving} maxLength={80} style={s.search} />{saveError?<Text accessibilityLiveRegion="polite" style={s.warning}>{saveError}</Text>:null}<MapButton text={saving?'Guardando…':'Guardar favorito'} disabled={saving} primary onPress={save} /></ScrollView></SafeScreen></Modal>
+    <Modal visible={!!picker} animationType="slide" onRequestClose={()=>setPicker(null)}><SafeScreen><View style={s.header}><Text style={[s.title,{flex:1}]}>{selection.editing==='from'?'Origen':'Destino'}</Text><MapButton text="Volver" onPress={()=>setPicker(null)} /></View><TextInput accessibilityLabel="Buscar estación" placeholder="Buscar estación" placeholderTextColor="#B7CADD" value={search} onChangeText={setSearch} style={s.search} autoCorrect={false} /><FlatList data={list} keyExtractor={st=>st.id} keyboardShouldPersistTaps="handled" renderItem={({item})=><TouchableOpacity accessibilityRole="button" onPress={()=>choose(item.id)} style={s.listItem}><Text style={s.fieldText}>{item.displayName}</Text><Text style={s.hint}>{item.lines.join(' · ')}</Text></TouchableOpacity>} ListEmptyComponent={<Text style={s.warning}>No se encuentra la estación.</Text>} /></SafeScreen></Modal>
+  </SafeScreen></GestureHandlerRootView>;
 }
 const s=StyleSheet.create({
-  screen:{flex:1,backgroundColor:'#011228',paddingTop:(StatusBar.currentHeight||24)+4,paddingBottom:24},
+  screen:{flex:1,backgroundColor:'#011228'},
   header:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingHorizontal:8,borderBottomWidth:1,borderColor:'#28435D'},title:{color:'#F5FAFF',fontSize:21,fontWeight:'700'},
   button:{minWidth:48,minHeight:48,paddingHorizontal:10,paddingVertical:8,justifyContent:'center',alignItems:'center',borderRadius:12},buttonText:{color:'#60D7EF',fontSize:15,fontWeight:'600'},primary:{backgroundColor:'#60D7EF'},
   selection:{flexDirection:'row',padding:8,gap:6,alignItems:'center'},stationField:{flex:1,padding:10,borderRadius:12,borderWidth:1,borderColor:'#28435D',backgroundColor:'#12283F',minHeight:68},activeField:{borderColor:'#60D7EF'},caption:{fontSize:11,fontWeight:'700'},fieldText:{color:'#F5FAFF',fontSize:16},
-  map:{flex:1,overflow:'hidden'},canvas:{flex:1},drawing:{position:'absolute',top:0,left:0,width:2420,height:560,transformOrigin:'top left'},
-  controls:{position:'absolute',right:8,bottom:8,backgroundColor:'#12283F',borderRadius:16},footer:{paddingHorizontal:8,borderTopWidth:1,borderColor:'#28435D'},footerActions:{flexDirection:'row',justifyContent:'space-between',flexWrap:'wrap'},hint:{color:'#B7CADD',fontSize:13,padding:4},warning:{color:'#FFD391',fontSize:14,padding:8},search:{margin:12,padding:12,color:'#F5FAFF',fontSize:18,backgroundColor:'#12283F',borderRadius:12},listItem:{padding:16,minHeight:64,borderBottomWidth:1,borderColor:'#28435D'},
+  map:{flex:1,minHeight:56,overflow:'hidden'},canvas:{flex:1},drawing:{position:'absolute',top:0,left:0,width:2420,height:560,transformOrigin:'top left'},
+  controls:{position:'absolute',right:8,bottom:8,backgroundColor:'#12283F',borderRadius:16},footer:{flexGrow:0,flexShrink:1,borderTopWidth:1,borderColor:'#28435D'},footerActions:{flexDirection:'row',justifyContent:'space-between',flexWrap:'wrap'},hint:{color:'#B7CADD',fontSize:13,padding:4},warning:{color:'#FFD391',fontSize:14,padding:8},search:{margin:12,padding:12,color:'#F5FAFF',fontSize:18,backgroundColor:'#12283F',borderRadius:12},listItem:{padding:16,minHeight:64,borderBottomWidth:1,borderColor:'#28435D'},
 });
