@@ -12,7 +12,7 @@ const routeName = f => `${STATION_MAP[f.from] || f.from || 'Sin origen'} → ${S
 function Button({ text, onPress, label = text, disabled, danger, primary, style }) {
   return <TouchableOpacity accessibilityRole="button" accessibilityLabel={label} disabled={disabled} onPress={onPress} style={[styles.button, primary && styles.primary, disabled && { opacity: .4 }, style]}><Text style={[styles.buttonText, primary && { color: C.bg }, danger && { color: C.danger }]}>{text}</Text></TouchableOpacity>;
 }
-export default function ConfigScreen({ widgetInfo, setResult, renderWidget }) {
+export default function ConfigScreen({ widgetInfo, setResult, renderWidget, onClose, onBusyChange }) {
   const [document, setDocument] = useState(null), [settings, setSettings] = useState(null);
   const [selectedId, setSelectedId] = useState(null), [editor, setEditor] = useState(null);
   const [stationField, setStationField] = useState(null), [search, setSearch] = useState('');
@@ -25,6 +25,7 @@ export default function ConfigScreen({ widgetInfo, setResult, renderWidget }) {
       if (!widgetInfo) { try { await syncWidgets(); } catch { if (mounted) setMessage('Favoritos cargados. Pulsa actualizar en el widget si no responde.'); } }
     } catch (e) { if (mounted) setError(e.message); }
   })(); return () => { mounted = false; }; }, []);
+  useEffect(() => { onBusyChange?.(busy); }, [busy, onBusyChange]);
   async function notifyWidgets() {
     try { await syncWidgets(); } catch { setMessage('Guardado. No se pudo actualizar el widget; pulsa su botón de refresco.'); }
   }
@@ -78,14 +79,15 @@ export default function ConfigScreen({ widgetInfo, setResult, renderWidget }) {
   return <View style={styles.screen}>
     <StatusBar barStyle="light-content" />
     <View style={styles.header}>
-      <View style={{ flex: 1 }}><Text style={styles.title}>Tus trayectos</Text><Text style={styles.subtitle}>{widgetInfo ? 'Elige el favorito de este widget' : `${favorites.length} de 10 favoritos`}</Text></View>
+      <View style={{ flex: 1 }}><Text style={styles.title}>{onClose ? 'Gestionar favoritos' : 'Tus trayectos'}</Text><Text style={styles.subtitle}>{widgetInfo ? 'Elige el favorito de este widget' : `${favorites.length} de 10 favoritos`}</Text></View>
       {widgetInfo ? <Button text="Listo" primary onPress={done} disabled={busy || !document} /> : <Button text="Añadir" primary onPress={add} disabled={busy || !document || favorites.length >= 10} />}
     </View>
+    {onClose ? <View style={{paddingHorizontal:16}}><Button text="Volver a consultar" onPress={onClose} disabled={busy} /></View> : null}
     {error ? <View style={styles.feedback}><Text style={{ color: C.danger }}>{error}</Text></View> : null}
     {message ? <View style={styles.feedback}><Text accessibilityLiveRegion="polite" style={styles.message}>{message}</Text></View> : null}
     {!document && !error ? <ActivityIndicator size="large" color={C.accent} /> : null}
     <ScrollView contentContainerStyle={styles.body} keyboardShouldPersistTaps="handled">
-      {!favorites.length && document ? <View style={styles.card}><Text style={styles.sectionTitle}>Tu próximo metro, a un toque</Text><Text style={styles.paragraph}>Guarda origen y destino. Después podrás cambiar entre tus trayectos desde el widget.</Text><Button text="Crear primer favorito" primary onPress={add} disabled={busy} /></View> : null}
+      {!favorites.length && document ? <View style={styles.card}><Text style={styles.sectionTitle}>Tu próximo metro, a un toque</Text><Text style={styles.paragraph}>Guarda origen y destino para consultar trenes en la app y, si lo usas, en el widget.</Text><Button text="Crear primer favorito" primary onPress={add} disabled={busy} /></View> : null}
       {favorites.map((f,index) => <View key={f.id} style={[styles.card, widgetInfo && f.id === selectedId && styles.selected]}>
         <TouchableOpacity accessibilityRole={widgetInfo ? 'radio' : 'button'} accessibilityState={{ checked: f.id === selectedId }} accessibilityLabel={`${widgetInfo && f.id === selectedId ? 'Seleccionado. ' : ''}${routeName(f)}${f.name ? ', '+f.name : ''}`} onPress={() => widgetInfo ? setSelectedId(f.id) : edit(f)} disabled={busy}>
           <Text style={styles.route}>{STATION_MAP[f.from] || f.from || 'Elige origen'}</Text><Text style={styles.route}>→ {STATION_MAP[f.to] || f.to || 'Elige destino'}</Text>
@@ -109,7 +111,7 @@ export default function ConfigScreen({ widgetInfo, setResult, renderWidget }) {
           <Text style={styles.hint}>Las horas previstas permanecen visibles. Los minutos son la estimación de la última consulta, no un contador. El widget indica cuándo se consultó.</Text>
         </View> : null}
       </View> : null}
-      <Text style={styles.hint}>Añade «Metro Bilbao (pruebas)» desde los widgets del lanzador. Toca el trayecto para elegir otro favorito y desliza la lista para ver todos los trenes.</Text>
+      <Text style={styles.hint}>{onClose ? "Los favoritos se comparten con el widget. La opción de vagones y minutos también se aplica a las tarjetas de consulta. Puedes usar la app sin añadir ningún widget." : "Añade «Metro Bilbao (pruebas)» desde los widgets del lanzador. Toca el trayecto para elegir otro favorito y desliza la lista para ver todos los trenes."}</Text>
       {widgetInfo ? <Button text="Cancelar configuración" onPress={() => setResult('cancel')} disabled={busy} /> : null}
     </ScrollView>
     <Modal visible={!!editor} animationType="slide" onRequestClose={closeEditor}>
