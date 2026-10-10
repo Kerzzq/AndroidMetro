@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Modal, TextInput, FlatList, ActivityIndicator, Alert, Switch, StatusBar, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
+import { requestWidgetUpdateById } from 'react-native-android-widget';
 import { STATIONS, STATION_MAP } from '../data/stations';
 import { normalizeSearch, upsertFavorite, moveFavorite, removeFavorite, routeProblem } from '../domain/favoritesModel';
 import { errorMessage } from '../domain/trainModel';
@@ -21,6 +22,7 @@ export default function ConfigScreen({ widgetInfo, setResult, renderWidget }) {
       const [doc, prefs] = await Promise.all([loadFavorites(), loadSettings()]);
       const instance = widgetInfo ? await loadInstance(widgetInfo.widgetId, doc) : null;
       if (mounted) { setDocument(doc); setSettings(prefs); setSelectedId(instance?.favoriteId); }
+      if (!widgetInfo) { try { await syncWidgets(); } catch { if (mounted) setMessage('Favoritos cargados. Pulsa actualizar en el widget si no responde.'); } }
     } catch (e) { if (mounted) setError(e.message); }
   })(); return () => { mounted = false; }; }, []);
   async function notifyWidgets() {
@@ -64,7 +66,10 @@ export default function ConfigScreen({ widgetInfo, setResult, renderWidget }) {
     setBusy(true);
     try {
       await changeInstance(widgetInfo.widgetId, { favoriteId: selectedId, view: 'trains' });
-      await refreshWidget(widgetInfo, renderWidget, true);
+      // 0.20.1's configuration callback passes an unwrapped tree to native.
+      // Use the public update API, which supplies the required light/dark envelope.
+      const draw = component => requestWidgetUpdateById({ widgetName: widgetInfo.widgetName, widgetId: widgetInfo.widgetId, renderWidget: () => component });
+      await refreshWidget(widgetInfo, draw, true);
       setResult('ok');
     } catch(e) { setError(e.message);setBusy(false); }
   }

@@ -7,9 +7,9 @@ export const STATIONS = [
   { code: 'AIB', name: 'Aiboa' },
   { code: 'ALG', name: 'Algorta' },
   { code: 'ANS', name: 'Ansio' },
-  { code: 'ARE', name: 'Areneta' },
+  { code: 'ARE', name: 'Areeta' },
   { code: 'ARZ', name: 'Ariz' },
-  { code: 'AST', name: 'Asti' },
+  { code: 'AST', name: 'Astrabudua' },
   { code: 'BAG', name: 'Bagaza' },
   { code: 'BAR', name: 'Barakaldo' },
   { code: 'BAS', name: 'Basarrate' },
@@ -48,9 +48,9 @@ export const STATIONS = [
   { code: 'ZZB', name: 'Uribarri (L3)' },
   { code: 'ZZC', name: 'Casco Viejo (L3)' },
   { code: 'ZZD', name: 'Zurbaranbarri (L3)' },
-  { code: 'ZZE', name: 'Miribilla (L3)' },
-  { code: 'ZZF', name: 'Kukullaga (L3)' },
-  { code: 'ZZG', name: 'Basauri (L3)' },
+  { code: 'ZZE', name: 'Txurdinaga (L3)' },
+  { code: 'ZZF', name: 'Otxarkoaga (L3)' },
+  { code: 'ZZG', name: 'Kukullaga-Etxebarri (L3)' },
 ];
 
 // Crear un mapa de código -> nombre para búsqueda rápida

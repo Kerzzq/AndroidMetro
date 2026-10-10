@@ -1,3 +1,5 @@
+import React from 'react';
+import MetroWidget from './MetroWidget';
 import { changeInstance, deleteInstance } from '../services/favoritesRepository';
 import { refreshWidget } from './widgetRuntime';
 export async function widgetTaskHandler({ widgetInfo, widgetAction, clickAction, clickActionData = {}, renderWidget }) {
@@ -11,5 +13,6 @@ export async function widgetTaskHandler({ widgetInfo, widgetAction, clickAction,
     await refreshWidget(widgetInfo, renderWidget, widgetAction !== 'WIDGET_RESIZED');
   } catch (error) {
     console.warn('No se pudo actualizar el widget:', error.message);
+    renderWidget(<MetroWidget info={widgetInfo} result={{ status: 'error', kind: 'invalid_data' }} />);
   }
 }

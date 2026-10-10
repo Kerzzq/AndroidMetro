@@ -8,10 +8,12 @@ const cacheKey = r => `androidmetro_trains_v1_${routeKey(r)}`;
 export async function loadCachedRoute(route) {
   try {
     const raw = await AsyncStorage.getItem(cacheKey(route));
-    if (!raw) return null;
-    const cached = JSON.parse(raw);
-    if (cached.routeKey !== routeKey(route) || !Number.isFinite(cached.fetchedAt) || !Array.isArray(cached.trains)) return null;
-    return cached;
+    const cached = raw ? JSON.parse(raw) : null;
+    const valid = cached?.routeKey === routeKey(route) && Number.isFinite(cached.fetchedAt) && Array.isArray(cached.trains);
+    const attemptRaw = await AsyncStorage.getItem(`androidmetro_attempt_v1_${routeKey(route)}`);
+    const attempt = attemptRaw ? JSON.parse(attemptRaw) : null;
+    if (attempt?.status === 'error') return { ...(valid ? cached : { trains: [], routeKey: routeKey(route) }), ...attempt };
+    return valid ? cached : null;
   } catch { return null; }
 }
 export function queryTrains(route) {
@@ -33,10 +35,14 @@ export function queryTrains(route) {
       if (!response.ok) result = { status: 'error', kind: 'service', httpStatus: response.status };
       else {
         try { result = { ...normalizeResponse(await response.json(), Date.now()), routeKey: key }; }
-        catch { result = { status: 'error', kind: 'invalid_data' }; }
+        catch { result = { status: 'error', kind: timedOut ? 'timeout' : 'invalid_data' }; }
       }
     } catch { result = { status: 'error', kind: timedOut ? 'timeout' : 'network' }; }
     finally { clearTimeout(timeout); }
+    try {
+      if (result.status === 'error') await AsyncStorage.setItem(`androidmetro_attempt_v1_${key}`, JSON.stringify({ ...result, attemptedAt: Date.now() }));
+      else await AsyncStorage.removeItem(`androidmetro_attempt_v1_${key}`);
+    } catch { /* Network outcome remains valid even if diagnostic persistence fails. */ }
     if (result.status !== 'error') {
       try { await AsyncStorage.setItem(cacheKey(route), JSON.stringify(result)); } catch { result.cacheWarning = true; }
     }

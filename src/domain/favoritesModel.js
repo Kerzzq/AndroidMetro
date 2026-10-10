@@ -18,7 +18,7 @@ function migratePanels(panels) {
   return { schemaVersion: 1, revision: 1, favorites };
 }
 function validateDocument(doc) {
-  if (!doc || doc.schemaVersion !== 1 || !Array.isArray(doc.favorites) || doc.favorites.length > MAX_FAVORITES) throw new Error('Configuración de favoritos no reconocida. No se ha sobrescrito.');
+  if (!doc || doc.schemaVersion !== 1 || !Number.isInteger(doc.revision) || doc.revision < 1 || !Array.isArray(doc.favorites) || doc.favorites.length > MAX_FAVORITES) throw new Error('Configuración de favoritos no reconocida. No se ha sobrescrito.');
   const ids = new Set();
   for (const f of doc.favorites) {
     if (!f || typeof f.id !== 'string' || ids.has(f.id) || typeof f.from !== 'string' || typeof f.to !== 'string' || typeof f.name !== 'string') throw new Error('Configuración de favoritos dañada. Los datos se han conservado.');
