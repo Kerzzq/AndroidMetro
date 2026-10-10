@@ -18,6 +18,14 @@ public class MetroGesture {
   public static void main(String[] args) throws Exception {
     Class<?> cls=Class.forName("android.hardware.input.InputManagerGlobal");manager=cls.getDeclaredMethod("getInstance").invoke(null);
     inject=cls.getDeclaredMethod("injectInputEvent",Class.forName("android.view.InputEvent"),int.class);
+    if(args.length==5 && args[0].equals("drag")) {
+      float x=Float.parseFloat(args[1]),y=Float.parseFloat(args[2]),endX=Float.parseFloat(args[3]),endY=Float.parseFloat(args[4]);
+      long down=SystemClock.uptimeMillis();send(down,MotionEvent.ACTION_DOWN,x,y,0,0,1);
+      SystemClock.sleep(900);
+      for(int i=1;i<=30;i++){send(down,MotionEvent.ACTION_MOVE,x+(endX-x)*i/30,y+(endY-y)*i/30,0,0,1);SystemClock.sleep(16);}
+      SystemClock.sleep(200);send(down,MotionEvent.ACTION_UP,endX,endY,0,0,1);
+      System.out.println("Native long drag injected");return;
+    }
     float cx=Float.parseFloat(args[0]),cy=Float.parseFloat(args[1]),start=Float.parseFloat(args[2]),end=Float.parseFloat(args[3]);
     long down=SystemClock.uptimeMillis();send(down,MotionEvent.ACTION_DOWN,cx-start,cy,0,0,1);
     send(down,MotionEvent.ACTION_POINTER_DOWN|(1<<MotionEvent.ACTION_POINTER_INDEX_SHIFT),cx-start,cy,cx+start,cy,2);

@@ -1,0 +1,687 @@
+{
+  "phase": "2B",
+  "branch": "feature/mapa-interactivo-android",
+  "date": "2026-10-10",
+  "commits": {
+    "stageA": "34fc89a",
+    "stageB": "71e11fe",
+    "unchangedMain": "339def20985e0fc2f2493ed593836472c96240b5"
+  },
+  "apk": {
+    "path": "C:/Users/W11/AMetro/artifacts/androidmetro-mapa-android-test.apk",
+    "sha256": "f8504a3977450a54e02b0bceb4141071318b865042dbb599547f14ff07d34b2c",
+    "bytes": 78688820,
+    "applicationId": "com.metrobilbao.widget.pruebas",
+    "versionCode": 1,
+    "certificateSha256": "5822756d7982c9c612d283f007d55f08e62b7a4224cc9b5b9409b1297891026d",
+    "standalone": true
+  },
+  "emulator": {
+    "serial": "emulator-5556",
+    "avd": "AndroidMetro_API36",
+    "androidApi": 36,
+    "abi": "x86_64",
+    "sizes": [
+      [
+        1080,
+        2400
+      ],
+      [
+        2400,
+        1080
+      ],
+      [
+        900,
+        2000
+      ]
+    ],
+    "densityDpi": 420,
+    "fontScales": [
+      1,
+      1.5
+    ],
+    "userWithoutWidgets": 10,
+    "widgetUser": 0,
+    "widgetIds": [
+      2,
+      4
+    ]
+  },
+  "model": {
+    "stations": 42,
+    "validatedPhysicalEdges": 41,
+    "lines": [
+      "L1",
+      "L2"
+    ],
+    "physicalPairsTested": 1722,
+    "apiCodesUnchanged": true,
+    "physicalPathIsOperationalItinerary": false
+  },
+  "realApiCases": [
+    {
+      "from": "PLE",
+      "to": "MOY",
+      "at": "2026-10-10T11:07:00.949Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "B07-L1-PLE-MOY.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "PLE",
+      "to": "BSR",
+      "at": "2026-10-10T11:07:27.972Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "B08-cruce-PLE-BSR.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "KAB",
+      "to": "BSR",
+      "at": "2026-10-10T11:07:57.316Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "B09-L2-KAB-BSR.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "DEU",
+      "to": "CAV",
+      "at": "2026-10-10T11:08:24.318Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "B10-tronco-DEU-CAV.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "ERA",
+      "to": "URB",
+      "at": "2026-10-10T11:25:08.677Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "D02-consulta-real-apk-final.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "URB",
+      "to": "ERA",
+      "at": "2026-10-10T11:25:31.688Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "D04-consulta-invertida-final.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "DEU",
+      "to": "MOY",
+      "at": "2026-10-10T13:49:07.940Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "D21-consulta-DEU-MOY-final150.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    },
+    {
+      "from": "SOP",
+      "to": "LAR",
+      "at": "2026-10-10T13:56:20.666Z",
+      "simulated": false,
+      "observedCount": 8,
+      "evidence": "E02-consulta-real-sync-widget.png",
+      "recordType": "observed-Android-UI-not-raw-server-payload"
+    }
+  ],
+  "completePath": {
+    "validated": true,
+    "simulated": false,
+    "steps": [
+      "open-map",
+      "select-ERA-URB",
+      "real-query",
+      "back-preserve-camera",
+      "swap-URB-ERA",
+      "real-query",
+      "back",
+      "save-without-alias",
+      "verify-favourites",
+      "reboot-Android",
+      "verify-four-favourites"
+    ],
+    "evidence": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D07"
+    ]
+  },
+  "cameraReturn": {
+    "samePixels": true,
+    "region": [
+      0,
+      488,
+      1080,
+      2140
+    ],
+    "captures": [
+      "D01-seleccion-apk-final",
+      "D03-retorno-apk-final"
+    ]
+  },
+  "realOfflineTests": {
+    "sameRouteCache": "B11",
+    "newRouteIsolation": "B12",
+    "networkRecovery": "B13"
+  },
+  "realFavouriteTests": {
+    "duplicate": "B05",
+    "tenLimit": "B06",
+    "optionalAlias": "B16",
+    "noAlias": "D05",
+    "reboot": "D07"
+  },
+  "widgetRegression": {
+    "selector": true,
+    "scrollAllResults": true,
+    "independentInstances": true,
+    "evidence": [
+      "D12",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "initialSelectionRestored": true,
+    "newFavouriteSync": {
+      "validated": true,
+      "simulated": false,
+      "user": 10,
+      "temporaryWidgetId": 2,
+      "countsBeforeAfter": [
+        4,
+        5
+      ],
+      "withoutManualRefresh": true,
+      "newRoute": [
+        "SOP",
+        "LAR"
+      ],
+      "alias": "Mapa",
+      "evidence": [
+        "E01",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "temporaryWidgetRemoved": true,
+      "remainingWidgets": [
+        {
+          "user": 0,
+          "id": 2
+        },
+        {
+          "user": 0,
+          "id": 4
+        }
+      ],
+      "finalUser10FavouriteCount": 5
+    }
+  },
+  "automatedTests": {
+    "passed": [
+      "test-map.cjs",
+      "test-map-query.cjs",
+      "test-consultation.cjs",
+      "test-fase1.cjs",
+      "test-persistence-api.cjs",
+      "test-widget-races.cjs"
+    ],
+    "simulatedCases": [
+      "HTTP500",
+      "timeout",
+      "invalid-data",
+      "empty-response",
+      "24-trains",
+      "late-responses",
+      "concurrent-writes",
+      "widget-notify-failure"
+    ]
+  },
+  "limitations": [
+    "Only API36 emulator validated",
+    "No physical-device test",
+    "No complete spoken TalkBack test",
+    "No real API response above eight trains or empty in this phase",
+    "Short emulator performance sample",
+    "No Doze long-run validation",
+    "Full-view labels require zoom or name picker",
+    "Temporary camera/selection not persisted across process restart"
+  ],
+  "captures": [
+    {
+      "name": "D01-seleccion-apk-final",
+      "file": "D01-seleccion-apk-final.png",
+      "sha256": "cc77ff09360559496307a9c808f352f67ab56af11ba97ab57b7dfb9565ab7291",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D02-consulta-real-apk-final",
+      "file": "D02-consulta-real-apk-final.png",
+      "sha256": "1e00a5ae7f6abd3558fe8f1877fa2dd662e57de73e16f8a8bc7311d11e03f75c",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D03-retorno-apk-final",
+      "file": "D03-retorno-apk-final.png",
+      "sha256": "cc77ff09360559496307a9c808f352f67ab56af11ba97ab57b7dfb9565ab7291",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D04-consulta-invertida-final",
+      "file": "D04-consulta-invertida-final.png",
+      "sha256": "50c395ed4f59a7201ceeedad507ee680a33aa6b01b0159d108fa91d78decc8bb",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D05-favorito-sin-alias",
+      "file": "D05-favorito-sin-alias.png",
+      "sha256": "0605392dd2302893ce49e4762dca08397e2a050b7daff37e5aef84f315b7e8e7",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D07-favoritos-tras-reinicio",
+      "file": "D07-favoritos-tras-reinicio.png",
+      "sha256": "04b2123ef0b29f10dfc9d95df74881e00b28f7f32fcda0cd4f5a9fb7e88de539",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D26-mapa-completo-final",
+      "file": "D26-mapa-completo-final.png",
+      "sha256": "ebd3f31840c2ae84407ea6a09b3429c5fdede70bfc81752b7e3d6fabcc4a3d47",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D19-mapa150-final",
+      "file": "D19-mapa150-final.png",
+      "sha256": "9035879fe55f7992d6cd365b0885c434c99eb58ee76de88841fa461eff221747",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D20-pellizco-arrastre-final150",
+      "file": "D20-pellizco-arrastre-final150.png",
+      "sha256": "0d66da9787301213d96adff26d5ec8c34c541619147250ee4db2922b1f70aebf",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D21-consulta-DEU-MOY-final150",
+      "file": "D21-consulta-DEU-MOY-final150.png",
+      "sha256": "77b8f58dd68a73bb096bb345499c3dcd24bd7c254bec1f654a0d1eaca8ba5382",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D22-horizontal-final150",
+      "file": "D22-horizontal-final150.png",
+      "sha256": "838d045d1ac5b46ce7abe32ab506bd629b5866e1f7f27045c7000719dae97a2d",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D23-343dp-final150",
+      "file": "D23-343dp-final150.png",
+      "sha256": "b51c630ff4eb282a99b8d23787e2e1996801e7ed1bc87eb3f5dee2826631b1cd",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D24-reset-final150",
+      "file": "D24-reset-final150.png",
+      "sha256": "0344a7eec45a91c101b482e27628639533cc649df3bc1fb12a6090141142e53d",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "C01-detalle-final150",
+      "file": "C01-detalle-final150.png",
+      "sha256": "d2bda5c4c5ee81c22a6b8b4e327e8710ab5af0a1dc58eeaaaa65be1b3d39ac87",
+      "series": "C",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "C03-alias-horizontal150",
+      "file": "C03-alias-horizontal150.png",
+      "sha256": "b250fd6d7a4b287eaae3e9865afbfedca3df87834cbb0bf0cfa19ef4341a134d",
+      "series": "C",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "A21-objetivos-ambiguos",
+      "file": "A21-objetivos-ambiguos.png",
+      "sha256": "be675218c0a65d8c7e670f184a3b74d70310b2eb74dbd38292f3f7fa270022ad",
+      "series": "A",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B02-consulta-real",
+      "file": "B02-consulta-real.png",
+      "sha256": "107dc0a2ed1925d0228bb9dec263a5eebcb1512917038ae46596202ee9d17895",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B03-todos-los-trenes",
+      "file": "B03-todos-los-trenes.png",
+      "sha256": "f03e91e7ff4fc5921baa7530121c1d9f09dfd11c86b82f9da276064970e636ae",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B07-L1-PLE-MOY",
+      "file": "B07-L1-PLE-MOY.png",
+      "sha256": "c1dfe096fd95e035413fb3b1366be41233a9dcb27d3b576077a6bd2c99b6e46d",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B08-cruce-PLE-BSR",
+      "file": "B08-cruce-PLE-BSR.png",
+      "sha256": "2c624e8aaafc4a00197da374f1fa96e14d396a4ccddf582b5a55b7c4e07c6207",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B09-L2-KAB-BSR",
+      "file": "B09-L2-KAB-BSR.png",
+      "sha256": "0d71a81fdb893ad13b2c78002699fa03dfec77335bd18ee9785454ba7cd63f78",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B10-tronco-DEU-CAV",
+      "file": "B10-tronco-DEU-CAV.png",
+      "sha256": "61d7e19b07bd94bbb06ce6c2e897e0438abefbe8a298c486a78afa2a94f24221",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B11-sin-red-misma-ruta",
+      "file": "B11-sin-red-misma-ruta.png",
+      "sha256": "6a1264b79410a02c193f2ba79f412cfedc43b714468d1ad26907050f9d6abe1f",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B12-sin-red-ruta-nueva",
+      "file": "B12-sin-red-ruta-nueva.png",
+      "sha256": "e2a36672b83e2ef744270e3e12a09c2a6252edc0587939dc08f0ed2bfec7fc10",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B13-recuperacion",
+      "file": "B13-recuperacion.png",
+      "sha256": "bfbb557b922c499606a37d2719deb4d4f6ddc6d157abfbf3fd277761cbe46f07",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B05-duplicado",
+      "file": "B05-duplicado.png",
+      "sha256": "cdff783a56fe7536e4bc7ae7b2fa6522dd1977743352268ba5cc8cc0e5a58ebf",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B06-limite-diez",
+      "file": "B06-limite-diez.png",
+      "sha256": "650ff20067f13505913e33104282ed70bcf65bf0c83793960b77a3532f834442",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E01-widget-temporal-cuatro",
+      "file": "E01-widget-temporal-cuatro.png",
+      "sha256": "b25f12724c58cbf71734f550398e713103db86085b814dfb8248e260b2e87a40",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E02-consulta-real-sync-widget",
+      "file": "E02-consulta-real-sync-widget.png",
+      "sha256": "059363cc67006a296b4c5a1fb68c4fa5105ec7409df70c36e844c632c9f64bea",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E03-mapa-guardado-sync",
+      "file": "E03-mapa-guardado-sync.png",
+      "sha256": "28e07142104ca007cca50d16db73f8a7da7e4bf40c3fcfce3f78e16033e61c8d",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E04-widget-selector-cinco",
+      "file": "E04-widget-selector-cinco.png",
+      "sha256": "af367e64a57721599ebd73c41ca7734a69af152ee1dc0e62858105e63a3506d2",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E05-widget-nuevo-favorito",
+      "file": "E05-widget-nuevo-favorito.png",
+      "sha256": "8536576370ec2d6cf26c8f946540a84ab975c06a5344245b47d34a026e6d2c6a",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E06-widget-ruta-nueva",
+      "file": "E06-widget-ruta-nueva.png",
+      "sha256": "640a5b2eaf9ead7aa606fd76807cbbc20a6ca42c94e25e7f7ab548bb61826409",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E07-favoritos-tras-retirar-widget",
+      "file": "E07-favoritos-tras-retirar-widget.png",
+      "sha256": "0448dc84de9a0ef6261fe6b732a098af748bfa53640148a33e8e9f2b7de7a59e",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "E08-home-nuevo-favorito-sin-widget",
+      "file": "E08-home-nuevo-favorito-sin-widget.png",
+      "sha256": "40cbe8ab16815a9e064109e8281862d2ede7c76760f616273a1e8c6d38053228",
+      "series": "E",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D09-home-original-final",
+      "file": "D09-home-original-final.png",
+      "sha256": "f5083fa6a87a7344c56ffe0e1325c504b8f0c53375bde6af2af21e91a667468f",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D17-detalle-home-final",
+      "file": "D17-detalle-home-final.png",
+      "sha256": "0ff2d303a53fb79f02c6ff9a5182699a4efac698d416254cab0b85be9f2dee19",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D18-home150-final",
+      "file": "D18-home150-final.png",
+      "sha256": "6d442579100bf4337166cedc59800e9fcbf287102142fb281f8835208fa2a4ce",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D25-diez-favoritos-conservados",
+      "file": "D25-diez-favoritos-conservados.png",
+      "sha256": "50efb27a0ad710e4fc661b29d6b685d31dce7585066de3cfa65f2a38746d1ecb",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D12-widget-lista-final",
+      "file": "D12-widget-lista-final.png",
+      "sha256": "07a705e64bc4b4697f732546898ab24a5572a9634c105802635e84d70b025ac4",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D14-widget-primero-BAR",
+      "file": "D14-widget-primero-BAR.png",
+      "sha256": "736cfa6ad241ae0d5a121020f9cfeabb89f2b83608ab8e39c581bc06be8fdaa8",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D15-widget-segundo-conserva-STZ",
+      "file": "D15-widget-segundo-conserva-STZ.png",
+      "sha256": "0337f59fd3c9b62fa748847d8a237919c50dd9ad4f13a02505a989ce9f91774f",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D16-widget-seleccion-restaurada",
+      "file": "D16-widget-seleccion-restaurada.png",
+      "sha256": "ae40eec6347ef9ae69223965a2ab31d0026e7da1e4f4c7990f5a437973c50e10",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D06-favoritos-antes-reinicio",
+      "file": "D06-favoritos-antes-reinicio.png",
+      "sha256": "a740273e1a1ed605f9903ad0598201c3a6f69b7e9a2fccf1b47affbb7a092257",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D08-mapa-tras-reinicio",
+      "file": "D08-mapa-tras-reinicio.png",
+      "sha256": "19304374adb413680efee35a5af2d1376ae0ddd1fc31cd86737575ae67a0739e",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D10-widget-tras-reinicio",
+      "file": "D10-widget-tras-reinicio.png",
+      "sha256": "8d19723a54bd04871f2d61ca90e5ddeb427e74569d177798693431bcaedd8a21",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "D11-widget-seleccion-STZ",
+      "file": "D11-widget-seleccion-STZ.png",
+      "sha256": "b7253dcc9d55b56c46de157f715884231b5f6005d60d2e66f8a175738b56a81f",
+      "series": "D",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B16-favorito-guardado",
+      "file": "B16-favorito-guardado.png",
+      "sha256": "3f7e4c09a673c063153788bddc4036d5af3a4c284115383b3584630a0a518ed8",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "B17-home-sin-widget",
+      "file": "B17-home-sin-widget.png",
+      "sha256": "e0839efb03ad7df7891811d4f4ae9f0d0de27cb8691ced6a2eb08db7c31561dc",
+      "series": "B",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    },
+    {
+      "name": "C04-duplicado-final150",
+      "file": "C04-duplicado-final150.png",
+      "sha256": "5b1805571feb503edf38bba183e49bd11594329425b4b06f99b86a7e7a8141a5",
+      "series": "C",
+      "type": "adb-screencap-unaltered",
+      "simulated": false
+    }
+  ],
+  "series": {
+    "A": {
+      "phase": "native-map-before-API",
+      "sha256": "c7d84a2ca84cc0c29002b2f52d18d50f0e3d14fdde292b3fa4ae2d2af5c9d0fa"
+    },
+    "B": {
+      "phase": "API-integration-candidate",
+      "sha256": "a062c1ec4575be48dd0715b4f74a9685478b28fc7872e2a5d8227b0d110c6e85"
+    },
+    "C": {
+      "phase": "label-form-corrections-before-final-focus-clamp",
+      "sha256": "b1f9c1899d0b31f84f3cb6e7bfe601aea96c9d5f12f1fe36da7f1aff85dc4b3e"
+    },
+    "D": {
+      "phase": "final-apk",
+      "sha256": "f8504a3977450a54e02b0bceb4141071318b865042dbb599547f14ff07d34b2c"
+    },
+    "E": {
+      "phase": "final-apk-widget-sync",
+      "sha256": "f8504a3977450a54e02b0bceb4141071318b865042dbb599547f14ff07d34b2c"
+    }
+  }
+}

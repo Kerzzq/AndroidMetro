@@ -1,0 +1,19 @@
+// CLI test driver: always targets the authorised emulator, never a physical device.
+const {execFileSync}=require('child_process'),fs=require('fs');
+const path=require('path'),root=path.resolve(__dirname,'../..');
+const adb=path.join(process.env.ANDROID_HOME||'C:/Users/W11/AMetro/sdk','platform-tools/adb.exe');
+const dir=process.env.MAPA_EVIDENCE_DIR||'C:/Users/W11/AMetro/evidencias/mapa-android';fs.mkdirSync(dir,{recursive:true});
+function run(args){return execFileSync(adb,['-s','emulator-5556',...args],{encoding:'utf8'});}
+function dump(){run(['shell','uiautomator','dump','/sdcard/metro-ui.xml']);const xml=run(['shell','cat','/sdcard/metro-ui.xml']);fs.writeFileSync(dir+'/latest.xml',xml);return [...xml.matchAll(/<node\b[^>]*>/g)].map(m=>Object.fromEntries([...m[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(a=>[a[1],a[2].replace(/&amp;/g,'&')])));}
+function click(text){const list=dump(),node=list.find(n=>n['content-desc']===text)||list.find(n=>n.text===text);if(!node)throw Error('No visible UI node: '+text);if(node.enabled==='false')throw Error('Disabled UI node: '+text);const b=node.bounds.match(/\d+/g).map(Number);console.log(text,node.bounds);run(['shell','input','tap',String((b[0]+b[2])/2|0),String((b[1]+b[3])/2|0)]);}
+function choose(field,code){const st=require(path.join(root,'src/domain/mapModel')).stations[code];if(!st)throw Error(code);const button=dump().find(n=>n['content-desc'].startsWith(field+':'));if(!button)throw Error(field);click(button['content-desc']);click('Buscar estación');const search=st.displayName.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ /g,'%s');run(['shell','input','text',search]);click(st.displayName+', '+st.lines.join(' · '));}
+const cmd=process.argv[2],arg=process.argv.slice(3);
+if(cmd==='dump')console.log(dump().filter(n=>n.text||n['content-desc']).map(n=>({text:n.text,label:n['content-desc'],bounds:n.bounds})));
+else if(cmd==='click')click(arg.join(' '));
+else if(cmd==='capture'){dump();run(['shell','screencap','-p','/sdcard/metro-screen.png']);run(['pull','/sdcard/metro-screen.png',dir+'/'+arg[0]+'.png']);fs.writeFileSync(dir+'/'+arg[0]+'.xml',run(['shell','cat','/sdcard/metro-ui.xml']));console.log(dir+'/'+arg[0]+'.png');}
+else if(cmd==='text')run(['shell','input','text',arg.join('%s').replace(/ /g,'%s')]);
+else if(cmd==='back')run(['shell','input','keyevent','4']);
+else if(cmd==='route'){choose('Origen',arg[0]);choose('Destino',arg[1]);console.log(dump().filter(n=>n['content-desc'].startsWith('Origen:')||n['content-desc'].startsWith('Destino:')));}
+else if(cmd==='query'){click('Consultar');let nodes;const deadline=Date.now()+16000;do{nodes=dump();if(!nodes.some(n=>n.text==='Actualizando…'))break;}while(Date.now()<deadline);if(nodes.some(n=>n.text==='Actualizando…'))throw Error('Query did not settle');console.log(nodes.filter(n=>n.text).map(n=>n.text));fs.writeFileSync(dir+'/'+arg[0]+'.json',JSON.stringify({at:new Date().toISOString(),simulated:false,screen:nodes.filter(n=>n.text).map(n=>n.text)},null,2));run(['shell','screencap','-p','/sdcard/metro-screen.png']);run(['pull','/sdcard/metro-screen.png',dir+'/'+arg[0]+'.png']);}
+else if(cmd==='settled-home'){let nodes;const deadline=Date.now()+30000;do{nodes=dump();if(!nodes.some(n=>n.text==='Actualizando…'||n.text==='Consultando…'))break;}while(Date.now()<deadline);if(nodes.some(n=>n.text==='Actualizando…'||n.text==='Consultando…'))throw Error('Home did not settle');console.log(nodes.filter(n=>n.text).map(n=>n.text));}
+else throw Error('dump | click <label> | capture <name> | route <from> <to> | query <name> | settled-home | text <ASCII> | back');
