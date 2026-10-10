@@ -1,7 +1,17 @@
 // UI-only coordinator. Shared storage, API and widget selections stay unchanged.
 const keyOf = route => `${route.from}/${route.to}`;
 function createConsultationController({ repository, service, onChange, now = Date.now }) {
-  let active = false, generation = 0;
+  let active = false, generation = 0, running = 0;
+  const waiters = [];
+  async function acquire() {
+    if (running < 3) { running++; return; }
+    await new Promise(resolve => waiters.push(resolve));
+  }
+  function release() {
+    const next = waiters.shift();
+    if (next) next(); // Transfer the reserved slot; no momentary fourth request.
+    else running--;
+  }
   let state = { document: null, settings: null, entries: {}, loading: true, refreshing: false, error: '' };
   function publish(patch, token) {
     if (!active || token !== generation) return false;
@@ -13,9 +23,12 @@ function createConsultationController({ repository, service, onChange, now = Dat
   async function fetchRoute(favorite, token) {
     if (!active || token !== generation) return;
     const key = keyOf(favorite);
+    await acquire();
+    if (!active || token !== generation) { release(); return; }
     let result;
     try { result = await service.queryTrains(favorite); }
     catch { result = { status: 'error', kind: 'network' }; }
+    finally { release(); }
     // A response for an edited/deleted route or an inactive screen must not render.
     if (!active || token !== generation || state.entries[favorite.id]?.key !== key) return;
     const previous = state.entries[favorite.id]?.data;

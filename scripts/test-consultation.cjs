@@ -54,5 +54,19 @@ function setup(favorites, cache = {}, query = async f => good(f.from)) {
   assert.equal(Object.keys(all.controller.getState().entries).length, 10);
   assert.equal(all.controller.getState().entries['9'].data.trains.length, 24);
   assert.equal(all.controller.getState().refreshing, false);
+  // A manual refresh shares slots with queued automatic queries.
+  const held = deferred(); let mixedCalls = 0;
+  const mixed = setup([favorite('fresh', 'F'), favorite('a'), favorite('b'), favorite('c')], { 'F/MOY': good('F') }, () => { mixedCalls++; return held.promise; });
+  const automatic = mixed.controller.start(); await tick();
+  assert.equal(mixedCalls, 3);
+  const manual = mixed.controller.refresh('fresh'); await tick();
+  assert.equal(mixedCalls, 3, 'manual waits rather than starting a fourth query');
+  held.resolve(good('F')); await Promise.all([automatic, manual]); assert.equal(mixedCalls, 4);
+  // Slots held by an old generation also cap concurrent queries after returning.
+  const oldRequest = deferred(); let returningCalls = 0;
+  const returning = setup([favorite('a'), favorite('b'), favorite('c')], {}, () => { returningCalls++; return oldRequest.promise; });
+  const leaving = returning.controller.start(); await tick(); returning.controller.stop();
+  const entering = returning.controller.start(); await tick(); assert.equal(returningCalls, 3);
+  oldRequest.resolve(good('a')); await Promise.all([leaving, entering]); assert.equal(returningCalls, 6);
   console.log('PASS: edits/deletion, stale responses, background pause, cache/resume, refresh, offline/empty, concurrency and all 24 rows (simulated).');
 })().catch(error => { console.error(error); process.exitCode = 1; });
