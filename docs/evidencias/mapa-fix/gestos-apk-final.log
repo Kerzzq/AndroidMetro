@@ -1,0 +1,32 @@
+Native 2->1->0, lifted=1, gap=100.0->240.0, mode=normal, held >=350ms, screenshots=gesto-zoom-in-derecho
+/sdcard/gesto-zoom-in-derecho-dos.png: 1 file pulled, 0 skipped. 40.1 MB/s (128598 bytes in 0.003s)
+/sdcard/gesto-zoom-in-derecho-uno.png: 1 file pulled, 0 skipped. 35.3 MB/s (128598 bytes in 0.003s)
+/sdcard/gesto-zoom-in-derecho-cero.png: 1 file pulled, 0 skipped. 14.9 MB/s (128598 bytes in 0.008s)
+Native 2->1->0, lifted=0, gap=80.0->190.0, mode=normal, held >=350ms, screenshots=gesto-zoom-in-izquierdo
+/sdcard/gesto-zoom-in-izquierdo-dos.png: 1 file pulled, 0 skipped. 29.3 MB/s (125935 bytes in 0.004s)
+/sdcard/gesto-zoom-in-izquierdo-uno.png: 1 file pulled, 0 skipped. 18.1 MB/s (125935 bytes in 0.007s)
+/sdcard/gesto-zoom-in-izquierdo-cero.png: 1 file pulled, 0 skipped. 39.4 MB/s (125935 bytes in 0.003s)
+Native 2->1->0, lifted=1, gap=230.0->110.0, mode=normal, held >=350ms, screenshots=gesto-zoom-out-derecho
+/sdcard/gesto-zoom-out-derecho-dos.png: 1 file pulled, 0 skipped. 34.9 MB/s (100712 bytes in 0.003s)
+/sdcard/gesto-zoom-out-derecho-uno.png: 1 file pulled, 0 skipped. 37.7 MB/s (100712 bytes in 0.003s)
+/sdcard/gesto-zoom-out-derecho-cero.png: 1 file pulled, 0 skipped. 35.8 MB/s (100712 bytes in 0.003s)
+Native 2->1->0, lifted=0, gap=190.0->90.0, mode=normal, held >=350ms, screenshots=gesto-zoom-out-izquierdo
+/sdcard/gesto-zoom-out-izquierdo-dos.png: 1 file pulled, 0 skipped. 22.0 MB/s (100712 bytes in 0.004s)
+/sdcard/gesto-zoom-out-izquierdo-uno.png: 1 file pulled, 0 skipped. 36.1 MB/s (100712 bytes in 0.003s)
+/sdcard/gesto-zoom-out-izquierdo-cero.png: 1 file pulled, 0 skipped. 26.6 MB/s (100712 bytes in 0.004s)
+Native 2->1->0, lifted=1, gap=110.0->250.0, mode=normal, held >=350ms, screenshots=gesto-centro-movil
+/sdcard/gesto-centro-movil-dos.png: 1 file pulled, 0 skipped. 39.4 MB/s (127050 bytes in 0.003s)
+/sdcard/gesto-centro-movil-uno.png: 1 file pulled, 0 skipped. 51.6 MB/s (127050 bytes in 0.002s)
+/sdcard/gesto-centro-movil-cero.png: 1 file pulled, 0 skipped. 44.3 MB/s (127057 bytes in 0.003s)
+Native 2->1->cancel, lifted=0, gap=100.0->220.0, mode=cancel, held >=350ms, screenshots=gesto-cancelacion
+/sdcard/gesto-cancelacion-dos.png: 1 file pulled, 0 skipped. 60.0 MB/s (155236 bytes in 0.002s)
+/sdcard/gesto-cancelacion-uno.png: 1 file pulled, 0 skipped. 63.3 MB/s (155236 bytes in 0.002s)
+/sdcard/gesto-cancelacion-cero.png: 1 file pulled, 0 skipped. 55.7 MB/s (155236 bytes in 0.003s)
+Native 2->1->0, lifted=0, gap=140.0->250.0, mode=normal, held >=350ms, screenshots=gesto-pinch-nuevo-tras-cancelar
+/sdcard/gesto-pinch-nuevo-tras-cancelar-dos.png: 1 file pulled, 0 skipped. 63.1 MB/s (185261 bytes in 0.003s)
+/sdcard/gesto-pinch-nuevo-tras-cancelar-uno.png: 1 file pulled, 0 skipped. 65.7 MB/s (185261 bytes in 0.003s)
+/sdcard/gesto-pinch-nuevo-tras-cancelar-cero.png: 1 file pulled, 0 skipped. 39.9 MB/s (185261 bytes in 0.004s)
+Native 2->1->0, lifted=1, gap=100.0->230.0, mode=pan-first, held >=350ms, screenshots=gesto-pan-antes-pinch
+/sdcard/gesto-pan-antes-pinch-dos.png: 1 file pulled, 0 skipped. 71.6 MB/s (257871 bytes in 0.003s)
+/sdcard/gesto-pan-antes-pinch-uno.png: 1 file pulled, 0 skipped. 85.4 MB/s (257871 bytes in 0.003s)
+/sdcard/gesto-pan-antes-pinch-cero.png: 1 file pulled, 0 skipped. 89.9 MB/s (257871 bytes in 0.003s)

@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-10T16:54:27.535Z",
+  "name": "gestural-1.0-horizontal-resultados",
+  "kind": "results",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        0,
+        1017,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        2181,
+        95,
+        2358,
+        221
+      ],
+      "dp": [
+        67.42857142857143,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Refrescar",
+      "bounds": [
+        170,
+        659,
+        2358,
+        785
+      ],
+      "dp": [
+        833.5238095238095,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

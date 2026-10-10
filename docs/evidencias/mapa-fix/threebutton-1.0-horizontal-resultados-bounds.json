@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-10T16:50:11.178Z",
+  "name": "threebutton-1.0-horizontal-resultados",
+  "kind": "results",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        2274,
+        0,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        2055,
+        95,
+        2232,
+        221
+      ],
+      "dp": [
+        67.42857142857143,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Refrescar",
+      "bounds": [
+        170,
+        659,
+        2232,
+        785
+      ],
+      "dp": [
+        785.5238095238095,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

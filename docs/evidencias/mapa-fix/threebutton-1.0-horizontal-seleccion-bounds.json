@@ -1,0 +1,182 @@
+{
+  "at": "2026-10-10T16:50:01.462Z",
+  "name": "threebutton-1.0-horizontal-seleccion",
+  "kind": "map",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        2274,
+        0,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        149,
+        63,
+        316,
+        189
+      ],
+      "dp": [
+        63.61904761904762,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Borrar origen y destino",
+      "bounds": [
+        2079,
+        63,
+        2253,
+        189
+      ],
+      "dp": [
+        66.28571428571429,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Intercambiar origen y destino",
+      "bounds": [
+        2127,
+        239,
+        2253,
+        365
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Cambiar origen en el mapa",
+      "bounds": [
+        149,
+        954,
+        321,
+        1080
+      ],
+      "dp": [
+        65.52380952380952,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Cambiar destino en el mapa",
+      "bounds": [
+        762,
+        954,
+        951,
+        1080
+      ],
+      "dp": [
+        72,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Consultar",
+      "bounds": [
+        1393,
+        954,
+        1617,
+        1080
+      ],
+      "dp": [
+        85.33333333333333,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Guardar trayecto como favorito",
+      "bounds": [
+        2059,
+        954,
+        2253,
+        1080
+      ],
+      "dp": [
+        73.9047619047619,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Ampliar mapa",
+      "bounds": [
+        2001,
+        736,
+        2127,
+        862
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Alejar mapa",
+      "bounds": [
+        1875,
+        736,
+        2001,
+        862
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Ver mapa completo",
+      "bounds": [
+        2127,
+        736,
+        2253,
+        862
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

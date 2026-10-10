@@ -1,0 +1,182 @@
+{
+  "at": "2026-10-10T16:56:23.202Z",
+  "name": "gestural-1.5-horizontal-seleccion",
+  "kind": "map",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.5",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        0,
+        1017,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        149,
+        63,
+        374,
+        189
+      ],
+      "dp": [
+        85.71428571428571,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Borrar origen y destino",
+      "bounds": [
+        2146,
+        63,
+        2379,
+        189
+      ],
+      "dp": [
+        88.76190476190476,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Intercambiar origen y destino",
+      "bounds": [
+        2253,
+        249,
+        2379,
+        375
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Cambiar origen en el mapa",
+      "bounds": [
+        149,
+        891,
+        381,
+        1017
+      ],
+      "dp": [
+        88.38095238095238,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Cambiar destino en el mapa",
+      "bounds": [
+        767,
+        891,
+        1025,
+        1017
+      ],
+      "dp": [
+        98.28571428571429,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Consultar",
+      "bounds": [
+        1411,
+        891,
+        1725,
+        1017
+      ],
+      "dp": [
+        119.61904761904762,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Guardar trayecto como favorito",
+      "bounds": [
+        2111,
+        891,
+        2379,
+        1017
+      ],
+      "dp": [
+        102.0952380952381,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Ampliar mapa",
+      "bounds": [
+        2127,
+        649,
+        2253,
+        775
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Alejar mapa",
+      "bounds": [
+        2001,
+        649,
+        2127,
+        775
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Ver mapa completo",
+      "bounds": [
+        2253,
+        649,
+        2379,
+        775
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

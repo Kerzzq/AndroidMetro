@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-10T17:03:32.557Z",
+  "name": "final-detalle-home",
+  "kind": "results",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        0,
+        2337,
+        1080,
+        2400
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        1080,
+        128
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        861,
+        160,
+        1038,
+        286
+      ],
+      "dp": [
+        67.42857142857143,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Refrescar",
+      "bounds": [
+        42,
+        799,
+        1038,
+        925
+      ],
+      "dp": [
+        379.42857142857144,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

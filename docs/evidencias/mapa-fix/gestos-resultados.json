@@ -1,0 +1,187 @@
+{
+  "device": "emulator-5556",
+  "input": "Android MotionEvents injected by shell; no physical fingers",
+  "holdMilliseconds": 350,
+  "cases": [
+    {
+      "name": "zoom-in-derecho",
+      "x": 540,
+      "y": 1250,
+      "start": 100,
+      "end": 240,
+      "lift": 1,
+      "prefix": "gesto-zoom-in-derecho",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "20bb527fe876ee2fbde56d3f93baf6ed969093eae48c6f0eb567cf4770d048fc",
+        "uno": "20bb527fe876ee2fbde56d3f93baf6ed969093eae48c6f0eb567cf4770d048fc",
+        "cero": "20bb527fe876ee2fbde56d3f93baf6ed969093eae48c6f0eb567cf4770d048fc"
+      }
+    },
+    {
+      "name": "zoom-in-izquierdo",
+      "x": 440,
+      "y": 1400,
+      "start": 80,
+      "end": 190,
+      "lift": 0,
+      "prefix": "gesto-zoom-in-izquierdo",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "6888d1b681d158b1b243b74e182f1de42bb7d4a84811891b4ba13edebff43e5a",
+        "uno": "6888d1b681d158b1b243b74e182f1de42bb7d4a84811891b4ba13edebff43e5a",
+        "cero": "6888d1b681d158b1b243b74e182f1de42bb7d4a84811891b4ba13edebff43e5a"
+      }
+    },
+    {
+      "name": "zoom-out-derecho",
+      "x": 620,
+      "y": 1100,
+      "start": 230,
+      "end": 110,
+      "lift": 1,
+      "prefix": "gesto-zoom-out-derecho",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "398b616d67be422399769cd2aaa9e4b9b5a06db2dde5dc887319374c62c88709",
+        "uno": "398b616d67be422399769cd2aaa9e4b9b5a06db2dde5dc887319374c62c88709",
+        "cero": "398b616d67be422399769cd2aaa9e4b9b5a06db2dde5dc887319374c62c88709"
+      }
+    },
+    {
+      "name": "zoom-out-izquierdo",
+      "x": 440,
+      "y": 1450,
+      "start": 190,
+      "end": 90,
+      "lift": 0,
+      "prefix": "gesto-zoom-out-izquierdo",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "398b616d67be422399769cd2aaa9e4b9b5a06db2dde5dc887319374c62c88709",
+        "uno": "398b616d67be422399769cd2aaa9e4b9b5a06db2dde5dc887319374c62c88709",
+        "cero": "398b616d67be422399769cd2aaa9e4b9b5a06db2dde5dc887319374c62c88709"
+      }
+    },
+    {
+      "name": "centro-movil",
+      "x": 490,
+      "y": 1200,
+      "start": 110,
+      "end": 250,
+      "lift": 1,
+      "dx": 80,
+      "dy": 90,
+      "prefix": "gesto-centro-movil",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "5e59272f33810aa268cb2bf06b9799883297b1fd51b02206e0feb17109149997",
+        "uno": "5e59272f33810aa268cb2bf06b9799883297b1fd51b02206e0feb17109149997",
+        "cero": "f38e30791b782181c7a859e96f5a297b79da99c2335ce1ffa95a36fd4523b194"
+      }
+    },
+    {
+      "name": "cancelacion",
+      "x": 520,
+      "y": 1300,
+      "start": 100,
+      "end": 220,
+      "lift": 0,
+      "mode": "cancel",
+      "prefix": "gesto-cancelacion",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "1985e3ea1bafe34624492e00f93c087fae06de2a90bd57eedf312941dba696a3",
+        "uno": "1985e3ea1bafe34624492e00f93c087fae06de2a90bd57eedf312941dba696a3",
+        "cero": "1985e3ea1bafe34624492e00f93c087fae06de2a90bd57eedf312941dba696a3"
+      }
+    },
+    {
+      "name": "pinch-nuevo-tras-cancelar",
+      "x": 600,
+      "y": 1300,
+      "start": 140,
+      "end": 250,
+      "lift": 0,
+      "prefix": "gesto-pinch-nuevo-tras-cancelar",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "5cfd7bb6c9137f5db7f1fb94079d4afb22c62ee4285e63e3f43bbc7b8a482f64",
+        "uno": "5cfd7bb6c9137f5db7f1fb94079d4afb22c62ee4285e63e3f43bbc7b8a482f64",
+        "cero": "5cfd7bb6c9137f5db7f1fb94079d4afb22c62ee4285e63e3f43bbc7b8a482f64"
+      }
+    },
+    {
+      "name": "pan-antes-pinch",
+      "x": 500,
+      "y": 1250,
+      "start": 100,
+      "end": 230,
+      "lift": 1,
+      "mode": "pan-first",
+      "prefix": "gesto-pan-antes-pinch",
+      "mapRegionPixels": [
+        0,
+        600,
+        1080,
+        1900
+      ],
+      "unchangedAfterFirstLift": true,
+      "unchangedAfterReleaseOrCancel": true,
+      "captureSha256": {
+        "dos": "d8c154fc3a203e61426245e13c8604009036d2f80d74397634d95dae02dcb375",
+        "uno": "d8c154fc3a203e61426245e13c8604009036d2f80d74397634d95dae02dcb375",
+        "cero": "d8c154fc3a203e61426245e13c8604009036d2f80d74397634d95dae02dcb375"
+      }
+    }
+  ]
+}

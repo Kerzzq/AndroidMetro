@@ -1,0 +1,182 @@
+{
+  "at": "2026-10-10T16:55:21.453Z",
+  "name": "gestural-1.5-vertical-seleccion",
+  "kind": "map",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.5",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        0,
+        2337,
+        1080,
+        2400
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        1080,
+        128
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        21,
+        128,
+        246,
+        254
+      ],
+      "dp": [
+        85.71428571428571,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Borrar origen y destino",
+      "bounds": [
+        826,
+        128,
+        1059,
+        254
+      ],
+      "dp": [
+        88.76190476190476,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Intercambiar origen y destino",
+      "bounds": [
+        933,
+        314,
+        1059,
+        440
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Cambiar origen en el mapa",
+      "bounds": [
+        21,
+        2085,
+        253,
+        2211
+      ],
+      "dp": [
+        88.38095238095238,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Cambiar destino en el mapa",
+      "bounds": [
+        370,
+        2085,
+        628,
+        2211
+      ],
+      "dp": [
+        98.28571428571429,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Consultar",
+      "bounds": [
+        746,
+        2085,
+        1059,
+        2211
+      ],
+      "dp": [
+        119.23809523809524,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Guardar trayecto como favorito",
+      "bounds": [
+        21,
+        2211,
+        290,
+        2337
+      ],
+      "dp": [
+        102.47619047619048,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Ampliar mapa",
+      "bounds": [
+        933,
+        1717,
+        1059,
+        1843
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Alejar mapa",
+      "bounds": [
+        933,
+        1591,
+        1059,
+        1717
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Ver mapa completo",
+      "bounds": [
+        933,
+        1843,
+        1059,
+        1969
+      ],
+      "dp": [
+        48,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

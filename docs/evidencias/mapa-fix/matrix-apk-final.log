@@ -1,0 +1,64 @@
+Start threebutton-1.0-vertical
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 8.4 MB/s (101210 bytes in 0.011s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 12.7 MB/s (106720 bytes in 0.008s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 32.1 MB/s (152781 bytes in 0.005s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 52.2 MB/s (152790 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 13.0 MB/s (58139 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 14.0 MB/s (80691 bytes in 0.005s)
+PASS threebutton-1.0-vertical empty, selected, real query, results, save, picker
+Start threebutton-1.0-horizontal
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 50.6 MB/s (152622 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 35.1 MB/s (161796 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 18.8 MB/s (85294 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 7.7 MB/s (85294 bytes in 0.011s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 20.2 MB/s (57557 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 12.1 MB/s (54704 bytes in 0.004s)
+PASS threebutton-1.0-horizontal empty, selected, real query, results, save, picker
+Start threebutton-1.5-vertical
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 19.1 MB/s (122984 bytes in 0.006s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 45.7 MB/s (126181 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 37.4 MB/s (176052 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 31.0 MB/s (176052 bytes in 0.005s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 13.4 MB/s (70501 bytes in 0.005s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 18.1 MB/s (89579 bytes in 0.005s)
+PASS threebutton-1.5-vertical empty, selected, real query, results, save, picker
+Start threebutton-1.5-horizontal
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 46.5 MB/s (156403 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 57.6 MB/s (165474 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 20.7 MB/s (101058 bytes in 0.005s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 14.5 MB/s (101058 bytes in 0.007s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 20.3 MB/s (70919 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 29.7 MB/s (68078 bytes in 0.002s)
+PASS threebutton-1.5-horizontal empty, selected, real query, results, save, picker
+Start gestural-1.0-vertical
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 47.6 MB/s (100842 bytes in 0.002s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 35.4 MB/s (106262 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 62.7 MB/s (153268 bytes in 0.002s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 57.5 MB/s (153268 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 14.2 MB/s (56601 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 21.6 MB/s (79631 bytes in 0.004s)
+PASS gestural-1.0-vertical empty, selected, real query, results, save, picker
+Start gestural-1.0-horizontal
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 39.3 MB/s (132021 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 61.8 MB/s (138444 bytes in 0.002s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 22.5 MB/s (80151 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 30.1 MB/s (80151 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 16.6 MB/s (54489 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 21.1 MB/s (51393 bytes in 0.002s)
+PASS gestural-1.0-horizontal empty, selected, real query, results, save, picker
+Start gestural-1.5-vertical
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 36.9 MB/s (120454 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 30.4 MB/s (124747 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 61.9 MB/s (181835 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 71.5 MB/s (181835 bytes in 0.002s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 18.9 MB/s (68144 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 19.5 MB/s (87438 bytes in 0.004s)
+PASS gestural-1.5-vertical empty, selected, real query, results, save, picker
+Start gestural-1.5-horizontal
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 36.1 MB/s (136722 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 33.8 MB/s (144939 bytes in 0.004s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 13.7 MB/s (88628 bytes in 0.006s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 30.9 MB/s (88628 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 21.2 MB/s (68850 bytes in 0.003s)
+/sdcard/metro-screen.png: 1 file pulled, 0 skipped. 20.8 MB/s (63560 bytes in 0.003s)
+PASS gestural-1.5-horizontal empty, selected, real query, results, save, picker

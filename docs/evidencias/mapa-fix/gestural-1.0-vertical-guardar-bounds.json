@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-10T16:53:32.325Z",
+  "name": "gestural-1.0-vertical-guardar",
+  "kind": "save",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        0,
+        2337,
+        1080,
+        2400
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        1080,
+        128
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        893,
+        128,
+        1059,
+        254
+      ],
+      "dp": [
+        63.23809523809524,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Alias opcional",
+      "bounds": [
+        73,
+        388,
+        1006,
+        516
+      ],
+      "dp": [
+        355.42857142857144,
+        48.76190476190476
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Guardar favorito",
+      "bounds": [
+        42,
+        548,
+        1038,
+        674
+      ],
+      "dp": [
+        379.42857142857144,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

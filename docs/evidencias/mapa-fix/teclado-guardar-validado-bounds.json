@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-10T16:31:25.376Z",
+  "name": "teclado-guardar-validado",
+  "kind": "save-action",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.5",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "ime",
+      "bounds": [
+        128,
+        394,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "navigationBars",
+      "bounds": [
+        0,
+        1017,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        2155,
+        63,
+        2379,
+        189
+      ],
+      "dp": [
+        85.33333333333333,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Guardar favorito",
+      "bounds": [
+        170,
+        226,
+        2358,
+        352
+      ],
+      "dp": [
+        833.5238095238095,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,5202 @@
+[
+  {
+    "at": "2026-10-10T16:54:34.380Z",
+    "name": "gestural-1.0-horizontal-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2213,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          201,
+          323,
+          2326,
+          451
+        ],
+        "dp": [
+          809.5238095238095,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          170,
+          483,
+          2358,
+          609
+        ],
+        "dp": [
+          833.5238095238095,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "0d138ec7694331cdb741089ac7b74018952079ca1ec8ac86014dd452096c627f"
+  },
+  {
+    "at": "2026-10-10T16:54:27.535Z",
+    "name": "gestural-1.0-horizontal-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2181,
+          95,
+          2358,
+          221
+        ],
+        "dp": [
+          67.42857142857143,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          170,
+          659,
+          2358,
+          785
+        ],
+        "dp": [
+          833.5238095238095,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "ea8fc9ca1dee55b80eb31782a495dc61f39a8a7849548e931a31aeb69a5d6506"
+  },
+  {
+    "at": "2026-10-10T16:54:20.384Z",
+    "name": "gestural-1.0-horizontal-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          316,
+          189
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2205,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          66.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2253,
+          239,
+          2379,
+          365
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          891,
+          321,
+          1017
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          804,
+          891,
+          993,
+          1017
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1477,
+          891,
+          1701,
+          1017
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          2185,
+          891,
+          2379,
+          1017
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2127,
+          673,
+          2253,
+          799
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          2001,
+          673,
+          2127,
+          799
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2253,
+          673,
+          2379,
+          799
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "5d1ca17b9e3f30514abd80405fcfa3177beb98c434c5f3b3f109b3de599a5b7c",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1185,
+          391
+        ],
+        "dp": [
+          394.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          1201,
+          213,
+          2237,
+          391
+        ],
+        "dp": [
+          394.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:54:41.414Z",
+    "name": "gestural-1.0-horizontal-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2213,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          159,
+          223,
+          2368,
+          351
+        ],
+        "dp": [
+          841.5238095238095,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "dcbd1109b70ce8a2a4f63e3b2139f7218967261c1fa27cd6a84c233b80f9c27b"
+  },
+  {
+    "at": "2026-10-10T16:53:56.937Z",
+    "name": "gestural-1.0-horizontal-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          316,
+          189
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2205,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          66.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2253,
+          239,
+          2379,
+          365
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          891,
+          321,
+          1017
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          804,
+          891,
+          993,
+          1017
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1477,
+          891,
+          1701,
+          1017
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          2185,
+          891,
+          2379,
+          1017
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2127,
+          673,
+          2253,
+          799
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          2001,
+          673,
+          2127,
+          799
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2253,
+          673,
+          2379,
+          799
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "f86eca0de78ebcb612adaed060e65362c0e55494a563a0cd0d767cf433f4cdfa",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1185,
+          391
+        ],
+        "dp": [
+          394.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          1201,
+          213,
+          2237,
+          391
+        ],
+        "dp": [
+          394.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:53:32.325Z",
+    "name": "gestural-1.0-vertical-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          893,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          73,
+          388,
+          1006,
+          516
+        ],
+        "dp": [
+          355.42857142857144,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          42,
+          548,
+          1038,
+          674
+        ],
+        "dp": [
+          379.42857142857144,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "671a74612edcab27f3b0e233dcd825b112f884974f282e2b513b42fb1ec9ed3b"
+  },
+  {
+    "at": "2026-10-10T16:53:25.555Z",
+    "name": "gestural-1.0-vertical-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          861,
+          160,
+          1038,
+          286
+        ],
+        "dp": [
+          67.42857142857143,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          42,
+          724,
+          1038,
+          850
+        ],
+        "dp": [
+          379.42857142857144,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "392f982b2716bb94d08a125cbfeff0ee81fd788c7e084114517813d4d379a534"
+  },
+  {
+    "at": "2026-10-10T16:53:18.412Z",
+    "name": "gestural-1.0-vertical-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          188,
+          254
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          886,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          65.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          304,
+          1059,
+          430
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2211,
+          193,
+          2337
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          279,
+          2211,
+          468,
+          2337
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          554,
+          2211,
+          779,
+          2337
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          865,
+          2211,
+          1059,
+          2337
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1867,
+          1059,
+          1993
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1741,
+          1059,
+          1867
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1993,
+          1059,
+          2119
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "a0242142e5002298c3b35d53c196e06225a84034ba5ac044010951b8db72d372",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:53:39.232Z",
+    "name": "gestural-1.0-vertical-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          893,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          31,
+          288,
+          1048,
+          416
+        ],
+        "dp": [
+          387.42857142857144,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "4aa451a7a02dda7ef695bf2601ae96ca7f5f044eb82a905a995f134f67ce23f8"
+  },
+  {
+    "at": "2026-10-10T16:52:55.129Z",
+    "name": "gestural-1.0-vertical-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          188,
+          254
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          886,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          65.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          304,
+          1059,
+          430
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2211,
+          193,
+          2337
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          279,
+          2211,
+          468,
+          2337
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          554,
+          2211,
+          779,
+          2337
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          865,
+          2211,
+          1059,
+          2337
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1867,
+          1059,
+          1993
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1741,
+          1059,
+          1867
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1993,
+          1059,
+          2119
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "71dedf37c23ae0e7ffcf169226aa134ffa83321c1595b7d7e5003169b341e545",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:56:37.650Z",
+    "name": "gestural-1.5-horizontal-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2155,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          201,
+          349,
+          2326,
+          497
+        ],
+        "dp": [
+          809.5238095238095,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          170,
+          529,
+          2358,
+          655
+        ],
+        "dp": [
+          833.5238095238095,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "41ae5b7664bfbad2fd4d6e44a74aa6ff63134c52ac37a20859a5f93bfd360980"
+  },
+  {
+    "at": "2026-10-10T16:56:30.534Z",
+    "name": "gestural-1.5-horizontal-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2123,
+          95,
+          2358,
+          228
+        ],
+        "dp": [
+          89.52380952380952,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          170,
+          763,
+          2358,
+          896
+        ],
+        "dp": [
+          833.5238095238095,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "2e5034a7d79d70205995c45cb1e2434f9e6f6d39575ff5c21d0ac1c6ebb1cf53"
+  },
+  {
+    "at": "2026-10-10T16:56:23.202Z",
+    "name": "gestural-1.5-horizontal-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          374,
+          189
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2146,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2253,
+          249,
+          2379,
+          375
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          891,
+          381,
+          1017
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          767,
+          891,
+          1025,
+          1017
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1411,
+          891,
+          1725,
+          1017
+        ],
+        "dp": [
+          119.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          2111,
+          891,
+          2379,
+          1017
+        ],
+        "dp": [
+          102.0952380952381,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2127,
+          649,
+          2253,
+          775
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          2001,
+          649,
+          2127,
+          775
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2253,
+          649,
+          2379,
+          775
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "14981eeff8c513b58b73e98c4f3d7df6e5b82139a7cbea2d32d88c4f7f286161",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1185,
+          411
+        ],
+        "dp": [
+          394.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          1201,
+          213,
+          2237,
+          411
+        ],
+        "dp": [
+          394.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:56:44.813Z",
+    "name": "gestural-1.5-horizontal-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2155,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          159,
+          223,
+          2368,
+          371
+        ],
+        "dp": [
+          841.5238095238095,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "c389dae65a83edd41d57eb66ef1811961482c3eb17fab979de2ba89ba58ac673"
+  },
+  {
+    "at": "2026-10-10T16:55:59.070Z",
+    "name": "gestural-1.5-horizontal-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          1017,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          374,
+          189
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2146,
+          63,
+          2379,
+          189
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2253,
+          249,
+          2379,
+          375
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          891,
+          381,
+          1017
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          767,
+          891,
+          1025,
+          1017
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1411,
+          891,
+          1725,
+          1017
+        ],
+        "dp": [
+          119.61904761904762,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          2111,
+          891,
+          2379,
+          1017
+        ],
+        "dp": [
+          102.0952380952381,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2127,
+          649,
+          2253,
+          775
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          2001,
+          649,
+          2127,
+          775
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2253,
+          649,
+          2379,
+          775
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "1686aa8326f41214e4ec9b659c404cb3f24288eaaf234faae12b6f1c47be30f5",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1185,
+          411
+        ],
+        "dp": [
+          394.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          1201,
+          213,
+          2237,
+          411
+        ],
+        "dp": [
+          394.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:55:35.370Z",
+    "name": "gestural-1.5-vertical-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          835,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          73,
+          414,
+          1006,
+          562
+        ],
+        "dp": [
+          355.42857142857144,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          42,
+          594,
+          1038,
+          720
+        ],
+        "dp": [
+          379.42857142857144,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "d7a3e0e321726722babb66db181c5f519cf6db2bca6ae77a644ef1187db33532"
+  },
+  {
+    "at": "2026-10-10T16:55:28.561Z",
+    "name": "gestural-1.5-vertical-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          803,
+          160,
+          1038,
+          293
+        ],
+        "dp": [
+          89.52380952380952,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          42,
+          828,
+          1038,
+          961
+        ],
+        "dp": [
+          379.42857142857144,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "d17dca43a24ef119cd02cf82961766a45717dbcc013c305704f4d17284697e39"
+  },
+  {
+    "at": "2026-10-10T16:55:21.453Z",
+    "name": "gestural-1.5-vertical-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          246,
+          254
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          826,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          314,
+          1059,
+          440
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2085,
+          253,
+          2211
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          370,
+          2085,
+          628,
+          2211
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          746,
+          2085,
+          1059,
+          2211
+        ],
+        "dp": [
+          119.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          21,
+          2211,
+          290,
+          2337
+        ],
+        "dp": [
+          102.47619047619048,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1717,
+          1059,
+          1843
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1591,
+          1059,
+          1717
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1843,
+          1059,
+          1969
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "a366b0c7ec27fd01d139c77b7a91cfa726db3f0c14d296b0334633efa961f513",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          476
+        ],
+        "dp": [
+          167.61904761904762,
+          75.42857142857143
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          476
+        ],
+        "dp": [
+          167.61904761904762,
+          75.42857142857143
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:55:42.316Z",
+    "name": "gestural-1.5-vertical-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          835,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          31,
+          288,
+          1048,
+          436
+        ],
+        "dp": [
+          387.42857142857144,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "4765a70577966396f83aca7be0bf7c4f3fbe0d1621be7df0ab64db24f48a88c9"
+  },
+  {
+    "at": "2026-10-10T16:54:58.288Z",
+    "name": "gestural-1.5-vertical-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2337,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          246,
+          254
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          826,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          350,
+          1059,
+          476
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2085,
+          253,
+          2211
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          370,
+          2085,
+          628,
+          2211
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          746,
+          2085,
+          1059,
+          2211
+        ],
+        "dp": [
+          119.23809523809524,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          21,
+          2211,
+          290,
+          2337
+        ],
+        "dp": [
+          102.47619047619048,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1717,
+          1059,
+          1843
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1591,
+          1059,
+          1717
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1843,
+          1059,
+          1969
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "3d311a14c207d04749c76471a42fc7d60cf48f957309803ef179bc3902e3439f",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          548
+        ],
+        "dp": [
+          167.61904761904762,
+          102.85714285714286
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          548
+        ],
+        "dp": [
+          167.61904761904762,
+          102.85714285714286
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:50:18.404Z",
+    "name": "threebutton-1.0-horizontal-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2087,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          201,
+          323,
+          2200,
+          451
+        ],
+        "dp": [
+          761.5238095238095,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          170,
+          483,
+          2232,
+          609
+        ],
+        "dp": [
+          785.5238095238095,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "b2daea2fb67f900855987baf950e0000c2812782ad5c989feecf4c3d32275410"
+  },
+  {
+    "at": "2026-10-10T16:50:11.178Z",
+    "name": "threebutton-1.0-horizontal-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2055,
+          95,
+          2232,
+          221
+        ],
+        "dp": [
+          67.42857142857143,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          170,
+          659,
+          2232,
+          785
+        ],
+        "dp": [
+          785.5238095238095,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "80d2d3cf8354a8beddd93ab5783eda9153d500cedbac88193ffcc2e07561ddc6"
+  },
+  {
+    "at": "2026-10-10T16:50:01.462Z",
+    "name": "threebutton-1.0-horizontal-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          316,
+          189
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2079,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          66.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2127,
+          239,
+          2253,
+          365
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          954,
+          321,
+          1080
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          762,
+          954,
+          951,
+          1080
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1393,
+          954,
+          1617,
+          1080
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          2059,
+          954,
+          2253,
+          1080
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2001,
+          736,
+          2127,
+          862
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          1875,
+          736,
+          2001,
+          862
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2127,
+          736,
+          2253,
+          862
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "878b0af586885bcb781839ebfb7e71c38f7da6567d2583b8db4591e8e2ab4d78",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1122,
+          391
+        ],
+        "dp": [
+          370.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          1138,
+          213,
+          2111,
+          391
+        ],
+        "dp": [
+          370.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:50:25.730Z",
+    "name": "threebutton-1.0-horizontal-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2087,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          159,
+          223,
+          2242,
+          351
+        ],
+        "dp": [
+          793.5238095238095,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "7ec3205b8ed1bdf5c91a4679f0f64dd3517664fe152f5aed8f077744fa25fbb3"
+  },
+  {
+    "at": "2026-10-10T16:49:36.085Z",
+    "name": "threebutton-1.0-horizontal-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          316,
+          189
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2079,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          66.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2127,
+          239,
+          2253,
+          365
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          954,
+          321,
+          1080
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          762,
+          954,
+          951,
+          1080
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1393,
+          954,
+          1617,
+          1080
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          2059,
+          954,
+          2253,
+          1080
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2001,
+          736,
+          2127,
+          862
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          1875,
+          736,
+          2001,
+          862
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2127,
+          736,
+          2253,
+          862
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "d82fe8056b82d0766e314e224c598c7cb252cab9515dbb55c0de5cf478346918",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1122,
+          391
+        ],
+        "dp": [
+          370.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          1138,
+          213,
+          2111,
+          391
+        ],
+        "dp": [
+          370.6666666666667,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:49:09.536Z",
+    "name": "threebutton-1.0-vertical-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          893,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          73,
+          388,
+          1006,
+          516
+        ],
+        "dp": [
+          355.42857142857144,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          42,
+          548,
+          1038,
+          674
+        ],
+        "dp": [
+          379.42857142857144,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "c3401fc2acadd9306dd622de0458f9b7a3ff988394d3777d72b8a73c522ab371"
+  },
+  {
+    "at": "2026-10-10T16:49:02.441Z",
+    "name": "threebutton-1.0-vertical-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          861,
+          160,
+          1038,
+          286
+        ],
+        "dp": [
+          67.42857142857143,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          42,
+          724,
+          1038,
+          850
+        ],
+        "dp": [
+          379.42857142857144,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "1892ff8a43c101b18cc78e0b0b1348f6aafa8e623a9a599a7260f5051f1da77e"
+  },
+  {
+    "at": "2026-10-10T16:48:54.878Z",
+    "name": "threebutton-1.0-vertical-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          188,
+          254
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          886,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          65.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          304,
+          1059,
+          430
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2148,
+          193,
+          2274
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          279,
+          2148,
+          468,
+          2274
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          554,
+          2148,
+          779,
+          2274
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          865,
+          2148,
+          1059,
+          2274
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1804,
+          1059,
+          1930
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1678,
+          1059,
+          1804
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1930,
+          1059,
+          2056
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "ab507007956e6ed23e967e9e7b99d549aef7527ddfdca97b3061142cbcef322c",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:49:16.822Z",
+    "name": "threebutton-1.0-vertical-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          893,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          63.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          31,
+          288,
+          1048,
+          416
+        ],
+        "dp": [
+          387.42857142857144,
+          48.76190476190476
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "5ad5e9874a5ac16a1ec0bb061d1c9aa285d38e43cb1cadeb595e879a664fbdca"
+  },
+  {
+    "at": "2026-10-10T16:48:29.303Z",
+    "name": "threebutton-1.0-vertical-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.0",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          188,
+          254
+        ],
+        "dp": [
+          63.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          886,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          65.9047619047619,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          304,
+          1059,
+          430
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2148,
+          193,
+          2274
+        ],
+        "dp": [
+          65.52380952380952,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          279,
+          2148,
+          468,
+          2274
+        ],
+        "dp": [
+          72,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          554,
+          2148,
+          779,
+          2274
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          865,
+          2148,
+          1059,
+          2274
+        ],
+        "dp": [
+          73.9047619047619,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1804,
+          1059,
+          1930
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1678,
+          1059,
+          1804
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1930,
+          1059,
+          2056
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "c7a0204d36637a63b80263986c9cca9026d4e1706b404f97c5b1160fbddce436",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          456
+        ],
+        "dp": [
+          167.61904761904762,
+          67.80952380952381
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:52:28.858Z",
+    "name": "threebutton-1.5-horizontal-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2029,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          201,
+          349,
+          2200,
+          497
+        ],
+        "dp": [
+          761.5238095238095,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          170,
+          529,
+          2232,
+          655
+        ],
+        "dp": [
+          785.5238095238095,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "642e32eb24feefbbf6a5e9563b5f200016ddea12da3d0639b9ccc168b3eadcf2"
+  },
+  {
+    "at": "2026-10-10T16:52:21.746Z",
+    "name": "threebutton-1.5-horizontal-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          1997,
+          95,
+          2232,
+          228
+        ],
+        "dp": [
+          89.52380952380952,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          170,
+          763,
+          2232,
+          896
+        ],
+        "dp": [
+          785.5238095238095,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "543e845c5b456a93529f402038d9a899bc72f00febd8b4016353adff83ddd773"
+  },
+  {
+    "at": "2026-10-10T16:52:14.250Z",
+    "name": "threebutton-1.5-horizontal-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          374,
+          189
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2020,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2127,
+          249,
+          2253,
+          375
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          954,
+          381,
+          1080
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          725,
+          954,
+          983,
+          1080
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1327,
+          954,
+          1641,
+          1080
+        ],
+        "dp": [
+          119.61904761904762,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          1985,
+          954,
+          2253,
+          1080
+        ],
+        "dp": [
+          102.0952380952381,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2001,
+          712,
+          2127,
+          838
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          1875,
+          712,
+          2001,
+          838
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2127,
+          712,
+          2253,
+          838
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "7504155e345cabd514012314dbd01215fae30699980b4e5aa621160eb64a170a",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1122,
+          411
+        ],
+        "dp": [
+          370.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          1138,
+          213,
+          2111,
+          411
+        ],
+        "dp": [
+          370.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:52:35.955Z",
+    "name": "threebutton-1.5-horizontal-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          2029,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          159,
+          223,
+          2242,
+          371
+        ],
+        "dp": [
+          793.5238095238095,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "bd77333b05e6e5f48b1a25647d42814614c616b183dc1f46db86c4a962a82033"
+  },
+  {
+    "at": "2026-10-10T16:51:49.699Z",
+    "name": "threebutton-1.5-horizontal-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          2274,
+          0,
+          2400,
+          1080
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          2400,
+          63
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          149,
+          63,
+          374,
+          189
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          2020,
+          63,
+          2253,
+          189
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          2127,
+          249,
+          2253,
+          375
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          149,
+          954,
+          381,
+          1080
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          725,
+          954,
+          983,
+          1080
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          1327,
+          954,
+          1641,
+          1080
+        ],
+        "dp": [
+          119.61904761904762,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          1985,
+          954,
+          2253,
+          1080
+        ],
+        "dp": [
+          102.0952380952381,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          2001,
+          712,
+          2127,
+          838
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          1875,
+          712,
+          2001,
+          838
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          2127,
+          712,
+          2253,
+          838
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      2400,
+      1080
+    ],
+    "captureSha256": "2f38e08b9a689dab97e829cda4cb0e734c4f8c920394a15d8f83360769e4dceb",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          149,
+          213,
+          1122,
+          411
+        ],
+        "dp": [
+          370.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          1138,
+          213,
+          2111,
+          411
+        ],
+        "dp": [
+          370.6666666666667,
+          75.42857142857143
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:51:24.037Z",
+    "name": "threebutton-1.5-vertical-guardar",
+    "kind": "save",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          835,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alias opcional",
+        "bounds": [
+          73,
+          414,
+          1006,
+          562
+        ],
+        "dp": [
+          355.42857142857144,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar favorito",
+        "bounds": [
+          42,
+          594,
+          1038,
+          720
+        ],
+        "dp": [
+          379.42857142857144,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "89293dca6042254d6bc3d7b5461b56e5c89f7bb25175c118a3ba49886d81b7ef"
+  },
+  {
+    "at": "2026-10-10T16:51:16.745Z",
+    "name": "threebutton-1.5-vertical-resultados",
+    "kind": "results",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          803,
+          160,
+          1038,
+          293
+        ],
+        "dp": [
+          89.52380952380952,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Refrescar",
+        "bounds": [
+          42,
+          828,
+          1038,
+          961
+        ],
+        "dp": [
+          379.42857142857144,
+          50.666666666666664
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "d815ec1314c713b11a69b60a42c49c48ef07e9616bb0ae276e0bab135effb593"
+  },
+  {
+    "at": "2026-10-10T16:51:09.263Z",
+    "name": "threebutton-1.5-vertical-seleccion",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          246,
+          254
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          826,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          314,
+          1059,
+          440
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2022,
+          253,
+          2148
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          370,
+          2022,
+          628,
+          2148
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          746,
+          2022,
+          1059,
+          2148
+        ],
+        "dp": [
+          119.23809523809524,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          21,
+          2148,
+          290,
+          2274
+        ],
+        "dp": [
+          102.47619047619048,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1654,
+          1059,
+          1780
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1528,
+          1059,
+          1654
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1780,
+          1059,
+          1906
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "1840ef9180c32139bfbdeb01b20383b32b5d746cc77c1c0eb4ff3c6c326722b1",
+    "stationFields": [
+      {
+        "label": "Origen: Santurtzi. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          476
+        ],
+        "dp": [
+          167.61904761904762,
+          75.42857142857143
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: Eliptikoa. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          476
+        ],
+        "dp": [
+          167.61904761904762,
+          75.42857142857143
+        ],
+        "overlap": []
+      }
+    ]
+  },
+  {
+    "at": "2026-10-10T16:51:31.463Z",
+    "name": "threebutton-1.5-vertical-selector",
+    "kind": "picker",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          835,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          85.33333333333333,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Buscar estaci\u00c3\u00b3n",
+        "bounds": [
+          31,
+          288,
+          1048,
+          436
+        ],
+        "dp": [
+          387.42857142857144,
+          56.38095238095238
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "bb85edcd7570e4161606d397b0d4745d307fe754e111efdf9386a6cb1215ee6e"
+  },
+  {
+    "at": "2026-10-10T16:50:45.082Z",
+    "name": "threebutton-1.5-vertical-vacio",
+    "kind": "map",
+    "device": "emulator-5556",
+    "simulated": false,
+    "fontScale": "1.5",
+    "density": 420,
+    "systemBars": [
+      {
+        "type": "navigationBars",
+        "bounds": [
+          0,
+          2274,
+          1080,
+          2400
+        ]
+      },
+      {
+        "type": "statusBars",
+        "bounds": [
+          0,
+          0,
+          1080,
+          128
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "label": "Volver",
+        "bounds": [
+          21,
+          128,
+          246,
+          254
+        ],
+        "dp": [
+          85.71428571428571,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Borrar origen y destino",
+        "bounds": [
+          826,
+          128,
+          1059,
+          254
+        ],
+        "dp": [
+          88.76190476190476,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Intercambiar origen y destino",
+        "bounds": [
+          933,
+          350,
+          1059,
+          476
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar origen en el mapa",
+        "bounds": [
+          21,
+          2022,
+          253,
+          2148
+        ],
+        "dp": [
+          88.38095238095238,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Cambiar destino en el mapa",
+        "bounds": [
+          370,
+          2022,
+          628,
+          2148
+        ],
+        "dp": [
+          98.28571428571429,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Consultar",
+        "bounds": [
+          746,
+          2022,
+          1059,
+          2148
+        ],
+        "dp": [
+          119.23809523809524,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Guardar trayecto como favorito",
+        "bounds": [
+          21,
+          2148,
+          290,
+          2274
+        ],
+        "dp": [
+          102.47619047619048,
+          48
+        ],
+        "enabled": false,
+        "overlap": []
+      },
+      {
+        "label": "Ampliar mapa",
+        "bounds": [
+          933,
+          1654,
+          1059,
+          1780
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Alejar mapa",
+        "bounds": [
+          933,
+          1528,
+          1059,
+          1654
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      },
+      {
+        "label": "Ver mapa completo",
+        "bounds": [
+          933,
+          1780,
+          1059,
+          1906
+        ],
+        "dp": [
+          48,
+          48
+        ],
+        "enabled": true,
+        "overlap": []
+      }
+    ],
+    "passed": true,
+    "screenPixels": [
+      1080,
+      2400
+    ],
+    "captureSha256": "fbd18bdd8d63cdc154d38468a4dc6bb819cef5edb63a56b204e5d3baca853b2a",
+    "stationFields": [
+      {
+        "label": "Origen: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          21,
+          278,
+          461,
+          548
+        ],
+        "dp": [
+          167.61904761904762,
+          102.85714285714286
+        ],
+        "overlap": []
+      },
+      {
+        "label": "Destino: sin seleccionar. Cambiar por nombre",
+        "bounds": [
+          477,
+          278,
+          917,
+          548
+        ],
+        "dp": [
+          167.61904761904762,
+          102.85714285714286
+        ],
+        "overlap": []
+      }
+    ]
+  }
+]

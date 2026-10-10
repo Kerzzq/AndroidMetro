@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-10T16:50:25.730Z",
+  "name": "threebutton-1.0-horizontal-selector",
+  "kind": "picker",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        2274,
+        0,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        2087,
+        63,
+        2253,
+        189
+      ],
+      "dp": [
+        63.23809523809524,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Buscar estación",
+      "bounds": [
+        159,
+        223,
+        2242,
+        351
+      ],
+      "dp": [
+        793.5238095238095,
+        48.76190476190476
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}

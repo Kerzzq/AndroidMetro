@@ -1,0 +1,40 @@
+{
+  "roi": [
+    0,
+    600,
+    1080,
+    1900
+  ],
+  "tests": [
+    {
+      "before": "final-pan-antes",
+      "after": "final-pan-despues",
+      "expectedUnchanged": false,
+      "unchanged": false
+    },
+    {
+      "before": "final-pan-despues",
+      "after": "final-boton-zoom",
+      "expectedUnchanged": false,
+      "unchanged": false
+    },
+    {
+      "before": "final-seleccion-tactil",
+      "after": "final-vuelta-consulta",
+      "expectedUnchanged": true,
+      "unchanged": true
+    }
+  ],
+  "stationTapPixels": {
+    "STZ": [
+      540,
+      1477
+    ],
+    "POR": [
+      830,
+      1477
+    ]
+  },
+  "validatedSelection": "STZ/POR",
+  "physicalHardware": false
+}

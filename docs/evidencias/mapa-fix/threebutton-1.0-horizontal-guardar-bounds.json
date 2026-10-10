@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-10T16:50:18.404Z",
+  "name": "threebutton-1.0-horizontal-guardar",
+  "kind": "save",
+  "device": "emulator-5556",
+  "simulated": false,
+  "fontScale": "1.0",
+  "density": 420,
+  "systemBars": [
+    {
+      "type": "navigationBars",
+      "bounds": [
+        2274,
+        0,
+        2400,
+        1080
+      ]
+    },
+    {
+      "type": "statusBars",
+      "bounds": [
+        0,
+        0,
+        2400,
+        63
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "label": "Volver",
+      "bounds": [
+        2087,
+        63,
+        2253,
+        189
+      ],
+      "dp": [
+        63.23809523809524,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Alias opcional",
+      "bounds": [
+        201,
+        323,
+        2200,
+        451
+      ],
+      "dp": [
+        761.5238095238095,
+        48.76190476190476
+      ],
+      "enabled": true,
+      "overlap": []
+    },
+    {
+      "label": "Guardar favorito",
+      "bounds": [
+        170,
+        483,
+        2232,
+        609
+      ],
+      "dp": [
+        785.5238095238095,
+        48
+      ],
+      "enabled": true,
+      "overlap": []
+    }
+  ],
+  "passed": true
+}
