@@ -1,0 +1,146 @@
+[
+  {
+    "test": "Editar alias largo",
+    "result": "Correcto"
+  },
+  {
+    "test": "Reordenar favorito",
+    "result": "Correcto"
+  },
+  {
+    "test": "Crear Santurtzi -> Moyua",
+    "result": "Correcto"
+  },
+  {
+    "test": "Crear Moyua -> Santurtzi",
+    "result": "Correcto"
+  },
+  {
+    "test": "Crear Abando -> Leioa",
+    "result": "Correcto"
+  },
+  {
+    "test": "Crear Deusto -> San Mamés",
+    "result": "Correcto"
+  },
+  {
+    "test": "Crear San Mamés -> Deusto",
+    "result": "Correcto"
+  },
+  {
+    "test": "Crear Sopela -> Leioa",
+    "result": "Correcto"
+  },
+  {
+    "test": "Diez favoritos y límite de creación",
+    "result": "Añadir deshabilitado; lista desplazable"
+  },
+  {
+    "test": "Duplicado accidental",
+    "result": "Bloqueado; no se guardó"
+  },
+  {
+    "test": "Cancelar borrado",
+    "result": "Favorito conservado"
+  },
+  {
+    "test": "Eliminar favorito seleccionado por widget",
+    "result": "Eliminado con confirmación"
+  },
+  {
+    "test": "Crear Moyua -> Abando",
+    "result": "Correcto"
+  },
+  {
+    "test": "Recuperar capacidad hasta diez",
+    "result": "Correcto"
+  },
+  {
+    "test": "Cerrar y reabrir",
+    "result": "Diez favoritos persistentes"
+  },
+  {
+    "test": "Eliminar activo recupera otro favorito",
+    "result": "Widget operativo con favorito disponible"
+  },
+  {
+    "test": "Sin red con caché (primer intento)",
+    "result": "No válido: acciones canceladas tras force-stop. Repetido después de corregir restauración."
+  },
+  {
+    "test": "Acciones tras force-stop y reapertura",
+    "result": "Selector vuelve a responder"
+  },
+  {
+    "test": "Sin red con caché",
+    "result": "Error de conexión visible; conserva horas de consulta anterior"
+  },
+  {
+    "test": "Sin red al elegir trayecto sin caché",
+    "result": "Error claro y ningún tren de otra ruta"
+  },
+  {
+    "test": "Recuperación de red y refresco",
+    "result": "Datos reales de Casco Viejo a San Ignazio"
+  },
+  {
+    "test": "Cerrar selector sin elegir",
+    "result": "Conserva Casco Viejo a San Ignazio"
+  },
+  {
+    "test": "Dos instancias: selección independiente",
+    "result": "Verificado: widget 2 Casco Viejo -> San Ignazio; widget 4 Santurtzi -> Moyua. Capturas 32 y 33. Configuración inicial necesita corrección, probada aparte."
+  },
+  {
+    "test": "Edición de estaciones",
+    "result": "Barakaldo -> Ansio cambiado a Barakaldo -> Moyua; guardado tras consulta real."
+  },
+  {
+    "test": "Configuración nativa corregida",
+    "result": "ID4 cambió a Casco Viejo -> San Ignazio sin refresco adicional; captura39."
+  },
+  {
+    "test": "Edición de ruta seleccionada y sincronización",
+    "result": "Santurtzi/Ansio cambiado a Santurtzi/Moyua desde app; widget4 muestra nueva ruta sin refresco. Captura56."
+  },
+  {
+    "test": "Múltiples instancias finales",
+    "result": "Widget2 Casco Viejo/San Ignazio y widget4 Santurtzi/Moyua; capturas55,56."
+  },
+  {
+    "test": "Texto150 y compacto",
+    "result": "Revisadas visualmente42,43,48; pie visible tras corrección, décimo favorito accesible. Compacto3x4 (~266x464dp), ampliado4x5 (~360x584dp)."
+  },
+  {
+    "test": "Reinicio Android: selecciones independientes",
+    "result": "Widget2 Casco Viejo/San Ignazio y widget4 Santurtzi/Moyua restaurados, antes de abrir app ni refrescar."
+  },
+  {
+    "test": "Reinicio Android: favoritos",
+    "result": "Diez favoritos, orden y alias conservados. Captura58."
+  },
+  {
+    "test": "Preferencias y sincronización",
+    "result": "Activar vagones y desactivar minutos se refleja sin refresco; capturas59,60."
+  },
+  {
+    "test": "Lista completa APK final",
+    "result": "Ocho filas reales distintas recorridas dentro de ListWidget, incluida la última; captura61."
+  },
+  {
+    "test": "Consulta headless sin Metro",
+    "result": "Tras cierre de app y am kill, refresco del widget funciona con datos reales; puerto8081 sin listener."
+  },
+  {
+    "test": "APK definitivo: layout compacto y ampliado",
+    "result": "Capturas65-73; 100/150 por ciento, alias largo, selector, retorno y consulta reales, sin recortes en pie."
+  },
+  {
+    "test": "APK definitivo: ocho trenes accesibles",
+    "result": "Ocho filas distintas reales después del último ajuste; captura74."
+  },
+  {
+    "test": "APK definitivo: autónomo",
+    "result": "Consulta headless real tras am kill; sin Metro. Escala100 y red habilitada al finalizar."
+  }
+]
