@@ -1,0 +1,725 @@
+[
+  {
+    "code": "ABA",
+    "name": "Abando",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 24,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "ABT",
+    "name": "Abatxolo",
+    "line": [
+      "L2"
+    ],
+    "weight": 11,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "AIB",
+    "name": "Aiboa",
+    "line": [
+      "L1"
+    ],
+    "weight": 9,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "ALG",
+    "name": "Algorta",
+    "line": [
+      "L1"
+    ],
+    "weight": 8,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "ANS",
+    "name": "Ansio",
+    "line": [
+      "L2"
+    ],
+    "weight": 16,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "ARE",
+    "name": "Areeta",
+    "line": [
+      "L1"
+    ],
+    "weight": 12,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "ARZ",
+    "name": "Ariz",
+    "line": [
+      "L2"
+    ],
+    "weight": 30,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "AST",
+    "name": "Astrabudua",
+    "line": [
+      "L1"
+    ],
+    "weight": 15,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "BAG",
+    "name": "Bagatza",
+    "line": [
+      "L2"
+    ],
+    "weight": 14,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "BAR",
+    "name": "Barakaldo",
+    "line": [
+      "L2"
+    ],
+    "weight": 15,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "BAS",
+    "name": "Basarrate",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 27,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "BSR",
+    "name": "Basauri",
+    "line": [
+      "L2"
+    ],
+    "weight": 31,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "BER",
+    "name": "Berango",
+    "line": [
+      "L1"
+    ],
+    "weight": 5,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "BID",
+    "name": "Bidezabal",
+    "line": [
+      "L1"
+    ],
+    "weight": 7,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "BOL",
+    "name": "Bolueta",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 28,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "DEU",
+    "name": "Deustu",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 20,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "MOY",
+    "name": "Eliptikoa",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 23,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "ERA",
+    "name": "Erandio",
+    "line": [
+      "L1"
+    ],
+    "weight": 16,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "ETX",
+    "name": "Etxebarri",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 29,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "GOB",
+    "name": "Gobela",
+    "line": [
+      "L1"
+    ],
+    "weight": 11,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "GUR",
+    "name": "Gurutzeta/Cruces",
+    "line": [
+      "L2"
+    ],
+    "weight": 17,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "IBB",
+    "name": "Ibarbengoa",
+    "line": [
+      "L1"
+    ],
+    "weight": 6,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "IND",
+    "name": "Indautxu",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 22,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "KAB",
+    "name": "Kabiezes",
+    "line": [
+      "L2"
+    ],
+    "weight": 7,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "LAM",
+    "name": "Lamiako",
+    "line": [
+      "L1"
+    ],
+    "weight": 13,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "LAR",
+    "name": "Larrabasterra",
+    "line": [
+      "L1"
+    ],
+    "weight": 4,
+    "zones": [
+      {
+        "id": 5,
+        "name": "3",
+        "code": "Z3"
+      }
+    ]
+  },
+  {
+    "code": "LEI",
+    "name": "Leioa",
+    "line": [
+      "L1"
+    ],
+    "weight": 14,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      },
+      {
+        "id": 3,
+        "name": "2.1",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "LUT",
+    "name": "Lutxana",
+    "line": [
+      "L1"
+    ],
+    "weight": 17,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "NEG",
+    "name": "Neguri",
+    "line": [
+      "L1"
+    ],
+    "weight": 10,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "PEN",
+    "name": "Peñota",
+    "line": [
+      "L2"
+    ],
+    "weight": 9,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "PLE",
+    "name": "Plentzia",
+    "line": [
+      "L1"
+    ],
+    "weight": 1,
+    "zones": [
+      {
+        "id": 5,
+        "name": "3",
+        "code": "Z3"
+      }
+    ]
+  },
+  {
+    "code": "POR",
+    "name": "Portugalete",
+    "line": [
+      "L2"
+    ],
+    "weight": 10,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "SIN",
+    "name": "San Ignazio",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 18,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "SAM",
+    "name": "San Mamés",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 21,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "STZ",
+    "name": "Santurtzi",
+    "line": [
+      "L2"
+    ],
+    "weight": 8,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "SAN",
+    "name": "Santutxu",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 26,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "SAR",
+    "name": "Sarriko",
+    "line": [
+      "L1",
+      "L2"
+    ],
+    "weight": 19,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  },
+  {
+    "code": "SES",
+    "name": "Sestao",
+    "line": [
+      "L2"
+    ],
+    "weight": 12,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "SOP",
+    "name": "Sopela",
+    "line": [
+      "L1"
+    ],
+    "weight": 3,
+    "zones": [
+      {
+        "id": 5,
+        "name": "3",
+        "code": "Z3"
+      }
+    ]
+  },
+  {
+    "code": "URB",
+    "name": "Urbinaga",
+    "line": [
+      "L2"
+    ],
+    "weight": 13,
+    "zones": [
+      {
+        "id": 2,
+        "name": "2",
+        "code": "Z2"
+      }
+    ]
+  },
+  {
+    "code": "URD",
+    "name": "Urduliz",
+    "line": [
+      "L1"
+    ],
+    "weight": 2,
+    "zones": [
+      {
+        "id": 5,
+        "name": "3",
+        "code": "Z3"
+      }
+    ]
+  },
+  {
+    "code": "CAV",
+    "name": "Zazpikaleak/Casco Viejo",
+    "line": [
+      "L1",
+      "L2",
+      "L3"
+    ],
+    "weight": 25,
+    "zones": [
+      {
+        "id": 1,
+        "name": "1",
+        "code": "Z1"
+      }
+    ]
+  }
+]

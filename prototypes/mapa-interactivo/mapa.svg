@@ -1,0 +1,790 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2420 780" id="metro-map" role="group" aria-labelledby="map-title map-desc">
+<title id="map-title">Metro de Bilbao: mapa esquemático interactivo</title>
+<desc id="map-desc">L1 Plentzia a Etxebarri. L2 Kabiezes a Basauri. Tronco común San Ignazio a Etxebarri. L3 Matiko a Kukullaga-Etxebarri, con transbordo en Zazpikaleak/Casco Viejo y consultas de trenes no validadas. Coordenadas esquemáticas, no geográficas.</desc>
+<style>svg{--paper:#fcfcfa;--ink:#202a32;--muted:#596670;--l1:#dc4814;--l2:#20272b;--l3:#d00072;--origin:#007568;--destination:#2554cc;--route:#e5ad18;--zone1:#fff0d0;--zone2:#e7f3e9;--zone3:#e5f0fa;background:var(--paper);font-family:Arial,sans-serif}svg.dark{--paper:#172129;--ink:#f5f7fa;--muted:#bdc7d0;--l1:#ff7848;--l2:#e2e8ef;--l3:#ff64b9;--origin:#55e1c7;--destination:#8fb3ff;--zone1:#413c2c;--zone2:#243d33;--zone3:#223b4b}text{fill:var(--ink)}.label{font-size:20px;font-weight:500;paint-order:stroke;stroke:var(--paper);stroke-width:4;stroke-linejoin:round}.section{font-size:20px;fill:var(--muted);font-weight:600}.track{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:10}.L1{stroke:var(--l1)}.L2{stroke:var(--l2)}.L3{stroke:var(--l3);stroke-dasharray:12 5}.zone{fill:none;stroke-width:38;stroke-linecap:round;stroke-linejoin:round}.transfer{fill:none;stroke:var(--muted);stroke-width:3;stroke-dasharray:5 6}.stop{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}.unavailable .stop{stroke:var(--l3);stroke-dasharray:3 2}.hit{fill:transparent;stroke:none}.station{cursor:pointer;outline:none}.station:focus .stop,.station:hover .stop{stroke:var(--destination);stroke-width:5}.selection{display:none}.origin .selection,.destination .selection{display:block}.selection circle{fill:var(--paper);stroke-width:5}.origin .selection circle{stroke:var(--origin)}.destination .selection circle{stroke:var(--destination)}.selection text{font-size:16px;font-weight:bold;dominant-baseline:central;text-anchor:middle}.origin .selection text{fill:var(--origin)}.destination .selection text{fill:var(--destination)}.route-halo{fill:none;stroke:var(--route);stroke-width:28;opacity:.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}.route-core{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:3 7;pointer-events:none}.badge text{fill:white;font-size:21px;font-weight:bold;text-anchor:middle;dominant-baseline:central}.badge rect{rx:18}.muted{fill:var(--muted);font-size:18px}svg.dark .badge text{fill:var(--paper)}.selected .stop{fill:var(--zone1);stroke-width:3.5}.disabled .stop{stroke:var(--muted);opacity:.5}</style>
+<g id="zones" aria-hidden="true">
+<path d="M90,300 L155,300" class="zone" style="stroke:var(--zone3)"/>
+<path d="M155,300 L220,300" class="zone" style="stroke:var(--zone3)"/>
+<path d="M220,300 L285,300" class="zone" style="stroke:var(--zone3)"/>
+<path d="M285,300 L350,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M350,300 L415,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M415,300 L480,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M480,300 L545,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M545,300 L610,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M610,300 L675,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M675,300 L740,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M740,300 L805,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M805,300 L870,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M870,300 L935,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M935,300 L1000,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M1000,300 L1065,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M1065,300 L1130,300" class="zone" style="stroke:var(--zone2)"/>
+<path d="M1130,300 L1240,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1240,420 L1322,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1322,420 L1404,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1404,420 L1486,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1486,420 L1568,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1568,420 L1650,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1650,420 L1732,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1732,420 L1814,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1814,420 L1896,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1896,420 L1978,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1978,420 L2060,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M2060,420 L2142,420" class="zone" style="stroke:var(--zone2)"/>
+<path d="M470,550 L535,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M535,550 L600,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M600,550 L665,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M665,550 L730,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M730,550 L795,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M795,550 L860,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M860,550 L925,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M925,550 L990,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M990,550 L1055,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M1055,550 L1120,550" class="zone" style="stroke:var(--zone2)"/>
+<path d="M1120,550 L1240,420" class="zone" style="stroke:var(--zone1)"/>
+<path d="M2142,420 L2200,478" class="zone" style="stroke:var(--zone2)"/>
+<path d="M2200,478 L2258,536" class="zone" style="stroke:var(--zone2)"/>
+<path d="M1650,200 L1732,200" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1732,200 L1814,200" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1814,200 L1896,200" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1896,200 L1978,200" class="zone" style="stroke:var(--zone1)"/>
+<path d="M1978,200 L2060,200" class="zone" style="stroke:var(--zone1)"/>
+<path d="M2060,200 L2142,200" class="zone" style="stroke:var(--zone2)"/>
+</g>
+<g id="route" aria-hidden="true">
+</g>
+<g id="geometry" aria-hidden="true">
+<path id="track-PLE-URD-L1" class="track L1" d="M90,300 L155,300"/>
+<path id="track-URD-SOP-L1" class="track L1" d="M155,300 L220,300"/>
+<path id="track-SOP-LAR-L1" class="track L1" d="M220,300 L285,300"/>
+<path id="track-LAR-BER-L1" class="track L1" d="M285,300 L350,300"/>
+<path id="track-BER-IBB-L1" class="track L1" d="M350,300 L415,300"/>
+<path id="track-IBB-BID-L1" class="track L1" d="M415,300 L480,300"/>
+<path id="track-BID-ALG-L1" class="track L1" d="M480,300 L545,300"/>
+<path id="track-ALG-AIB-L1" class="track L1" d="M545,300 L610,300"/>
+<path id="track-AIB-NEG-L1" class="track L1" d="M610,300 L675,300"/>
+<path id="track-NEG-GOB-L1" class="track L1" d="M675,300 L740,300"/>
+<path id="track-GOB-ARE-L1" class="track L1" d="M740,300 L805,300"/>
+<path id="track-ARE-LAM-L1" class="track L1" d="M805,300 L870,300"/>
+<path id="track-LAM-LEI-L1" class="track L1" d="M870,300 L935,300"/>
+<path id="track-LEI-AST-L1" class="track L1" d="M935,300 L1000,300"/>
+<path id="track-AST-ERA-L1" class="track L1" d="M1000,300 L1065,300"/>
+<path id="track-ERA-LUT-L1" class="track L1" d="M1065,300 L1130,300"/>
+<path id="track-LUT-SIN-L1" class="track L1" d="M1130,300 L1240,420"/>
+<path id="track-SIN-SAR-L1" class="track L1" d="M1240,412 L1322,412"/>
+<path id="track-SIN-SAR-L2" class="track L2" d="M1240,428 L1322,428"/>
+<path id="track-SAR-DEU-L1" class="track L1" d="M1322,412 L1404,412"/>
+<path id="track-SAR-DEU-L2" class="track L2" d="M1322,428 L1404,428"/>
+<path id="track-DEU-SAM-L1" class="track L1" d="M1404,412 L1486,412"/>
+<path id="track-DEU-SAM-L2" class="track L2" d="M1404,428 L1486,428"/>
+<path id="track-SAM-IND-L1" class="track L1" d="M1486,412 L1568,412"/>
+<path id="track-SAM-IND-L2" class="track L2" d="M1486,428 L1568,428"/>
+<path id="track-IND-MOY-L1" class="track L1" d="M1568,412 L1650,412"/>
+<path id="track-IND-MOY-L2" class="track L2" d="M1568,428 L1650,428"/>
+<path id="track-MOY-ABA-L1" class="track L1" d="M1650,412 L1732,412"/>
+<path id="track-MOY-ABA-L2" class="track L2" d="M1650,428 L1732,428"/>
+<path id="track-ABA-CAV-L1" class="track L1" d="M1732,412 L1814,412"/>
+<path id="track-ABA-CAV-L2" class="track L2" d="M1732,428 L1814,428"/>
+<path id="track-CAV-SAN-L1" class="track L1" d="M1814,412 L1896,412"/>
+<path id="track-CAV-SAN-L2" class="track L2" d="M1814,428 L1896,428"/>
+<path id="track-SAN-BAS-L1" class="track L1" d="M1896,412 L1978,412"/>
+<path id="track-SAN-BAS-L2" class="track L2" d="M1896,428 L1978,428"/>
+<path id="track-BAS-BOL-L1" class="track L1" d="M1978,412 L2060,412"/>
+<path id="track-BAS-BOL-L2" class="track L2" d="M1978,428 L2060,428"/>
+<path id="track-BOL-ETX-L1" class="track L1" d="M2060,412 L2142,412"/>
+<path id="track-BOL-ETX-L2" class="track L2" d="M2060,428 L2142,428"/>
+<path id="track-KAB-STZ-L2" class="track L2" d="M470,550 L535,550"/>
+<path id="track-STZ-PEN-L2" class="track L2" d="M535,550 L600,550"/>
+<path id="track-PEN-POR-L2" class="track L2" d="M600,550 L665,550"/>
+<path id="track-POR-ABT-L2" class="track L2" d="M665,550 L730,550"/>
+<path id="track-ABT-SES-L2" class="track L2" d="M730,550 L795,550"/>
+<path id="track-SES-URB-L2" class="track L2" d="M795,550 L860,550"/>
+<path id="track-URB-BAG-L2" class="track L2" d="M860,550 L925,550"/>
+<path id="track-BAG-BAR-L2" class="track L2" d="M925,550 L990,550"/>
+<path id="track-BAR-ANS-L2" class="track L2" d="M990,550 L1055,550"/>
+<path id="track-ANS-GUR-L2" class="track L2" d="M1055,550 L1120,550"/>
+<path id="track-GUR-SIN-L2" class="track L2" d="M1120,550 L1240,420"/>
+<path id="track-ETX-ARZ-L2" class="track L2" d="M2142,420 L2200,478"/>
+<path id="track-ARZ-BSR-L2" class="track L2" d="M2200,478 L2258,536"/>
+<path id="track-ZZA-ZZB-L3" class="track L3" d="M1650,200 L1732,200"/>
+<path id="track-ZZB-ZZC-L3" class="track L3" d="M1732,200 L1814,200"/>
+<path id="track-ZZC-ZZD-L3" class="track L3" d="M1814,200 L1896,200"/>
+<path id="track-ZZD-ZZE-L3" class="track L3" d="M1896,200 L1978,200"/>
+<path id="track-ZZE-ZZF-L3" class="track L3" d="M1978,200 L2060,200"/>
+<path id="track-ZZF-ZZG-L3" class="track L3" d="M2060,200 L2142,200"/>
+<path id="transfer-CAV-ZZC" class="transfer" d="M1814,420 L1814,200"/>
+</g>
+<g id="annotations" aria-hidden="true">
+<g class="badge">
+<rect x="14" y="282" width="48" height="36" fill="var(--l1)"/>
+<text x="38" y="300">L1</text>
+</g>
+<g class="badge">
+<rect x="391" y="532" width="48" height="36" fill="var(--l2)"/>
+<text x="415" y="550">L2</text>
+</g>
+<g class="badge">
+<rect x="1551" y="182" width="48" height="36" fill="var(--l3)"/>
+<text x="1575" y="200">L3</text>
+</g>
+<g class="badge">
+<rect x="2226" y="384" width="48" height="36" fill="var(--l1)"/>
+<text x="2250" y="402">L1</text>
+</g>
+<g class="badge">
+<rect x="2296" y="535" width="48" height="36" fill="var(--l2)"/>
+<text x="2320" y="553">L2</text>
+</g>
+<text x="90" y="80" class="section">COSTA · L1</text>
+<text x="470" y="730" class="section">MARGEN IZQUIERDA · L2</text>
+<text x="1240" y="730" class="section">BILBAO · TRONCO COMPARTIDO</text>
+<text x="1690" y="282" class="muted">L3 · Euskotren · cobertura no validada</text>
+<text x="1835" y="335" class="muted">Transbordo</text>
+<text x="90" y="410" class="muted">Zonas: 3 azul · 2 verde · 1 ámbar</text>
+</g>
+<g id="labels">
+<text id="label-ABA" class="label" transform="translate(1736,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Abando</tspan>
+</text>
+<text id="label-ABT" class="label" transform="translate(734,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Abatxolo</tspan>
+</text>
+<text id="label-AIB" class="label" transform="translate(614,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Aiboa</tspan>
+</text>
+<text id="label-ALG" class="label" transform="translate(549,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Algorta</tspan>
+</text>
+<text id="label-ANS" class="label" transform="translate(1059,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Ansio</tspan>
+</text>
+<text id="label-ARE" class="label" transform="translate(809,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Areeta</tspan>
+</text>
+<text id="label-ARZ" class="label" transform="translate(2204,450) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Ariz</tspan>
+</text>
+<text id="label-AST" class="label" transform="translate(1004,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Astrabudua</tspan>
+</text>
+<text id="label-BAG" class="label" transform="translate(929,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Bagatza</tspan>
+</text>
+<text id="label-BAR" class="label" transform="translate(994,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Barakaldo</tspan>
+</text>
+<text id="label-BAS" class="label" transform="translate(1982,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Basarrate</tspan>
+</text>
+<text id="label-BSR" class="label" transform="translate(2262,573) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Basauri</tspan>
+</text>
+<text id="label-BER" class="label" transform="translate(354,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Berango</tspan>
+</text>
+<text id="label-BID" class="label" transform="translate(484,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Bidezabal</tspan>
+</text>
+<text id="label-BOL" class="label" transform="translate(2064,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Bolueta</tspan>
+</text>
+<text id="label-CAV" class="label" transform="translate(1818,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Zazpikaleak</tspan>
+<tspan x="0" dy="23">Casco Viejo</tspan>
+</text>
+<text id="label-DEU" class="label" transform="translate(1408,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Deustu</tspan>
+</text>
+<text id="label-ERA" class="label" transform="translate(1069,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Erandio</tspan>
+</text>
+<text id="label-ETX" class="label" transform="translate(2146,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Etxebarri</tspan>
+</text>
+<text id="label-GOB" class="label" transform="translate(744,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Gobela</tspan>
+</text>
+<text id="label-GUR" class="label" transform="translate(1124,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Gurutzeta/Cruces</tspan>
+</text>
+<text id="label-IBB" class="label" transform="translate(419,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Ibarbengoa</tspan>
+</text>
+<text id="label-IND" class="label" transform="translate(1572,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Indautxu</tspan>
+</text>
+<text id="label-KAB" class="label" transform="translate(474,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Kabiezes</tspan>
+</text>
+<text id="label-LAM" class="label" transform="translate(874,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Lamiako</tspan>
+</text>
+<text id="label-LAR" class="label" transform="translate(289,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Larrabasterra</tspan>
+</text>
+<text id="label-LEI" class="label" transform="translate(939,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Leioa</tspan>
+</text>
+<text id="label-LUT" class="label" transform="translate(1134,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Lutxana</tspan>
+</text>
+<text id="label-MOY" class="label" transform="translate(1654,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Eliptikoa</tspan>
+<tspan x="0" dy="23">Moyua</tspan>
+</text>
+<text id="label-NEG" class="label" transform="translate(679,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Neguri</tspan>
+</text>
+<text id="label-PEN" class="label" transform="translate(604,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Peñota</tspan>
+</text>
+<text id="label-PLE" class="label" transform="translate(94,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Plentzia</tspan>
+</text>
+<text id="label-POR" class="label" transform="translate(669,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Portugalete</tspan>
+</text>
+<text id="label-SIN" class="label" transform="translate(1244,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">San Ignazio</tspan>
+</text>
+<text id="label-SAM" class="label" transform="translate(1490,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">San Mamés</tspan>
+</text>
+<text id="label-SAN" class="label" transform="translate(1900,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Santutxu</tspan>
+</text>
+<text id="label-STZ" class="label" transform="translate(539,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Santurtzi</tspan>
+</text>
+<text id="label-SAR" class="label" transform="translate(1326,457) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Sarriko</tspan>
+</text>
+<text id="label-SES" class="label" transform="translate(799,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Sestao</tspan>
+</text>
+<text id="label-SOP" class="label" transform="translate(224,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Sopela</tspan>
+</text>
+<text id="label-URB" class="label" transform="translate(864,587) rotate(45)" aria-hidden="true">
+<tspan x="0" dy="0">Urbinaga</tspan>
+</text>
+<text id="label-URD" class="label" transform="translate(159,272) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Urduliz</tspan>
+</text>
+<text id="label-ZZA" class="label" transform="translate(1654,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Matiko</tspan>
+</text>
+<text id="label-ZZB" class="label" transform="translate(1736,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Uribarri</tspan>
+</text>
+<text id="label-ZZC" class="label" transform="translate(1818,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Zazpikaleak</tspan>
+<tspan x="0" dy="23">Casco Viejo</tspan>
+</text>
+<text id="label-ZZD" class="label" transform="translate(1900,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Zurbaranbarri</tspan>
+</text>
+<text id="label-ZZE" class="label" transform="translate(1982,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Txurdinaga</tspan>
+</text>
+<text id="label-ZZF" class="label" transform="translate(2064,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Otxarkoaga</tspan>
+</text>
+<text id="label-ZZG" class="label" transform="translate(2146,172) rotate(-45)" aria-hidden="true">
+<tspan x="0" dy="0">Kukullaga-</tspan>
+<tspan x="0" dy="23">Etxebarri</tspan>
+</text>
+</g>
+<g id="interaction">
+<g id="station-ABA" class="station " data-station="ABA" tabindex="0" role="button" aria-label="Abando, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Abando · L1/L2 · zona 1</title>
+<circle class="hit" cx="1732" cy="420" r="24"/>
+<rect class="stop" x="1726" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1732" cy="420" r="18"/>
+<text x="1732" y="420">
+</text>
+</g>
+</g>
+<g id="station-ABT" class="station " data-station="ABT" tabindex="0" role="button" aria-label="Abatxolo, L2, seleccionar estación" aria-pressed="false">
+<title>Abatxolo · L2 · zona 2</title>
+<circle class="hit" cx="730" cy="550" r="24"/>
+<circle class="stop" cx="730" cy="550" r="7"/>
+<g class="selection">
+<circle cx="730" cy="550" r="18"/>
+<text x="730" y="550">
+</text>
+</g>
+</g>
+<g id="station-AIB" class="station " data-station="AIB" tabindex="0" role="button" aria-label="Aiboa, L1, seleccionar estación" aria-pressed="false">
+<title>Aiboa · L1 · zona 2</title>
+<circle class="hit" cx="610" cy="300" r="24"/>
+<circle class="stop" cx="610" cy="300" r="7"/>
+<g class="selection">
+<circle cx="610" cy="300" r="18"/>
+<text x="610" y="300">
+</text>
+</g>
+</g>
+<g id="station-ALG" class="station " data-station="ALG" tabindex="0" role="button" aria-label="Algorta, L1, seleccionar estación" aria-pressed="false">
+<title>Algorta · L1 · zona 2</title>
+<circle class="hit" cx="545" cy="300" r="24"/>
+<circle class="stop" cx="545" cy="300" r="7"/>
+<g class="selection">
+<circle cx="545" cy="300" r="18"/>
+<text x="545" y="300">
+</text>
+</g>
+</g>
+<g id="station-ANS" class="station " data-station="ANS" tabindex="0" role="button" aria-label="Ansio, L2, seleccionar estación" aria-pressed="false">
+<title>Ansio · L2 · zona 2</title>
+<circle class="hit" cx="1055" cy="550" r="24"/>
+<circle class="stop" cx="1055" cy="550" r="7"/>
+<g class="selection">
+<circle cx="1055" cy="550" r="18"/>
+<text x="1055" y="550">
+</text>
+</g>
+</g>
+<g id="station-ARE" class="station " data-station="ARE" tabindex="0" role="button" aria-label="Areeta, L1, seleccionar estación" aria-pressed="false">
+<title>Areeta · L1 · zona 2</title>
+<circle class="hit" cx="805" cy="300" r="24"/>
+<circle class="stop" cx="805" cy="300" r="7"/>
+<g class="selection">
+<circle cx="805" cy="300" r="18"/>
+<text x="805" y="300">
+</text>
+</g>
+</g>
+<g id="station-ARZ" class="station " data-station="ARZ" tabindex="0" role="button" aria-label="Ariz, L2, seleccionar estación" aria-pressed="false">
+<title>Ariz · L2 · zona 2</title>
+<circle class="hit" cx="2200" cy="478" r="24"/>
+<circle class="stop" cx="2200" cy="478" r="7"/>
+<g class="selection">
+<circle cx="2200" cy="478" r="18"/>
+<text x="2200" y="478">
+</text>
+</g>
+</g>
+<g id="station-AST" class="station " data-station="AST" tabindex="0" role="button" aria-label="Astrabudua, L1, seleccionar estación" aria-pressed="false">
+<title>Astrabudua · L1 · zona 2</title>
+<circle class="hit" cx="1000" cy="300" r="24"/>
+<circle class="stop" cx="1000" cy="300" r="7"/>
+<g class="selection">
+<circle cx="1000" cy="300" r="18"/>
+<text x="1000" y="300">
+</text>
+</g>
+</g>
+<g id="station-BAG" class="station " data-station="BAG" tabindex="0" role="button" aria-label="Bagatza, L2, seleccionar estación" aria-pressed="false">
+<title>Bagatza · L2 · zona 2</title>
+<circle class="hit" cx="925" cy="550" r="24"/>
+<circle class="stop" cx="925" cy="550" r="7"/>
+<g class="selection">
+<circle cx="925" cy="550" r="18"/>
+<text x="925" y="550">
+</text>
+</g>
+</g>
+<g id="station-BAR" class="station " data-station="BAR" tabindex="0" role="button" aria-label="Barakaldo, L2, seleccionar estación" aria-pressed="false">
+<title>Barakaldo · L2 · zona 2</title>
+<circle class="hit" cx="990" cy="550" r="24"/>
+<circle class="stop" cx="990" cy="550" r="7"/>
+<g class="selection">
+<circle cx="990" cy="550" r="18"/>
+<text x="990" y="550">
+</text>
+</g>
+</g>
+<g id="station-BAS" class="station " data-station="BAS" tabindex="0" role="button" aria-label="Basarrate, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Basarrate · L1/L2 · zona 1</title>
+<circle class="hit" cx="1978" cy="420" r="24"/>
+<rect class="stop" x="1972" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1978" cy="420" r="18"/>
+<text x="1978" y="420">
+</text>
+</g>
+</g>
+<g id="station-BSR" class="station " data-station="BSR" tabindex="0" role="button" aria-label="Basauri, L2, seleccionar estación" aria-pressed="false">
+<title>Basauri · L2 · zona 2</title>
+<circle class="hit" cx="2258" cy="536" r="24"/>
+<circle class="stop" cx="2258" cy="536" r="7"/>
+<g class="selection">
+<circle cx="2258" cy="536" r="18"/>
+<text x="2258" y="536">
+</text>
+</g>
+</g>
+<g id="station-BER" class="station " data-station="BER" tabindex="0" role="button" aria-label="Berango, L1, seleccionar estación" aria-pressed="false">
+<title>Berango · L1 · zona 2</title>
+<circle class="hit" cx="350" cy="300" r="24"/>
+<circle class="stop" cx="350" cy="300" r="7"/>
+<g class="selection">
+<circle cx="350" cy="300" r="18"/>
+<text x="350" y="300">
+</text>
+</g>
+</g>
+<g id="station-BID" class="station " data-station="BID" tabindex="0" role="button" aria-label="Bidezabal, L1, seleccionar estación" aria-pressed="false">
+<title>Bidezabal · L1 · zona 2</title>
+<circle class="hit" cx="480" cy="300" r="24"/>
+<circle class="stop" cx="480" cy="300" r="7"/>
+<g class="selection">
+<circle cx="480" cy="300" r="18"/>
+<text x="480" y="300">
+</text>
+</g>
+</g>
+<g id="station-BOL" class="station " data-station="BOL" tabindex="0" role="button" aria-label="Bolueta, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Bolueta · L1/L2 · zona 1</title>
+<circle class="hit" cx="2060" cy="420" r="24"/>
+<rect class="stop" x="2054" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="2060" cy="420" r="18"/>
+<text x="2060" y="420">
+</text>
+</g>
+</g>
+<g id="station-CAV" class="station " data-station="CAV" tabindex="0" role="button" aria-label="Zazpikaleak/Casco Viejo, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Zazpikaleak/Casco Viejo · L1/L2 · zona 1</title>
+<circle class="hit" cx="1814" cy="420" r="24"/>
+<rect class="stop" x="1808" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1814" cy="420" r="18"/>
+<text x="1814" y="420">
+</text>
+</g>
+</g>
+<g id="station-DEU" class="station " data-station="DEU" tabindex="0" role="button" aria-label="Deustu, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Deustu · L1/L2 · zona 1</title>
+<circle class="hit" cx="1404" cy="420" r="24"/>
+<rect class="stop" x="1398" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1404" cy="420" r="18"/>
+<text x="1404" y="420">
+</text>
+</g>
+</g>
+<g id="station-ERA" class="station " data-station="ERA" tabindex="0" role="button" aria-label="Erandio, L1, seleccionar estación" aria-pressed="false">
+<title>Erandio · L1 · zona 2</title>
+<circle class="hit" cx="1065" cy="300" r="24"/>
+<circle class="stop" cx="1065" cy="300" r="7"/>
+<g class="selection">
+<circle cx="1065" cy="300" r="18"/>
+<text x="1065" y="300">
+</text>
+</g>
+</g>
+<g id="station-ETX" class="station " data-station="ETX" tabindex="0" role="button" aria-label="Etxebarri, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Etxebarri · L1/L2 · zona 2</title>
+<circle class="hit" cx="2142" cy="420" r="24"/>
+<rect class="stop" x="2136" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="2142" cy="420" r="18"/>
+<text x="2142" y="420">
+</text>
+</g>
+</g>
+<g id="station-GOB" class="station " data-station="GOB" tabindex="0" role="button" aria-label="Gobela, L1, seleccionar estación" aria-pressed="false">
+<title>Gobela · L1 · zona 2</title>
+<circle class="hit" cx="740" cy="300" r="24"/>
+<circle class="stop" cx="740" cy="300" r="7"/>
+<g class="selection">
+<circle cx="740" cy="300" r="18"/>
+<text x="740" y="300">
+</text>
+</g>
+</g>
+<g id="station-GUR" class="station " data-station="GUR" tabindex="0" role="button" aria-label="Gurutzeta/Cruces, L2, seleccionar estación" aria-pressed="false">
+<title>Gurutzeta/Cruces · L2 · zona 2</title>
+<circle class="hit" cx="1120" cy="550" r="24"/>
+<circle class="stop" cx="1120" cy="550" r="7"/>
+<g class="selection">
+<circle cx="1120" cy="550" r="18"/>
+<text x="1120" y="550">
+</text>
+</g>
+</g>
+<g id="station-IBB" class="station " data-station="IBB" tabindex="0" role="button" aria-label="Ibarbengoa, L1, seleccionar estación" aria-pressed="false">
+<title>Ibarbengoa · L1 · zona 2</title>
+<circle class="hit" cx="415" cy="300" r="24"/>
+<circle class="stop" cx="415" cy="300" r="7"/>
+<g class="selection">
+<circle cx="415" cy="300" r="18"/>
+<text x="415" y="300">
+</text>
+</g>
+</g>
+<g id="station-IND" class="station " data-station="IND" tabindex="0" role="button" aria-label="Indautxu, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Indautxu · L1/L2 · zona 1</title>
+<circle class="hit" cx="1568" cy="420" r="24"/>
+<rect class="stop" x="1562" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1568" cy="420" r="18"/>
+<text x="1568" y="420">
+</text>
+</g>
+</g>
+<g id="station-KAB" class="station " data-station="KAB" tabindex="0" role="button" aria-label="Kabiezes, L2, seleccionar estación" aria-pressed="false">
+<title>Kabiezes · L2 · zona 2</title>
+<circle class="hit" cx="470" cy="550" r="24"/>
+<circle class="stop" cx="470" cy="550" r="7"/>
+<g class="selection">
+<circle cx="470" cy="550" r="18"/>
+<text x="470" y="550">
+</text>
+</g>
+</g>
+<g id="station-LAM" class="station " data-station="LAM" tabindex="0" role="button" aria-label="Lamiako, L1, seleccionar estación" aria-pressed="false">
+<title>Lamiako · L1 · zona 2</title>
+<circle class="hit" cx="870" cy="300" r="24"/>
+<circle class="stop" cx="870" cy="300" r="7"/>
+<g class="selection">
+<circle cx="870" cy="300" r="18"/>
+<text x="870" y="300">
+</text>
+</g>
+</g>
+<g id="station-LAR" class="station " data-station="LAR" tabindex="0" role="button" aria-label="Larrabasterra, L1, seleccionar estación" aria-pressed="false">
+<title>Larrabasterra · L1 · zona 3</title>
+<circle class="hit" cx="285" cy="300" r="24"/>
+<circle class="stop" cx="285" cy="300" r="7"/>
+<g class="selection">
+<circle cx="285" cy="300" r="18"/>
+<text x="285" y="300">
+</text>
+</g>
+</g>
+<g id="station-LEI" class="station " data-station="LEI" tabindex="0" role="button" aria-label="Leioa, L1, seleccionar estación" aria-pressed="false">
+<title>Leioa · L1 · zona 2</title>
+<circle class="hit" cx="935" cy="300" r="24"/>
+<circle class="stop" cx="935" cy="300" r="7"/>
+<g class="selection">
+<circle cx="935" cy="300" r="18"/>
+<text x="935" y="300">
+</text>
+</g>
+</g>
+<g id="station-LUT" class="station " data-station="LUT" tabindex="0" role="button" aria-label="Lutxana, L1, seleccionar estación" aria-pressed="false">
+<title>Lutxana · L1 · zona 2</title>
+<circle class="hit" cx="1130" cy="300" r="24"/>
+<circle class="stop" cx="1130" cy="300" r="7"/>
+<g class="selection">
+<circle cx="1130" cy="300" r="18"/>
+<text x="1130" y="300">
+</text>
+</g>
+</g>
+<g id="station-MOY" class="station " data-station="MOY" tabindex="0" role="button" aria-label="Eliptikoa / Moyua, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Eliptikoa / Moyua · L1/L2 · zona 1</title>
+<circle class="hit" cx="1650" cy="420" r="24"/>
+<rect class="stop" x="1644" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1650" cy="420" r="18"/>
+<text x="1650" y="420">
+</text>
+</g>
+</g>
+<g id="station-NEG" class="station " data-station="NEG" tabindex="0" role="button" aria-label="Neguri, L1, seleccionar estación" aria-pressed="false">
+<title>Neguri · L1 · zona 2</title>
+<circle class="hit" cx="675" cy="300" r="24"/>
+<circle class="stop" cx="675" cy="300" r="7"/>
+<g class="selection">
+<circle cx="675" cy="300" r="18"/>
+<text x="675" y="300">
+</text>
+</g>
+</g>
+<g id="station-PEN" class="station " data-station="PEN" tabindex="0" role="button" aria-label="Peñota, L2, seleccionar estación" aria-pressed="false">
+<title>Peñota · L2 · zona 2</title>
+<circle class="hit" cx="600" cy="550" r="24"/>
+<circle class="stop" cx="600" cy="550" r="7"/>
+<g class="selection">
+<circle cx="600" cy="550" r="18"/>
+<text x="600" y="550">
+</text>
+</g>
+</g>
+<g id="station-PLE" class="station " data-station="PLE" tabindex="0" role="button" aria-label="Plentzia, L1, seleccionar estación" aria-pressed="false">
+<title>Plentzia · L1 · zona 3</title>
+<circle class="hit" cx="90" cy="300" r="24"/>
+<circle class="stop" cx="90" cy="300" r="7"/>
+<g class="selection">
+<circle cx="90" cy="300" r="18"/>
+<text x="90" y="300">
+</text>
+</g>
+</g>
+<g id="station-POR" class="station " data-station="POR" tabindex="0" role="button" aria-label="Portugalete, L2, seleccionar estación" aria-pressed="false">
+<title>Portugalete · L2 · zona 2</title>
+<circle class="hit" cx="665" cy="550" r="24"/>
+<circle class="stop" cx="665" cy="550" r="7"/>
+<g class="selection">
+<circle cx="665" cy="550" r="18"/>
+<text x="665" y="550">
+</text>
+</g>
+</g>
+<g id="station-SIN" class="station " data-station="SIN" tabindex="0" role="button" aria-label="San Ignazio, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>San Ignazio · L1/L2 · zona 1</title>
+<circle class="hit" cx="1240" cy="420" r="24"/>
+<rect class="stop" x="1234" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1240" cy="420" r="18"/>
+<text x="1240" y="420">
+</text>
+</g>
+</g>
+<g id="station-SAM" class="station " data-station="SAM" tabindex="0" role="button" aria-label="San Mamés, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>San Mamés · L1/L2 · zona 1</title>
+<circle class="hit" cx="1486" cy="420" r="24"/>
+<rect class="stop" x="1480" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1486" cy="420" r="18"/>
+<text x="1486" y="420">
+</text>
+</g>
+</g>
+<g id="station-SAN" class="station " data-station="SAN" tabindex="0" role="button" aria-label="Santutxu, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Santutxu · L1/L2 · zona 1</title>
+<circle class="hit" cx="1896" cy="420" r="24"/>
+<rect class="stop" x="1890" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1896" cy="420" r="18"/>
+<text x="1896" y="420">
+</text>
+</g>
+</g>
+<g id="station-STZ" class="station " data-station="STZ" tabindex="0" role="button" aria-label="Santurtzi, L2, seleccionar estación" aria-pressed="false">
+<title>Santurtzi · L2 · zona 2</title>
+<circle class="hit" cx="535" cy="550" r="24"/>
+<circle class="stop" cx="535" cy="550" r="7"/>
+<g class="selection">
+<circle cx="535" cy="550" r="18"/>
+<text x="535" y="550">
+</text>
+</g>
+</g>
+<g id="station-SAR" class="station " data-station="SAR" tabindex="0" role="button" aria-label="Sarriko, L1 y L2, seleccionar estación" aria-pressed="false">
+<title>Sarriko · L1/L2 · zona 1</title>
+<circle class="hit" cx="1322" cy="420" r="24"/>
+<rect class="stop" x="1316" y="405" width="12" height="30" rx="6"/>
+<g class="selection">
+<circle cx="1322" cy="420" r="18"/>
+<text x="1322" y="420">
+</text>
+</g>
+</g>
+<g id="station-SES" class="station " data-station="SES" tabindex="0" role="button" aria-label="Sestao, L2, seleccionar estación" aria-pressed="false">
+<title>Sestao · L2 · zona 2</title>
+<circle class="hit" cx="795" cy="550" r="24"/>
+<circle class="stop" cx="795" cy="550" r="7"/>
+<g class="selection">
+<circle cx="795" cy="550" r="18"/>
+<text x="795" y="550">
+</text>
+</g>
+</g>
+<g id="station-SOP" class="station " data-station="SOP" tabindex="0" role="button" aria-label="Sopela, L1, seleccionar estación" aria-pressed="false">
+<title>Sopela · L1 · zona 3</title>
+<circle class="hit" cx="220" cy="300" r="24"/>
+<circle class="stop" cx="220" cy="300" r="7"/>
+<g class="selection">
+<circle cx="220" cy="300" r="18"/>
+<text x="220" y="300">
+</text>
+</g>
+</g>
+<g id="station-URB" class="station " data-station="URB" tabindex="0" role="button" aria-label="Urbinaga, L2, seleccionar estación" aria-pressed="false">
+<title>Urbinaga · L2 · zona 2</title>
+<circle class="hit" cx="860" cy="550" r="24"/>
+<circle class="stop" cx="860" cy="550" r="7"/>
+<g class="selection">
+<circle cx="860" cy="550" r="18"/>
+<text x="860" y="550">
+</text>
+</g>
+</g>
+<g id="station-URD" class="station " data-station="URD" tabindex="0" role="button" aria-label="Urduliz, L1, seleccionar estación" aria-pressed="false">
+<title>Urduliz · L1 · zona 3</title>
+<circle class="hit" cx="155" cy="300" r="24"/>
+<circle class="stop" cx="155" cy="300" r="7"/>
+<g class="selection">
+<circle cx="155" cy="300" r="18"/>
+<text x="155" y="300">
+</text>
+</g>
+</g>
+<g id="station-ZZA" class="station unavailable" data-station="ZZA" tabindex="0" role="button" aria-label="Matiko, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Matiko · L3 · zona 1 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="1650" cy="200" r="24"/>
+<circle class="stop" cx="1650" cy="200" r="7"/>
+<g class="selection">
+<circle cx="1650" cy="200" r="18"/>
+<text x="1650" y="200">
+</text>
+</g>
+</g>
+<g id="station-ZZB" class="station unavailable" data-station="ZZB" tabindex="0" role="button" aria-label="Uribarri, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Uribarri · L3 · zona 1 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="1732" cy="200" r="24"/>
+<circle class="stop" cx="1732" cy="200" r="7"/>
+<g class="selection">
+<circle cx="1732" cy="200" r="18"/>
+<text x="1732" y="200">
+</text>
+</g>
+</g>
+<g id="station-ZZC" class="station unavailable" data-station="ZZC" tabindex="0" role="button" aria-label="Zazpikaleak/Casco Viejo, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Zazpikaleak/Casco Viejo · L3 · zona 1 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="1814" cy="200" r="24"/>
+<circle class="stop" cx="1814" cy="200" r="7"/>
+<g class="selection">
+<circle cx="1814" cy="200" r="18"/>
+<text x="1814" y="200">
+</text>
+</g>
+</g>
+<g id="station-ZZD" class="station unavailable" data-station="ZZD" tabindex="0" role="button" aria-label="Zurbaranbarri, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Zurbaranbarri · L3 · zona 1 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="1896" cy="200" r="24"/>
+<circle class="stop" cx="1896" cy="200" r="7"/>
+<g class="selection">
+<circle cx="1896" cy="200" r="18"/>
+<text x="1896" y="200">
+</text>
+</g>
+</g>
+<g id="station-ZZE" class="station unavailable" data-station="ZZE" tabindex="0" role="button" aria-label="Txurdinaga, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Txurdinaga · L3 · zona 1 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="1978" cy="200" r="24"/>
+<circle class="stop" cx="1978" cy="200" r="7"/>
+<g class="selection">
+<circle cx="1978" cy="200" r="18"/>
+<text x="1978" y="200">
+</text>
+</g>
+</g>
+<g id="station-ZZF" class="station unavailable" data-station="ZZF" tabindex="0" role="button" aria-label="Otxarkoaga, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Otxarkoaga · L3 · zona 1 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="2060" cy="200" r="24"/>
+<circle class="stop" cx="2060" cy="200" r="7"/>
+<g class="selection">
+<circle cx="2060" cy="200" r="18"/>
+<text x="2060" y="200">
+</text>
+</g>
+</g>
+<g id="station-ZZG" class="station unavailable" data-station="ZZG" tabindex="0" role="button" aria-label="Kukullaga-Etxebarri, L3, Euskotren, cobertura de trenes no validada" aria-pressed="false">
+<title>Kukullaga-Etxebarri · L3 · zona 2 · Sin consulta de trenes validada</title>
+<circle class="hit" cx="2142" cy="200" r="24"/>
+<circle class="stop" cx="2142" cy="200" r="7"/>
+<g class="selection">
+<circle cx="2142" cy="200" r="18"/>
+<text x="2142" y="200">
+</text>
+</g>
+</g>
+</g>
+</svg>

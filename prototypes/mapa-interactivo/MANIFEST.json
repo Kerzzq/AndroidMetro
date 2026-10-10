@@ -1,0 +1,152 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "9C284BE935BF3CEC0E9FC1BD277F146F71E99A057FDD1C0CDF4E713F84FB4E35",
+    "bytes": 5066
+  },
+  {
+    "path": "INVESTIGACION.md",
+    "sha256": "0BB312ED19270DB044FEF47C11ECDE8C16CD4824D5F58870B679D19AD130F66D",
+    "bytes": 9875
+  },
+  {
+    "path": "INTEGRACION_REACT_NATIVE.md",
+    "sha256": "ABFFE8B78A379518F076DBFB71F34FEF3AFB904BF95499657EC290DF1412B5BB",
+    "bytes": 7949
+  },
+  {
+    "path": "ESTACIONES.md",
+    "sha256": "75A64399D7F843F1E1FE68C4B71FDE5EA28E2788DE2B65E5ED20359CC8362909",
+    "bytes": 7020
+  },
+  {
+    "path": "VALIDACION.md",
+    "sha256": "D274EDE158262C6524F77C9783D056AE123EE79CCC401A2B7C9D2FAF5B86E7CE",
+    "bytes": 4493
+  },
+  {
+    "path": "VALIDACION.json",
+    "sha256": "461D42D72BA69E6327E495260A9FA744155663DB14E1A189ABA62B344FFD526A",
+    "bytes": 2812
+  },
+  {
+    "path": "galeria.html",
+    "sha256": "4B3E5784CEC086FAFCD2BC2B8E73B931E74C485C24CBC4551AAFC9BDA0A9264F",
+    "bytes": 2535
+  },
+  {
+    "path": "index.html",
+    "sha256": "53DEDBD141A4459BAC98207D47C13B26CC3C714BA7F88074C536FC1D3D119789",
+    "bytes": 3588
+  },
+  {
+    "path": "prototype.css",
+    "sha256": "9AFF6BC07A11585B44D15C423D529F511D9EE631E1BABB11DAFC93FC7CB37702",
+    "bytes": 7903
+  },
+  {
+    "path": "prototype.js",
+    "sha256": "AE05461CEF84E149BE018DA811C27D9E1520018E50E2715CD374D45863276611",
+    "bytes": 9924
+  },
+  {
+    "path": "map-core.js",
+    "sha256": "199424EF0BC21EAC2BE3711ECE6A28136E2CFE675589EB4D2C9FCDDA31CAC504",
+    "bytes": 6948
+  },
+  {
+    "path": "map-data.json",
+    "sha256": "1325E0894C8274CB3863FC21FD5CFD4179EF70C38E780E986AEF31FFF26C1B93",
+    "bytes": 68229
+  },
+  {
+    "path": "map-data.js",
+    "sha256": "4F4024CFA5B99C549320610CF7910CEE8E6CDFC418ECAFED20F802822E54CAA5",
+    "bytes": 44864
+  },
+  {
+    "path": "mapa.svg",
+    "sha256": "2A7A5AA2A1DDF013F3BFDB464A8B45C8443F38FA9CC2C438B3BB936221B0026A",
+    "bytes": 38492
+  },
+  {
+    "path": "build.cjs",
+    "sha256": "F87AA0D24451CEA195C2BE25714510D32E23541617D9183383287A93EF97C34A",
+    "bytes": 6999
+  },
+  {
+    "path": "serve.cjs",
+    "sha256": "13A9DC1AFB4A2DD0CC874E45666B5401BEA9686A793A665B93264CD97A795A8E",
+    "bytes": 960
+  },
+  {
+    "path": "validate.cjs",
+    "sha256": "6D50A25E1CEF6D28A76C45A1E620F9949E83F1BE89BB0274676AA9FB1A9DAA4F",
+    "bytes": 11588
+  },
+  {
+    "path": "sources/api-probes.json",
+    "sha256": "64CCCF8CAB9E2A69028BF248DA3220D8DD7998B429B937DCC9E0AA0F7345EDA8",
+    "bytes": 126159
+  },
+  {
+    "path": "sources/catalogue-snapshot.json",
+    "sha256": "101EF4347D86BE2FA7406807E37E7A3D7226CA5853E727FD2A96A3396B03AC09",
+    "bytes": 2548
+  },
+  {
+    "path": "sources/official-catalogue.json",
+    "sha256": "B5712581BBA4B2E8220F0AD9D5E6BE01BDA03B64EC3BB2C39CD2E4E9EE389727",
+    "bytes": 9718
+  },
+  {
+    "path": "sources/estaciones-metro.csv",
+    "sha256": "0C831CAF633DEB95794939C72B5E70DD434C745E683DCCE9AECA24546801E743",
+    "bytes": 5707
+  },
+  {
+    "path": "sources/native-compatibility-facts.json",
+    "sha256": "3595FA82AD73797B65C4551B9FBAEDBE67F67E3E1C20BE5CD19E9D2019921638",
+    "bytes": 972
+  },
+  {
+    "path": "captures/01-escritorio-completo.png",
+    "sha256": "4668F7481E7AF806F836E7F2E2D9FBFCEA20F7A5166C89828D55D9DF9887299D",
+    "bytes": 149206
+  },
+  {
+    "path": "captures/02-seleccion-detalle.png",
+    "sha256": "785490818111CE09F872DCC94F89E1D139A76C42E33CA0F4072A356A0CEF844C",
+    "bytes": 138897
+  },
+  {
+    "path": "captures/03-l3-transbordo-oscuro.png",
+    "sha256": "714653EDC6E0B3E7695F90D4C1E709AA241D6DC8B542B4E2924D714DB12A1ABF",
+    "bytes": 133669
+  },
+  {
+    "path": "captures/04-movil-completo.png",
+    "sha256": "EC2E357396762E5DF6A9036AF6E12B96758D553902A73F594C729503D63AF894",
+    "bytes": 54170
+  },
+  {
+    "path": "captures/05-movil-seleccion.png",
+    "sha256": "8B4D53ADDA280990D9263082DFEA594AE791D8117C3B95F90EACA4BE2E2ED539",
+    "bytes": 63360
+  },
+  {
+    "path": "captures/06-movil-desambiguacion.png",
+    "sha256": "B481D781146DADC65786869440CB388E06F5F7FB1384656530475ACA34AE3DB5",
+    "bytes": 67881
+  },
+  {
+    "path": "captures/07-svg-general.png",
+    "sha256": "88A9197706DE8BB7D5DCA6B7867E6E909EC189B97A5624E89BE1DF1049113580",
+    "bytes": 145568
+  },
+  {
+    "path": "sources/legal-evidence.json",
+    "sha256": "67F5975FAA147ACE2F8506E75CB44A24D3B160A24057F807A947D8BC6A54DF57",
+    "bytes": 1146
+  }
+]

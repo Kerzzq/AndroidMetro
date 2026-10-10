@@ -1,0 +1,36 @@
+{
+  "checked": "2026-10-10",
+  "installed": {
+    "expo": "55.0.2",
+    "reactNative": "0.83.2",
+    "react": "19.2.0",
+    "newArchitecture": true,
+    "hermes": true
+  },
+  "expoLocalRecommendations": {
+    "svg": "15.15.3",
+    "gestureHandler": "~2.30.0",
+    "reanimated": "4.2.1",
+    "worklets": "0.7.2"
+  },
+  "installedExtraLibraries": [],
+  "reanimatedExactTag": {
+    "url": "https://raw.githubusercontent.com/software-mansion/react-native-reanimated/4.2.1/packages/react-native-reanimated/compatibility.json",
+    "compatibleFabricVersions": {
+      "react-native": [
+        "0.80",
+        "0.81",
+        "0.82",
+        "0.83"
+      ],
+      "react-native-worklets": [
+        "0.7.x"
+      ]
+    }
+  },
+  "svgExactTag": {
+    "url": "https://raw.githubusercontent.com/software-mansion/react-native-svg/v15.15.3/README.md",
+    "minRNFor15_13AndAbove": "0.78.0"
+  },
+  "note": "Compatibilidad declarada; no se compilaron ni instalaron estas bibliotecas."
+}

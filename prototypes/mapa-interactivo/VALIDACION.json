@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-10T10:26:38.172Z",
+  "browser": "Microsoft Edge headless / Chromium; motor instalado",
+  "platform": "Windows; prototipo navegador, sin validación Android",
+  "checks": [
+    {
+      "name": "49 IDs únicos, códigos y coordenadas finitas",
+      "pass": true
+    },
+    {
+      "name": "Catálogo app conservado con 42 L1/L2 y 7 L3 no validadas",
+      "pass": true
+    },
+    {
+      "name": "Secuencias L1/L2 coinciden con el orden weight oficial",
+      "pass": true
+    },
+    {
+      "name": "48 enlaces conocidos; grafo conectado sin nodos colgantes",
+      "pass": true
+    },
+    {
+      "name": "CAV/ZZC transbordo y ETX/ZZG sin enlace ficticio",
+      "pass": true
+    },
+    {
+      "name": "Ramales pasan por San Ignazio y L1 no acaba nominalmente en Basauri",
+      "pass": true
+    },
+    {
+      "name": "Selección rechaza estaciones iguales y permite corrección",
+      "pass": true
+    },
+    {
+      "name": "HTML incluye las 49 estaciones",
+      "pass": true
+    },
+    {
+      "name": "Selectores: origen, destino y ruta L1/L2",
+      "pass": true
+    },
+    {
+      "name": "Teclado, corregir O, conservar D, intercambiar y reset",
+      "pass": true
+    },
+    {
+      "name": "L3 y transbordo: aviso visible; tema oscuro",
+      "pass": true
+    },
+    {
+      "name": "Pulsaciones sobre SVG móvil: O Abando / D Casco Viejo; 48 px en detalle",
+      "pass": true
+    },
+    {
+      "name": "Arrastre no selecciona; rueda aumenta zoom",
+      "pass": true
+    },
+    {
+      "name": "Zoom respeta límites mínimo (mapa completo) y máximo 3 unidades CSS por unidad SVG",
+      "pass": true
+    },
+    {
+      "name": "Vista general móvil: toque ambiguo exige confirmación antes de seleccionar",
+      "pass": true
+    },
+    {
+      "name": "Pellizco de dos contactos emulados CDP; no cambia selección",
+      "pass": true
+    }
+  ],
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "minControlHeight": 44,
+      "fitScale": 0.15041322314049588
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "minControlHeight": 44,
+      "fitScale": 0.13801652892561983
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "minControlHeight": 44,
+      "fitScale": 0.28677685950413223
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "minControlHeight": 44,
+      "fitScale": 0.5644628099173554
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "minControlHeight": 44,
+      "fitScale": 0.3181818181818182
+    }
+  ],
+  "consoleErrors": [],
+  "touchDetail": {
+    "width": 48,
+    "height": 48,
+    "fontPx": 17
+  },
+  "labelGeometry": {
+    "collisions": [],
+    "outOfBounds": []
+  }
+}

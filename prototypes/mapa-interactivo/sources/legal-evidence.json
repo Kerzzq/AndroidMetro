@@ -1,0 +1,17 @@
+{
+  "checked": "2026-10-10",
+  "method": "Contenido renderizado de la web oficial en Edge; lectura pública, sin enviar formularios",
+  "metroBilbao": {
+    "url": "https://www.metrobilbao.eus/es/informacion-legal",
+    "section": "5. Derechos de Propiedad Intelectual",
+    "shortExcerpt": "Se prohíbe la modificación, copia, reproducción, descarga, transmisión, distribución o transformación de los contenidos del Portal",
+    "qualification": "El texto añade autorización del titular o permiso legal; el acceso no transfiere derechos. Descargas privadas no equivalen a permiso para redistribuir el plano.",
+    "openDataUrl": "https://www.metrobilbao.eus/es/open-data",
+    "openDataObservation": "Se describe consulta y descarga de datasets; no se identificó allí una licencia específica de redistribución para la imagen del mapa."
+  },
+  "euskotren": {
+    "url": "https://euskotren.eus/fr/l3/planos",
+    "observation": "El pie de página restringe reproducción sin autorización."
+  },
+  "delivery": "Geometría propia y hechos de la red. Sin JPG, PDF, raster, trazados oficiales ni logos oficiales en recursos entregados."
+}
