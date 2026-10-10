@@ -1,0 +1,114 @@
+[
+  {
+    "test": "Detalle de todos los resultados reales",
+    "result": "8 horas distintas recorridas: 11:17, 11:22, 11:27, 11:32, 11:37, 11:44, 11:47, 11:52"
+  },
+  {
+    "test": "Consulta independiente de la configuración",
+    "result": "Tarjetas y lista completa disponibles directamente al abrir"
+  },
+  {
+    "test": "Fuente 150 %",
+    "result": "Home, alias largo y detalle visibles; revisar capturas"
+  },
+  {
+    "test": "Editar alias y volver a consulta",
+    "result": "Alias Trabajo visible en tarjeta; ruta y trenes conservados"
+  },
+  {
+    "test": "Reordenar desde gestión",
+    "result": "Casco Viejo pasa a ser primera tarjeta"
+  },
+  {
+    "test": "Editar estaciones y consulta",
+    "result": "Abando → Ansio se valida por API y aparece en home con consulta propia"
+  },
+  {
+    "test": "Cancelar eliminación",
+    "result": "Favorito conservado"
+  },
+  {
+    "test": "Eliminar con confirmación",
+    "result": "Nueve favoritos tras confirmar"
+  },
+  {
+    "test": "Crear y conservar diez favoritos",
+    "result": "Abando → Moyua creado; Añadir vuelve a estar deshabilitado"
+  },
+  {
+    "test": "CRUD completo",
+    "result": "Editor existente reutilizado, consulta separada; sin cambio de schema"
+  },
+  {
+    "test": "Sin conexión con caché",
+    "result": "Error de red explícito y datos anteriores señalizados de la misma ruta"
+  },
+  {
+    "test": "Refresco manual y recuperación",
+    "result": "Nueva consulta real y desaparición del error"
+  },
+  {
+    "test": "Actualizar todos deslizando",
+    "result": "Tarjetas consultadas sin abrir gestión"
+  },
+  {
+    "test": "Intentos de automatización no válidos",
+    "result": "Primer arranque user10 antes de desbloqueo y click selector antes de repintado; se repiten con estado confirmado. No son evidencia positiva."
+  },
+  {
+    "test": "Usuario Android sin widgets",
+    "result": "Usuario 10 independiente: estado vacío, crear Casa STZ/MOY, consultar y ver lista completa sin añadir widget"
+  },
+  {
+    "test": "Duplicado desde gestión secundaria",
+    "result": "Mismo STZ/MOY bloqueado; no se guarda una segunda copia"
+  },
+  {
+    "test": "Preferencia de vagones",
+    "result": "Tarjetas respetan preferencia compartida, sin cambiar el modelo"
+  },
+  {
+    "test": "Minutos sin contador ficticio",
+    "result": "Hora prevista siempre visible; estimación rotulada al consultar"
+  },
+  {
+    "test": "Autonomía de APK",
+    "result": "Inicio COLD en usuario sin widgets; bundle Hermes integrado y sin listener Metro en 8081"
+  },
+  {
+    "test": "Widget: selector y cambio de ruta",
+    "result": "ID2 cambió CAV/SIN a BAR/MOY y vuelve a CAV/SIN sin abrir app"
+  },
+  {
+    "test": "Independencia de widgets",
+    "result": "ID4 conserva STZ/MOY mientras cambia ID2"
+  },
+  {
+    "test": "Widget: refresco y desplazamiento",
+    "result": "Consulta manual real y filas posteriores dentro de la colección del widget compacto"
+  },
+  {
+    "test": "Intento de navegación tras reinicio",
+    "result": "El launcher volvió a página 1; se corrige la navegación. No se toma el primer intento como evidencia positiva."
+  },
+  {
+    "test": "Reinicio Android: widgets",
+    "result": "Antes de abrir app, ID2 CAV/SIN e ID4 STZ/MOY conservan selección"
+  },
+  {
+    "test": "Reinicio Android: app",
+    "result": "Diez favoritos y orden se mantienen; home vuelve a consultar"
+  },
+  {
+    "test": "Validación sobre APK final",
+    "result": "Alias Centro guardado después del reinicio; tarjeta CAV/SIN y consulta real"
+  },
+  {
+    "test": "APK definitivo (552fa53)",
+    "result": "Instalado sin borrar datos; arranque autónomo (am start WARM), alias Centro persistente, diez favoritos, consulta/refresco y detalle reales. Límite global de consultas verificado además en pruebas simuladas."
+  },
+  {
+    "test": "Artefacto visual SystemUI del emulador",
+    "result": "Recorte de barra de estado presente también en launcher después del reinicio; desaparece al reiniciar com.android.systemui. Retorno desde gestión y detalle revisado; sin cambios de código. Captura 38."
+  }
+]
