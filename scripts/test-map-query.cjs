@@ -1,0 +1,36 @@
+const assert=require('assert/strict');
+const {createMapQueryController}=require('../src/services/mapQueryController');
+const {saveMapFavorite}=require('../src/services/saveMapFavorite');
+const {migratePanels,upsertFavorite}=require('../src/domain/favoritesModel');
+const deferred=()=>{let resolve;const promise=new Promise(r=>resolve=r);return{promise,resolve};};
+const tick=()=>new Promise(r=>setImmediate(r));
+const route={from:'STZ',to:'MOY'},other={from:'PLE',to:'BSR'};
+const good=r=>({routeKey:`${r.from}/${r.to}`,status:'success',fetchedAt:Date.now(),trains:Array.from({length:24},(_,i)=>({time:`13:${String(i).padStart(2,'0')}`,destination:r.to,minutesAtQuery:i,wagons:4}))});
+(async()=>{
+  const late=deferred();let response=r=>r.from==='STZ'?late.promise:Promise.resolve(good(r));
+  let cache=r=>Promise.resolve(good(r));const emissions=[];
+  const service={loadCachedRoute:r=>cache(r),queryTrains:r=>response(r)};
+  const c=createMapQueryController({service,onChange:e=>emissions.push(e)});
+  c.select(route);const first=c.query();await tick();c.select(other);assert.equal(c.getState().data,null);await c.query();late.resolve(good(route));await first;
+  assert.equal(c.getState().data.routeKey,'PLE/BSR');assert.equal(c.getState().data.trains.length,24);
+  response=async()=>({status:'error',kind:'network'});await c.query();assert.equal(c.getState().data.status,'error');assert.equal(c.getState().data.trains.length,24);
+  response=async r=>({...good(r),status:'empty',trains:[]});await c.query();assert.equal(c.getState().data.status,'empty');assert.deepEqual(c.getState().data.trains,[]);
+  const paused=deferred();response=()=>paused.promise;const pending=c.query();await tick();c.stop();const count=emissions.length;paused.resolve(good(other));await pending;assert.equal(emissions.length,count);assert(!c.getState().loading);
+  c.activate();c.select(route);cache=()=>Promise.resolve(good(other));const waited=deferred();response=()=>waited.promise;const noMix=c.query();await tick();assert.equal(c.getState().data,null);waited.resolve(good(route));await noMix;
+  let document=migratePanels([]),queries=0,synced=0;
+  const repository={loadFavorites:async()=>document,changeFavorites:async operation=>{document=operation(document);}};
+  const options={route,name:'  Casa  ',repository,service:{queryTrains:async r=>{queries++;return good(r);}},syncWidgets:async()=>{synced++;},makeId:()=>`map-${queries}`};
+  await saveMapFavorite(options);assert.equal(document.favorites[0].name,'Casa');assert.equal(synced,1);
+  await assert.rejects(saveMapFavorite(options),/Ya tienes/);assert.equal(queries,1);
+  document=migratePanels([]);
+  await assert.rejects(saveMapFavorite({...options,service:{queryTrains:async()=>({status:'error',kind:'service'})}}),/No se ha podido validar/);assert.equal(document.favorites.length,0);
+  await saveMapFavorite({...options,service:{queryTrains:async r=>({...good(r),status:'empty',trains:[]})}});assert.equal(document.favorites.length,1);
+  document={schemaVersion:1,revision:1,favorites:Array.from({length:10},(_,i)=>({id:String(i),from:'PLE',to:['URD','SOP','LAR','BER','IBB','BID','ALG','AIB','NEG','GOB'][i],name:''}))};
+  await assert.rejects(saveMapFavorite(options),/hasta 10/);
+  document=migratePanels([]);
+  // Concurrent writer wins while API validation is in progress; serial recheck rejects duplicate.
+  const validate=deferred();const writing=saveMapFavorite({...options,service:{queryTrains:()=>validate.promise}});await tick();
+  document=upsertFavorite(document,{...route,id:'another-writer',name:''},require('../src/data/stations').STATION_MAP);validate.resolve(good(route));await assert.rejects(writing,/Ya tienes/);assert.equal(document.favorites.length,1);
+  document=migratePanels([]);const warning=await saveMapFavorite({...options,syncWidgets:async()=>{throw Error('widget unavailable');}});assert(warning.widgetWarning);assert.equal(document.favorites.length,1);
+  console.log('PASS: late responses, route cache isolation, network/empty/loading, pause/resume, all 24 rows; favourites validation, duplicates, ten limit, concurrent writes and widget notification (simulated).');
+})().catch(error=>{console.error(error);process.exitCode=1;});

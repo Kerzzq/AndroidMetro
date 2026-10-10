@@ -1,17 +1,48 @@
-import React, { useState } from 'react';
-import { FlatList, Modal, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { AppState, FlatList, Keyboard, Modal, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import MetroMap from '../components/MetroMap';
 import { data, stations, hitStations, selectStation } from '../domain/mapModel';
 import { normalizeSearch } from '../domain/favoritesModel';
+import { TrainDetail } from '../components/TrainComponents';
+import { createMapQueryController } from '../services/mapQueryController';
+import { saveMapFavorite } from '../services/saveMapFavorite';
+import * as repository from '../services/favoritesRepository';
+import * as service from '../services/trainService';
+import { syncWidgets } from '../widgets/widgetRuntime';
+const mapNames=Object.fromEntries(data.stations.map(st=>[st.id,st.displayName]));
 export function MapButton({ text, label = text, onPress, disabled, primary }) {
   return <TouchableOpacity accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled: !!disabled }} disabled={disabled} onPress={onPress} style={[s.button, primary && s.primary, disabled && { opacity: .4 }]}><Text style={[s.buttonText, primary && { color: '#011228' }]}>{text}</Text></TouchableOpacity>;
 }
-export default function MapScreen({ onClose }) {
+export default function MapScreen({ onClose, visible }) {
   const [selection, setSelection] = useState({ from: null, to: null, editing: 'from', error: '' });
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
   const [picker, setPicker] = useState(null), [search, setSearch] = useState('');
+  const [entry,setEntry]=useState({key:null,data:null,loading:false}),[results,setResults]=useState(false),[settings,setSettings]=useState(null);
+  const [saveDraft,setSaveDraft]=useState(null),[alias,setAlias]=useState(''),[saving,setSaving]=useState(false),[saveError,setSaveError]=useState(''),[message,setMessage]=useState('');
+  const controllerRef=useRef(null);
+  if(!controllerRef.current)controllerRef.current=createMapQueryController({service,onChange:setEntry});
+  const controller=controllerRef.current;
+  const route={from:selection.from,to:selection.to},key=route.from&&route.to?`${route.from}/${route.to}`:null;
+  const currentEntry=entry.key===key?entry:{key,data:null,loading:false};
+  useEffect(()=>{controller.select(key?route:null);setMessage('');},[key,controller]);
+  useEffect(()=>{
+    if(!visible){controller.stop();return;}
+    controller.activate();let alive=true;
+    repository.loadSettings().then(value=>{if(alive)setSettings(value);}).catch(()=>{});
+    const sub=AppState.addEventListener('change',next=>{if(next==='active')controller.activate();else controller.stop();});
+    return()=>{alive=false;sub.remove();controller.stop();};
+  },[visible,controller]);
+  async function save() {
+    if(saving)return;
+    Keyboard.dismiss();setSaving(true);setSaveError('');
+    try {
+      const saved=await saveMapFavorite({route:saveDraft,name:alias,repository,service,syncWidgets});
+      setSaveDraft(null);setMessage(saved.widgetWarning?'Favorito guardado. Actualiza el widget si no responde.':'Favorito guardado.');
+    } catch(error){setSaveError(error.message);}
+    finally{setSaving(false);}
+  }
   const scale = useSharedValue(1), tx = useSharedValue(0), ty = useSharedValue(0);
   const minScale = useSharedValue(.1), vw = useSharedValue(0), vh = useSharedValue(0);
   const startScale = useSharedValue(1), startX = useSharedValue(0), startY = useSharedValue(0), anchorX = useSharedValue(0), anchorY = useSharedValue(0);
@@ -25,7 +56,10 @@ export default function MapScreen({ onClose }) {
   function focusStation(id) {
     if (!id || !viewport.width) return;
     const st=stations[id], z=Math.min(1.3,Math.max(.85,scale.value));
-    scale.value=z; tx.value=viewport.width/2-st.x*z; ty.value=viewport.height/2-st.y*z;
+    const w=2420*z,h=560*z;
+    const x=viewport.width/2-st.x*z,y=viewport.height/2-st.y*z;
+    tx.value=w<viewport.width?(viewport.width-w)/2:Math.min(24,Math.max(viewport.width-w-24,x));
+    ty.value=h<viewport.height?(viewport.height-h)/2:Math.min(24,Math.max(viewport.height-h-24,y));scale.value=z;
   }
   function choose(id) { setSelection(previous => selectStation(previous, id)); setPicker(null); }
   function tap(x,y,z,xOffset,yOffset) {
@@ -69,7 +103,9 @@ export default function MapScreen({ onClose }) {
       </View></GestureDetector>
       <View style={[s.controls,viewport.width>viewport.height && {flexDirection: 'row'}]}><MapButton text="−" label="Alejar mapa" onPress={()=>zoom(1/1.6)} /><MapButton text="+" label="Ampliar mapa" onPress={()=>zoom(1.6)} /><MapButton text="⌖" label="Ver mapa completo" onPress={()=>fit()} /></View>
     </View>
-    <View style={s.footer}><Text style={s.hint}>{selection.from&&selection.to?'Recorrido físico resaltado':'Selecciona '+(selection.editing==='from'?'origen':'destino')}</Text><View style={s.footerActions}><MapButton text="Origen" label="Cambiar origen en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'from',error:''}));focusStation(selection.from);}} /><MapButton text="Destino" label="Cambiar destino en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'to',error:''}));focusStation(selection.to);}} /></View></View>
+    <View style={s.footer}><Text accessibilityLiveRegion="polite" style={s.hint}>{message||(key?'Recorrido físico · consulta el servicio':'Selecciona '+(selection.editing==='from'?'origen':'destino'))}</Text><View style={s.footerActions}><MapButton text="Origen" label="Cambiar origen en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'from',error:''}));focusStation(selection.from);}} /><MapButton text="Destino" label="Cambiar destino en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'to',error:''}));focusStation(selection.to);}} /><MapButton text="Consultar" primary disabled={!key} onPress={()=>{setResults(true);controller.query();}} /><MapButton text="Guardar" label="Guardar trayecto como favorito" disabled={!key} onPress={()=>{setSaveDraft({...route});setAlias('');setSaveError('');}} /></View></View>
+    <Modal visible={results} animationType="slide" onRequestClose={()=>setResults(false)}>{results?<TrainDetail route={route} entry={currentEntry} settings={settings} names={mapNames} mapRoute onClose={()=>setResults(false)} onRefresh={()=>controller.query()} />:null}</Modal>
+    <Modal visible={!!saveDraft} animationType="slide" onRequestClose={()=>{if(!saving)setSaveDraft(null);}}><View style={s.screen}><View style={s.header}><Text style={s.title}>Guardar favorito</Text><MapButton text="Volver" disabled={saving} onPress={()=>setSaveDraft(null)} /></View><ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{padding:16}}><Text style={s.fieldText}>{mapNames[saveDraft?.from]} → {mapNames[saveDraft?.to]}</Text><TextInput accessibilityLabel="Alias opcional" placeholder="Alias opcional" placeholderTextColor="#B7CADD" value={alias} onChangeText={setAlias} editable={!saving} maxLength={80} style={s.search} />{saveError?<Text accessibilityLiveRegion="polite" style={s.warning}>{saveError}</Text>:null}<MapButton text={saving?'Guardando…':'Guardar favorito'} disabled={saving} primary onPress={save} /></ScrollView></View></Modal>
     <Modal visible={!!picker} animationType="slide" onRequestClose={()=>setPicker(null)}><View style={s.screen}><View style={s.header}><Text style={[s.title,{flex:1}]}>{selection.editing==='from'?'Origen':'Destino'}</Text><MapButton text="Volver" onPress={()=>setPicker(null)} /></View><TextInput accessibilityLabel="Buscar estación" placeholder="Buscar estación" placeholderTextColor="#B7CADD" value={search} onChangeText={setSearch} style={s.search} autoCorrect={false} /><FlatList data={list} keyExtractor={st=>st.id} keyboardShouldPersistTaps="handled" renderItem={({item})=><TouchableOpacity accessibilityRole="button" onPress={()=>choose(item.id)} style={s.listItem}><Text style={s.fieldText}>{item.displayName}</Text><Text style={s.hint}>{item.lines.join(' · ')}</Text></TouchableOpacity>} ListEmptyComponent={<Text style={s.warning}>No se encuentra la estación.</Text>} /></View></Modal>
   </GestureHandlerRootView>;
 }

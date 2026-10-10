@@ -14,7 +14,7 @@ export default memo(function MetroMap({ from, to }) {
     </G>)}</G>
     <SvgText x={25} y={128} fontSize={26} fontWeight="bold" fill={lineColor.L1}>L1</SvgText>
     <SvgText x={400} y={378} fontSize={26} fontWeight="bold" fill={lineColor.L2}>L2</SvgText>
-    <SvgText x={2225} y={240} fontSize={26} fontWeight="bold" fill={lineColor.L1}>L1</SvgText>
+    <SvgText x={2085} y={195} fontSize={26} fontWeight="bold" fill={lineColor.L1}>L1</SvgText>
     <SvgText x={2310} y={385} fontSize={26} fontWeight="bold" fill={lineColor.L2}>L2</SvgText>
   </Svg>;
 });
