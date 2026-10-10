@@ -15,7 +15,7 @@ function RouteNames({ route, size = 14, dropdown = false }) {
     <Label text={`→ ${STATION_MAP[route.to] || route.to || 'Elige destino'}${dropdown ? '  ▾' : ''}`} size={size} maxLines={2} />
   </FlexWidget>;
 }
-function TrainRow({ train, settings, fetchedAt, width, scale }) {
+function TrainRow({ train, settings, fetchedAt, width, scale, viewportHeight }) {
   const date = train.serviceTime?.match(/^(\d{4})-(\d{2})-(\d{2})T/);
   const dateLabel = date && `${date[3]}/${date[2]}` !== queryDate(fetchedAt) ? `${date[3]}/${date[2]} · ` : '';
   const extra = [settings.timeDisplayMode === 'minutes' && train.minutesAtQuery !== null ? `${train.minutesAtQuery} min al consultar` : '', settings.showWagons && train.wagons ? `${train.wagons} vagones` : ''].filter(Boolean).join(' · ');
@@ -23,7 +23,7 @@ function TrainRow({ train, settings, fetchedAt, width, scale }) {
   const extraLines = extra ? Math.ceil(extra.length / Math.max(8, (width-48)/(12*.58*scale))) : 0;
   // Explicit item height avoids the native collection measuring tall rows against its viewport.
   const rowHeight = Math.ceil(Math.max(25*1.35, 15*1.35*directionLines+(dateLabel ? 12*1.35 : 0))*scale + (extraLines ? 12*1.4*scale*extraLines+5 : 0)+24);
-  return <FlexWidget style={{ flexDirection: 'column', width: 'match_parent', height: rowHeight, paddingVertical: 11, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: C.line }} accessibilityLabel={`${dateLabel}${train.time}, hacia ${train.destination}${extra ? ', '+extra : ''}`}>
+  return <FlexWidget style={{ flexDirection: 'column', width: 'match_parent', height: viewportHeight < rowHeight ? rowHeight : undefined, paddingVertical: 11, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: C.line }} accessibilityLabel={`${dateLabel}${train.time}, hacia ${train.destination}${extra ? ', '+extra : ''}`}>
     <FlexWidget style={{ flexDirection: 'row', alignItems: 'center', width: 'match_parent' }}>
       <TextWidget text={train.time} style={{ fontSize: 25, color: C.text, fontWeight: 'bold', marginRight: 14 }} />
       <FlexWidget style={{ flex: 1, flexDirection: 'column' }}>
@@ -61,12 +61,14 @@ export default function MetroWidget({ info, favorites = [], state = {}, favorite
     </FlexWidget>
     <FlexWidget style={{ width: 'match_parent', height: listHeight, marginTop: 8 }}>
       {selector && favorites.length ? <ListWidget style={{ width: width - 24, height: listHeight }}>
-        {favorites.map(f => <FlexWidget key={f.id} style={{ width: 'match_parent', flexDirection: 'column', height: Math.ceil((16*1.35*[STATION_MAP[f.from] || f.from, '→ '+(STATION_MAP[f.to] || f.to)].reduce((sum,name)=>sum+Math.min(2,Math.ceil(name.length/Math.max(6,(width-48)/(16*.58*scale)))),0)+12*1.35*(f.name ? 2 : 1))*scale)+28, paddingVertical: 14, paddingHorizontal: 12, backgroundColor: f.id === state.favoriteId ? C.surface : C.bg, borderBottomWidth: 1, borderBottomColor: C.line }} clickAction="SELECT_FAVORITE" clickActionData={{ favoriteId: f.id }} accessibilityLabel={`${f.id === state.favoriteId ? 'Seleccionado. ' : ''}${STATION_MAP[f.from] || f.from} a ${STATION_MAP[f.to] || f.to}${f.name ? ', '+f.name : ''}`}>
+        {favorites.map(f => {
+          const itemHeight = Math.ceil((16*1.35*[STATION_MAP[f.from] || f.from, '→ '+(STATION_MAP[f.to] || f.to)].reduce((sum,name)=>sum+Math.min(2,Math.ceil(name.length/Math.max(6,(width-48)/(16*.58*scale)))),0)+12*1.35*(f.name ? 2 : 1))*scale)+28;
+          return <FlexWidget key={f.id} style={{ width: 'match_parent', flexDirection: 'column', height: listHeight < itemHeight ? itemHeight : undefined, paddingVertical: 14, paddingHorizontal: 12, backgroundColor: f.id === state.favoriteId ? C.surface : C.bg, borderBottomWidth: 1, borderBottomColor: C.line }} clickAction="SELECT_FAVORITE" clickActionData={{ favoriteId: f.id }} accessibilityLabel={`${f.id === state.favoriteId ? 'Seleccionado. ' : ''}${STATION_MAP[f.from] || f.from} a ${STATION_MAP[f.to] || f.to}${f.name ? ', '+f.name : ''}`}>
           <RouteNames route={f} size={16} />
           <Label text={`${f.id === state.favoriteId ? '✓ Seleccionado' : 'Elegir'}${f.name ? ' · '+f.name : ''}`} size={12} color={C.accent} maxLines={2} />
-        </FlexWidget>)}
+        </FlexWidget>; })}
       </ListWidget> : !selector && rows.length ? <ListWidget style={{ width: width - 24, height: listHeight }}>
-        {rows.map((t,i) => <TrainRow key={`${t.serviceTime}-${i}`} train={t} settings={settings} fetchedAt={result.fetchedAt} width={width} scale={scale} />)}
+        {rows.map((t,i) => <TrainRow key={`${t.serviceTime}-${i}`} train={t} settings={settings} fetchedAt={result.fetchedAt} width={width} scale={scale} viewportHeight={listHeight} />)}
       </ListWidget> : <FlexWidget style={{ width: 'match_parent', height: 'match_parent', justifyContent: 'center', padding: 12 }}>
         <Label text={selector ? 'No tienes favoritos todavía.' : status === 'loading' ? 'Buscando próximos trenes…' : status === 'error' ? errorMessage(result.kind) : status === 'empty' ? 'El servicio no indica próximas salidas para este trayecto.' : 'Guarda un trayecto para empezar.'} size={16} color={status === 'error' ? C.warning : C.text} />
         <FlexWidget clickAction={favorite ? 'REFRESH' : 'OPEN_APP'} accessibilityLabel={favorite ? 'Reintentar consulta' : 'Configurar favoritos en la aplicación'} style={{ paddingVertical: 12 }}><Label text={favorite ? 'Toca para actualizar' : 'Abrir configuración'} size={14} color={C.accent} /></FlexWidget>
