@@ -3,7 +3,7 @@
     "name": "Metro Bilbao",
     "slug": "metro-bilbao",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/androidmetro-icon-minimal-512.png",
     "userInterfaceStyle": "dark",
     "splash": {

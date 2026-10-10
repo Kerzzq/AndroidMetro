@@ -1,0 +1,83 @@
+import React, { useState } from 'react';
+import { FlatList, Modal, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
+import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import MetroMap from '../components/MetroMap';
+import { data, stations, hitStations, selectStation } from '../domain/mapModel';
+import { normalizeSearch } from '../domain/favoritesModel';
+export function MapButton({ text, label = text, onPress, disabled, primary }) {
+  return <TouchableOpacity accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled: !!disabled }} disabled={disabled} onPress={onPress} style={[s.button, primary && s.primary, disabled && { opacity: .4 }]}><Text style={[s.buttonText, primary && { color: '#011228' }]}>{text}</Text></TouchableOpacity>;
+}
+export default function MapScreen({ onClose }) {
+  const [selection, setSelection] = useState({ from: null, to: null, editing: 'from', error: '' });
+  const [viewport, setViewport] = useState({ width: 0, height: 0 });
+  const [picker, setPicker] = useState(null), [search, setSearch] = useState('');
+  const scale = useSharedValue(1), tx = useSharedValue(0), ty = useSharedValue(0);
+  const minScale = useSharedValue(.1), vw = useSharedValue(0), vh = useSharedValue(0);
+  const startScale = useSharedValue(1), startX = useSharedValue(0), startY = useSharedValue(0), anchorX = useSharedValue(0), anchorY = useSharedValue(0);
+  function fit(width = viewport.width, height = viewport.height) {
+    if (!width || !height) return;
+    vw.value=width; vh.value=height;
+    const fitted=Math.min((width-24)/2420,(height-24)/560);
+    minScale.value=fitted; scale.value=fitted;
+    tx.value=(width-2420*fitted)/2; ty.value=(height-560*fitted)/2;
+  }
+  function focusStation(id) {
+    if (!id || !viewport.width) return;
+    const st=stations[id], z=Math.min(1.3,Math.max(.85,scale.value));
+    scale.value=z; tx.value=viewport.width/2-st.x*z; ty.value=viewport.height/2-st.y*z;
+  }
+  function choose(id) { setSelection(previous => selectStation(previous, id)); setPicker(null); }
+  function tap(x,y,z,xOffset,yOffset) {
+    const candidates=hitStations(x,y,z,xOffset,yOffset);
+    if(candidates.length===1) choose(candidates[0].id);
+    else if(candidates.length>1) { setSearch('');setPicker(candidates); }
+  }
+  function clampCamera() {
+    'worklet';
+    const w=2420*scale.value,h=560*scale.value;
+    tx.value=w<vw.value?(vw.value-w)/2:Math.min(24,Math.max(vw.value-w-24,tx.value));
+    ty.value=h<vh.value?(vh.value-h)/2:Math.min(24,Math.max(vh.value-h-24,ty.value));
+  }
+  const pan=Gesture.Pan().maxPointers(1).minDistance(8).onStart(()=>{startX.value=tx.value;startY.value=ty.value;}).onUpdate(e=>{tx.value=startX.value+e.translationX;ty.value=startY.value+e.translationY;clampCamera();});
+  const pinch=Gesture.Pinch().onStart(e=>{startScale.value=scale.value;anchorX.value=(e.focalX-tx.value)/scale.value;anchorY.value=(e.focalY-ty.value)/scale.value;}).onUpdate(e=>{scale.value=Math.max(minScale.value,Math.min(2,startScale.value*e.scale));tx.value=e.focalX-anchorX.value*scale.value;ty.value=e.focalY-anchorY.value*scale.value;clampCamera();});
+  const press=Gesture.Tap().maxDistance(8).onEnd((e,success)=>{if(success)runOnJS(tap)(e.x,e.y,scale.value,tx.value,ty.value);});
+  const camera=useAnimatedStyle(()=>({ transform:[{translateX:tx.value},{translateY:ty.value},{scale:scale.value}] }));
+  function zoom(multiplier) {
+    const z=Math.min(2,Math.max(minScale.value,scale.value*multiplier));
+    const nextX=viewport.width/2-(viewport.width/2-tx.value)*z/scale.value;
+    const nextY=viewport.height/2-(viewport.height/2-ty.value)*z/scale.value;
+    // Same boundary policy as the native gesture callbacks.
+    const w=2420*z,h=560*z;
+    tx.value=w<viewport.width?(viewport.width-w)/2:Math.min(24,Math.max(viewport.width-w-24,nextX));
+    ty.value=h<viewport.height?(viewport.height-h)/2:Math.min(24,Math.max(viewport.height-h-24,nextY));scale.value=z;
+  }
+  const list=(picker||data.stations).filter(st=>normalizeSearch(st.displayName).includes(normalizeSearch(search))).sort((a,b)=>a.displayName.localeCompare(b.displayName,'es'));
+  return <GestureHandlerRootView style={s.screen}>
+    <StatusBar barStyle="light-content" />
+    <View style={s.header}><MapButton text="Volver" onPress={onClose} /><Text style={s.title}>Mapa</Text><MapButton text="RESET" label="Borrar origen y destino" onPress={()=>setSelection({from:null,to:null,editing:'from',error:''})} /></View>
+    <View style={s.selection}>
+      {['from','to'].map((key,index)=><TouchableOpacity key={key} style={[s.stationField,selection.editing===key&&s.activeField]} accessibilityRole="button" accessibilityLabel={`${index?'Destino':'Origen'}: ${stations[selection[key]]?.displayName||'sin seleccionar'}. Cambiar por nombre`} onPress={()=>{setSelection(prev=>({...prev,editing:key,error:''}));setSearch('');setPicker(data.stations);}}>
+        <Text style={[s.caption,{color:index?'#FFD391':'#60D7EF'}]}>{index?'DESTINO':'ORIGEN'}</Text><Text style={s.fieldText} numberOfLines={2}>{stations[selection[key]]?.displayName||'Elegir estación'}</Text>
+      </TouchableOpacity>)}
+      <MapButton text="⇄" label="Intercambiar origen y destino" disabled={!selection.from||!selection.to} onPress={()=>setSelection(prev=>({...prev,from:prev.to,to:prev.from,error:''}))} />
+    </View>
+    {selection.error?<Text accessibilityLiveRegion="polite" style={s.warning}>{selection.error}</Text>:null}
+    <View style={s.map} onLayout={e=>{const{width,height}=e.nativeEvent.layout;setViewport({width,height});fit(width,height);}}>
+      <GestureDetector gesture={Gesture.Race(Gesture.Simultaneous(pan,pinch),press)}><View style={s.canvas} collapsable={false} accessibilityLabel="Mapa esquemático L1 y L2. Usa los campos origen y destino para seleccionar por nombre.">
+        <Animated.View style={[s.drawing,camera]} pointerEvents="none"><MetroMap from={selection.from} to={selection.to} /></Animated.View>
+      </View></GestureDetector>
+      <View style={[s.controls,viewport.width>viewport.height && {flexDirection: 'row'}]}><MapButton text="−" label="Alejar mapa" onPress={()=>zoom(1/1.6)} /><MapButton text="+" label="Ampliar mapa" onPress={()=>zoom(1.6)} /><MapButton text="⌖" label="Ver mapa completo" onPress={()=>fit()} /></View>
+    </View>
+    <View style={s.footer}><Text style={s.hint}>{selection.from&&selection.to?'Recorrido físico resaltado':'Selecciona '+(selection.editing==='from'?'origen':'destino')}</Text><View style={s.footerActions}><MapButton text="Origen" label="Cambiar origen en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'from',error:''}));focusStation(selection.from);}} /><MapButton text="Destino" label="Cambiar destino en el mapa" onPress={()=>{setSelection(prev=>({...prev,editing:'to',error:''}));focusStation(selection.to);}} /></View></View>
+    <Modal visible={!!picker} animationType="slide" onRequestClose={()=>setPicker(null)}><View style={s.screen}><View style={s.header}><Text style={[s.title,{flex:1}]}>{selection.editing==='from'?'Origen':'Destino'}</Text><MapButton text="Volver" onPress={()=>setPicker(null)} /></View><TextInput accessibilityLabel="Buscar estación" placeholder="Buscar estación" placeholderTextColor="#B7CADD" value={search} onChangeText={setSearch} style={s.search} autoCorrect={false} /><FlatList data={list} keyExtractor={st=>st.id} keyboardShouldPersistTaps="handled" renderItem={({item})=><TouchableOpacity accessibilityRole="button" onPress={()=>choose(item.id)} style={s.listItem}><Text style={s.fieldText}>{item.displayName}</Text><Text style={s.hint}>{item.lines.join(' · ')}</Text></TouchableOpacity>} ListEmptyComponent={<Text style={s.warning}>No se encuentra la estación.</Text>} /></View></Modal>
+  </GestureHandlerRootView>;
+}
+const s=StyleSheet.create({
+  screen:{flex:1,backgroundColor:'#011228',paddingTop:(StatusBar.currentHeight||24)+4,paddingBottom:24},
+  header:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingHorizontal:8,borderBottomWidth:1,borderColor:'#28435D'},title:{color:'#F5FAFF',fontSize:21,fontWeight:'700'},
+  button:{minWidth:48,minHeight:48,paddingHorizontal:10,paddingVertical:8,justifyContent:'center',alignItems:'center',borderRadius:12},buttonText:{color:'#60D7EF',fontSize:15,fontWeight:'600'},primary:{backgroundColor:'#60D7EF'},
+  selection:{flexDirection:'row',padding:8,gap:6,alignItems:'center'},stationField:{flex:1,padding:10,borderRadius:12,borderWidth:1,borderColor:'#28435D',backgroundColor:'#12283F',minHeight:68},activeField:{borderColor:'#60D7EF'},caption:{fontSize:11,fontWeight:'700'},fieldText:{color:'#F5FAFF',fontSize:16},
+  map:{flex:1,overflow:'hidden'},canvas:{flex:1},drawing:{position:'absolute',top:0,left:0,width:2420,height:560,transformOrigin:'top left'},
+  controls:{position:'absolute',right:8,bottom:8,backgroundColor:'#12283F',borderRadius:16},footer:{paddingHorizontal:8,borderTopWidth:1,borderColor:'#28435D'},footerActions:{flexDirection:'row',justifyContent:'space-between',flexWrap:'wrap'},hint:{color:'#B7CADD',fontSize:13,padding:4},warning:{color:'#FFD391',fontSize:14,padding:8},search:{margin:12,padding:12,color:'#F5FAFF',fontSize:18,backgroundColor:'#12283F',borderRadius:12},listItem:{padding:16,minHeight:64,borderBottomWidth:1,borderColor:'#28435D'},
+});

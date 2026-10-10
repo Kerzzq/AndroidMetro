@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, AppState, FlatList, Modal, RefreshControl, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ConfigScreen from './ConfigScreen';
+import MapScreen from './MapScreen';
 import { STATION_MAP } from '../data/stations';
 import { errorMessage } from '../domain/trainModel';
 import * as repository from '../services/favoritesRepository';
@@ -53,13 +54,14 @@ function DataStatus({ entry, now }) {
 }
 export default function ConsultationScreen() {
   const [state, setState] = useState({ document: null, settings: null, entries: {}, loading: true, refreshing: false, error: '' });
+  const [mapVisible, setMapVisible] = useState(false);
   const [manager, setManager] = useState(false), [detailId, setDetailId] = useState(null);
   const [managerBusy, setManagerBusy] = useState(false), [displayTime, setDisplayTime] = useState(Date.now());
   const controllerRef = useRef(null);
   if (!controllerRef.current) controllerRef.current = createConsultationController({ repository, service, onChange: setState });
   const controller = controllerRef.current;
   useEffect(() => {
-    if (manager) return;
+    if (manager || mapVisible) return;
     let previous = AppState.currentState;
     let ageTimer;
     function resume() {
@@ -78,14 +80,14 @@ export default function ConsultationScreen() {
       previous = next;
     });
     return () => { subscription.remove(); clearInterval(ageTimer); controller.stop(); };
-  }, [manager, controller]);
+  }, [manager, mapVisible, controller]);
   const favorites = state.document?.favorites || [];
   const selected = favorites.find(f => f.id === detailId);
   const selectedEntry = selected ? state.entries[selected.id] : null;
   function openManager() { setDetailId(null); setManagerBusy(false); setManager(true); }
   return <View style={s.screen}>
     <StatusBar barStyle="light-content" />
-    <View style={s.header}><View style={s.headerTitle}><Text style={s.title}>Tu próximo metro</Text><Text style={s.secondary}>Tus trayectos de Metro Bilbao</Text></View><Button text="Gestionar" onPress={openManager} /></View>
+    <View style={s.header}><View style={s.headerTitle}><Text style={s.title}>Tu próximo metro</Text><Text style={s.secondary}>Tus trayectos de Metro Bilbao</Text></View><Button text="Mapa" onPress={() => setMapVisible(true)} /><Button text="Gestionar" onPress={openManager} /></View>
     {state.error ? <View style={s.feedback}><Text style={s.warning}>{state.error}</Text><Button text="Reintentar" onPress={() => controller.start(true)} /></View> : null}
     {state.loading && !state.document ? <ActivityIndicator size="large" color={C.accent} style={s.initialLoading} /> : null}
     <FlatList data={favorites} keyExtractor={f => f.id} contentContainerStyle={s.body}
@@ -114,6 +116,7 @@ export default function ConsultationScreen() {
           ListFooterComponent={<Text style={s.hint}>La dirección indica el destino anunciado del tren. Las horas y, si están activados, los minutos corresponden a la consulta indicada.</Text>} /> : null}
       </View>
     </Modal>
+    <Modal visible={mapVisible} animationType="slide" onRequestClose={() => setMapVisible(false)}><MapScreen onClose={() => setMapVisible(false)} /></Modal>
     <Modal visible={manager} animationType="slide" onRequestClose={() => { if (!managerBusy) setManager(false); }}>
       {manager ? <ConfigScreen onClose={() => setManager(false)} onBusyChange={setManagerBusy} /> : null}
     </Modal>
