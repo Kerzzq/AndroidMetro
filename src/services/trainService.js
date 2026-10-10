@@ -48,8 +48,3 @@ export function queryTrains(route) {
   return task;
 }
 
-// Temporary compatibility for the recovered screen; removed with the new UI.
-export async function getNextTrains(from,to) {
- const result=await queryTrains({from,to});
- return (result.trains || []).map(t=>({...t,minutesLeft:t.minutesAtQuery,wagons:t.wagons ? `${t.wagons} vagones` : ''}));
-}

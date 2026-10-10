@@ -28,9 +28,9 @@
             {
               "name": "MetroBilbaoWidget",
               "label": "Metro Bilbao",
-              "minWidth": "320dp",
-              "minHeight": "320dp",
-              "description": "Próximos trenes del Metro de Bilbao - 4 paneles configurables",
+              "minWidth": "240dp",
+              "minHeight": "280dp",
+              "description": "Consulta todos los trenes de tus trayectos favoritos",
               "updatePeriodMillis": 1800000,
               "resizeMode": "horizontal|vertical",
               "widgetFeatures": "reconfigurable",

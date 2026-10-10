@@ -1,294 +1,73 @@
 import React from 'react';
-import { FlexWidget, TextWidget } from 'react-native-android-widget';
-
-const COLORS = {
-    background: '#1A1A2E',
-    surface: '#16213E',
-    surfaceLight: '#1F3050',
-    primary: '#E31937',
-    accent: '#00B4D8',
-    text: '#FFFFFF',
-    textSecondary: '#A0AEC0',
-    textMuted: '#718096',
-    border: '#1F3050',
-};
-
-function WidgetTrainItem({ train, settings = {} }) {
-    const { showWagons = true, timeDisplayMode = 'clock' } = settings;
-
-    const displayTime = timeDisplayMode === 'minutes'
-        ? (train.minutesLeft !== null ? `${train.minutesLeft}'` : train.time)
-        : train.time;
-
-    return (
-        <FlexWidget
-            style={{
-                flexDirection: 'column',
-                paddingVertical: 4,
-                paddingHorizontal: 6,
-                borderBottomWidth: 1,
-                borderBottomColor: '#FFFFFF10',
-            }}
-        >
-            <FlexWidget
-                style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                }}
-            >
-                <TextWidget
-                    text={displayTime}
-                    style={{
-                        fontSize: 12,
-                        color: COLORS.text,
-                        fontWeight: 'bold',
-                        width: 45,
-                    }}
-                />
-                {timeDisplayMode === 'clock' && train.minutesLeft !== null && (
-                    <FlexWidget
-                        style={{
-                            backgroundColor: '#E3193740',
-                            borderRadius: 4,
-                            paddingHorizontal: 4,
-                            paddingVertical: 1,
-                            marginRight: 6,
-                        }}
-                    >
-                        <TextWidget
-                            text={`${train.minutesLeft}'`}
-                            style={{
-                                fontSize: 10,
-                                color: COLORS.primary,
-                                fontWeight: 'bold',
-                            }}
-                        />
-                    </FlexWidget>
-                )}
-                <TextWidget
-                    text={train.destination || ''}
-                    style={{
-                        fontSize: 11,
-                        color: COLORS.textSecondary,
-                        fontWeight: '600',
-                        flex: 1,
-                    }}
-                    maxLines={1}
-                />
-            </FlexWidget>
-
-            {showWagons && train.wagons && (
-                <FlexWidget style={{ marginLeft: 45, marginTop: 1 }}>
-                    <TextWidget
-                        text={train.wagons}
-                        style={{
-                            fontSize: 9,
-                            color: COLORS.textMuted,
-                        }}
-                    />
-                </FlexWidget>
-            )}
-        </FlexWidget>
-    );
+import { PixelRatio } from 'react-native';
+import { FlexWidget, TextWidget, ListWidget } from 'react-native-android-widget';
+import { STATION_MAP } from '../data/stations';
+import { errorMessage } from '../domain/trainModel';
+const C = { bg: '#011228', surface: '#12283F', text: '#F5FAFF', muted: '#B7CADD', accent: '#60D7EF', line: '#28435D', warning: '#FFD18B' };
+const timeOf = at => at ? new Date(at).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: false }) : '—';
+const queryDate = at => at ? new Date(at).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' }) : '';
+function Label({ text, size = 14, color = C.text, bold = false, ...props }) {
+  return <TextWidget text={String(text)} style={{ fontSize: size, color, fontWeight: bold ? 'bold' : 'normal', ...props.style }} maxLines={props.maxLines} truncate="END" />;
 }
-
-function WidgetPanel({ panelData, index, settings }) {
-    const { from, to, fromName, toName, trains = [] } = panelData;
-    const hasConfig = from && to;
-
-    return (
-        <FlexWidget
-            style={{
-                flex: 1,
-                backgroundColor: COLORS.surface,
-                borderRadius: 12,
-                padding: 8,
-                margin: 4,
-                height: '100%',
-                borderWidth: 1,
-                borderColor: COLORS.border,
-            }}
-        >
-            {/* Panel header */}
-            <FlexWidget
-                style={{
-                    flexDirection: 'row',
-                    alignItems: 'flex-start',
-                    marginBottom: 6,
-                    paddingBottom: 4,
-                    borderBottomWidth: 1,
-                    borderBottomColor: '#FFFFFF15',
-                }}
-            >
-                <FlexWidget
-                    style={{
-                        width: 18,
-                        height: 18,
-                        borderRadius: 9,
-                        backgroundColor: COLORS.primary,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        marginRight: 6,
-                        marginTop: 2,
-                    }}
-                >
-                    <TextWidget
-                        text={`${index + 1}`}
-                        style={{ fontSize: 10, color: '#FFFFFF', fontWeight: 'bold' }}
-                    />
-                </FlexWidget>
-                {hasConfig ? (
-                    <TextWidget
-                        text={`${fromName || from} → ${toName || to}`}
-                        style={{
-                            fontSize: 10,
-                            color: COLORS.text,
-                            fontWeight: 'bold',
-                            flex: 1,
-                        }}
-                        maxLines={2}
-                    />
-                ) : (
-                    <TextWidget
-                        text="Sin configurar"
-                        style={{
-                            fontSize: 10,
-                            color: COLORS.textMuted,
-                            fontStyle: 'italic',
-                        }}
-                    />
-                )}
-            </FlexWidget>
-
-            {/* Train list */}
-            {hasConfig && trains.length > 0 ? (
-                <FlexWidget style={{ flex: 1 }}>
-                    {trains.slice(0, 6).map((train, i) => (
-                        <WidgetTrainItem key={`train-${index}-${i}`} train={train} settings={settings} />
-                    ))}
-                </FlexWidget>
-            ) : hasConfig ? (
-                <FlexWidget
-                    style={{
-                        flex: 1,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <TextWidget
-                        text="Sin datos"
-                        style={{
-                            fontSize: 10,
-                            color: COLORS.textMuted,
-                        }}
-                    />
-                </FlexWidget>
-            ) : (
-                <FlexWidget
-                    style={{
-                        flex: 1,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <TextWidget
-                        text="Toca para configurar"
-                        style={{
-                            fontSize: 9,
-                            color: COLORS.textMuted,
-                            textAlign: 'center',
-                        }}
-                    />
-                </FlexWidget>
-            )}
-        </FlexWidget>
-    );
+function RouteNames({ route, size = 14 }) {
+  return <FlexWidget style={{ flexDirection: 'column', width: 'match_parent' }}>
+    <Label text={STATION_MAP[route.from] || route.from || 'Elige origen'} size={size} bold />
+    <Label text={`→ ${STATION_MAP[route.to] || route.to || 'Elige destino'}`} size={size} />
+  </FlexWidget>;
 }
-
-export default function MetroWidget({ panelsData = [], settings = {} }) {
-    // Crear array de 4 paneles con defaults
-    const panels = Array.from({ length: 4 }, (_, i) => panelsData[i] || {});
-
-    return (
-        <FlexWidget
-            style={{
-                flex: 1,
-                backgroundColor: COLORS.background,
-                borderRadius: 16,
-                padding: 6,
-            }}
-        >
-            {/* Header con botón actualizar */}
-            <FlexWidget
-                style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    paddingHorizontal: 8,
-                    paddingVertical: 4,
-                    marginBottom: 2,
-                }}
-            >
-                <FlexWidget style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <FlexWidget
-                        style={{
-                            width: 20,
-                            height: 20,
-                            borderRadius: 6,
-                            backgroundColor: COLORS.primary,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            marginRight: 6,
-                        }}
-                    >
-                        <TextWidget
-                            text="M"
-                            style={{ fontSize: 11, color: '#FFFFFF', fontWeight: 'bold' }}
-                        />
-                    </FlexWidget>
-                    <TextWidget
-                        text="Metro Bilbao"
-                        style={{
-                            fontSize: 12,
-                            color: COLORS.text,
-                            fontWeight: 'bold',
-                        }}
-                    />
-                </FlexWidget>
-
-                {/* Botón actualizar - clickAction en FlexWidget */}
-                <FlexWidget
-                    clickAction="REFRESH"
-                    clickActionData={{ action: 'refresh' }}
-                    style={{
-                        backgroundColor: COLORS.surfaceLight,
-                        borderRadius: 8,
-                        paddingHorizontal: 8,
-                        paddingVertical: 4,
-                    }}
-                >
-                    <TextWidget
-                        text="⟳ Actualizar"
-                        style={{
-                            fontSize: 10,
-                            color: COLORS.accent,
-                            fontWeight: 'bold',
-                        }}
-                    />
-                </FlexWidget>
-            </FlexWidget>
-
-            {/* Grid 2x2 de paneles */}
-            <FlexWidget style={{ flex: 1 }}>
-                <FlexWidget style={{ flex: 1, flexDirection: 'row' }}>
-                    <WidgetPanel panelData={panels[0]} index={0} settings={settings} />
-                    <WidgetPanel panelData={panels[1]} index={1} settings={settings} />
-                </FlexWidget>
-                <FlexWidget style={{ flex: 1, flexDirection: 'row' }}>
-                    <WidgetPanel panelData={panels[2]} index={2} settings={settings} />
-                    <WidgetPanel panelData={panels[3]} index={3} settings={settings} />
-                </FlexWidget>
-            </FlexWidget>
-        </FlexWidget>
-    );
+function TrainRow({ train, settings, fetchedAt }) {
+  const date = train.serviceTime?.match(/^(\d{4})-(\d{2})-(\d{2})T/);
+  const dateLabel = date && `${date[3]}/${date[2]}` !== queryDate(fetchedAt) ? `${date[3]}/${date[2]} · ` : '';
+  const extra = [settings.timeDisplayMode === 'minutes' && train.minutesAtQuery !== null ? `${train.minutesAtQuery} min al consultar` : '', settings.showWagons && train.wagons ? `${train.wagons} vagones` : ''].filter(Boolean).join(' · ');
+  return <FlexWidget style={{ flexDirection: 'column', width: 'match_parent', paddingVertical: 11, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: C.line }} accessibilityLabel={`${dateLabel}${train.time}, hacia ${train.destination}${extra ? ', '+extra : ''}`}>
+    <FlexWidget style={{ flexDirection: 'row', alignItems: 'center', width: 'match_parent' }}>
+      <TextWidget text={train.time} style={{ fontSize: 25, color: C.text, fontWeight: 'bold', marginRight: 14 }} />
+      <FlexWidget style={{ flex: 1, flexDirection: 'column' }}>
+        <Label text={`Hacia ${train.destination}`} size={15} maxLines={3} />
+        {dateLabel ? <Label text={dateLabel.replace(' · ', '')} size={12} color={C.muted} /> : null}
+      </FlexWidget>
+    </FlexWidget>
+    {extra ? <Label text={extra} size={12} color={C.muted} style={{ marginTop: 5 }} /> : null}
+  </FlexWidget>;
+}
+export default function MetroWidget({ info, favorites = [], state = {}, favorite, settings = {}, result = {} }) {
+  const selector = state.view === 'favorites';
+  const width = Math.floor(info?.width || 320), height = Math.floor(info?.height || 400);
+  const scale = Math.max(1, PixelRatio.getFontScale() || 1);
+  const headerHeight = Math.ceil((selector || !favorite ? 45 : 57 + (favorite.name ? 18 : 0)) * scale) + 8;
+  const footerHeight = Math.ceil(46 * scale);
+  const listHeight = Math.max(24, height - headerHeight - footerHeight - 28);
+  const rows = result.trains || [];
+  const status = result.status || 'idle';
+  const banner = selector ? `${favorites.length} favoritos · toca para elegir` : status === 'loading' ? 'Actualizando…' : status === 'error' ? (rows.length ? 'Sin actualizar · consulta anterior' : errorMessage(result.kind)) : status === 'empty' ? 'Sin próximas salidas' : rows.length ? `${rows.length} trenes · desliza para ver todos` : 'Configura tus favoritos en la app';
+  const timestamp = result.fetchedAt ? `${queryDate(result.fetchedAt)} ${timeOf(result.fetchedAt)}` : '—';
+  return <FlexWidget style={{ width: 'match_parent', height: 'match_parent', flexDirection: 'column', padding: 12, backgroundColor: C.bg, borderRadius: 22 }} accessibilityLabel="Metro Bilbao, consulta de favoritos">
+    <FlexWidget style={{ flexDirection: 'row', width: 'match_parent', height: headerHeight, alignItems: 'center', borderBottomWidth: 1, borderBottomColor: C.line }}>
+      <FlexWidget style={{ flex: 1, flexDirection: 'column', paddingRight: 8, paddingVertical: 4 }} clickAction={selector ? 'CLOSE_SELECTOR' : favorites.length ? 'OPEN_SELECTOR' : 'OPEN_APP'} accessibilityLabel={selector ? 'Cerrar selector sin cambiar trayecto' : 'Abrir selector de favoritos'}>
+        {selector ? <Label text="Tus favoritos" size={18} bold /> : favorite ? <RouteNames route={favorite} /> : <Label text="Metro Bilbao" size={18} bold />}
+        {!selector && favorite?.name ? <Label text={favorite.name} size={12} color={C.accent} maxLines={1} /> : null}
+        {selector ? <Label text="Volver sin cambiar" size={12} color={C.accent} /> : null}
+      </FlexWidget>
+      <FlexWidget style={{ width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }} clickAction={selector ? 'CLOSE_SELECTOR' : 'REFRESH'} accessibilityLabel={selector ? 'Cerrar selector' : 'Actualizar trenes'}>
+        <Label text={selector ? '×' : '↻'} size={25} color={C.accent} />
+      </FlexWidget>
+    </FlexWidget>
+    <FlexWidget style={{ width: 'match_parent', height: listHeight, marginTop: 8 }}>
+      {selector && favorites.length ? <ListWidget style={{ width: width - 24, height: listHeight }}>
+        {favorites.map(f => <FlexWidget key={f.id} style={{ width: 'match_parent', flexDirection: 'column', paddingVertical: 14, paddingHorizontal: 12, backgroundColor: f.id === state.favoriteId ? C.surface : C.bg, borderBottomWidth: 1, borderBottomColor: C.line }} clickAction="SELECT_FAVORITE" clickActionData={{ favoriteId: f.id }} accessibilityLabel={`${f.id === state.favoriteId ? 'Seleccionado. ' : ''}${STATION_MAP[f.from] || f.from} a ${STATION_MAP[f.to] || f.to}${f.name ? ', '+f.name : ''}`}>
+          <RouteNames route={f} size={16} />
+          <Label text={`${f.id === state.favoriteId ? '✓ Seleccionado' : 'Elegir'}${f.name ? ' · '+f.name : ''}`} size={12} color={C.accent} maxLines={2} />
+        </FlexWidget>)}
+      </ListWidget> : !selector && rows.length ? <ListWidget style={{ width: width - 24, height: listHeight }}>
+        {rows.map((t,i) => <TrainRow key={`${t.serviceTime}-${i}`} train={t} settings={settings} fetchedAt={result.fetchedAt} />)}
+      </ListWidget> : <FlexWidget style={{ width: 'match_parent', height: 'match_parent', justifyContent: 'center', padding: 12 }}>
+        <Label text={selector ? 'No tienes favoritos todavía.' : status === 'loading' ? 'Buscando próximos trenes…' : status === 'error' ? errorMessage(result.kind) : status === 'empty' ? 'El servicio no indica próximas salidas para este trayecto.' : 'Guarda un trayecto para empezar.'} size={16} color={status === 'error' ? C.warning : C.text} />
+        <FlexWidget clickAction={favorite ? 'REFRESH' : 'OPEN_APP'} accessibilityLabel={favorite ? 'Reintentar consulta' : 'Configurar favoritos en la aplicación'} style={{ paddingVertical: 12 }}><Label text={favorite ? 'Toca para actualizar' : 'Abrir configuración'} size={14} color={C.accent} /></FlexWidget>
+      </FlexWidget>}
+    </FlexWidget>
+    <FlexWidget style={{ width: 'match_parent', height: footerHeight, flexDirection: 'column', paddingTop: 7 }}>
+      <Label text={banner} size={12} color={status === 'error' ? C.warning : C.muted} maxLines={1} />
+      <Label text={`Consulta ${timestamp}`} size={12} color={C.muted} />
+    </FlexWidget>
+  </FlexWidget>;
 }
