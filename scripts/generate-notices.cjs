@@ -6,6 +6,7 @@ const root = path.resolve(__dirname,'..');
 const lock = JSON.parse(fs.readFileSync(path.join(root,'package-lock.json'),'utf8'));
 const supplementFile = path.join(root,'licenses/SUPPLEMENTAL_NOTICES.json');
 const supplement = fs.existsSync(supplementFile) ? JSON.parse(fs.readFileSync(supplementFile,'utf8')) : null;
+if (supplement?.upstream.some(record => !record.text?.trim())) throw Error('Incomplete upstream license record.');
 const groups = new Map(), missing = [], inventory = [];
 for(const [relative,locked] of Object.entries(lock.packages)) {
   if(!relative) continue;
@@ -34,7 +35,7 @@ const output=[
   ] : []),
   ...(missing.length?['='.repeat(72)+'\nPackages without a root license/notice file in the installed distribution. Bundled runtime cases have upstream texts above; other entries may be build-time tools only:\n'+missing.sort().join('\n')]:[]),
 ].join('\n\n')+'\n';
-fs.writeFileSync(path.join(root,'THIRD_PARTY_NOTICES.txt'),output);
+fs.writeFileSync(path.join(root,'THIRD_PARTY_NOTICES.txt'),output.replace(/\r\n/g,'\n').replace(/[ \t]+$/gm,''));
 if(process.argv[2]) fs.writeFileSync(process.argv[2],JSON.stringify({packages:inventory,missingRootNotice:missing},null,2));
 console.log(`Notices: ${inventory.length} installed packages, ${groups.size} unique text groups; ${missing.length} without root license/notice files.`);
 if(missing.length)console.log(missing.join('\n'));
