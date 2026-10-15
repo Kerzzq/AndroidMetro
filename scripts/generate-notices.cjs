@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname,'..');
 const lock = JSON.parse(fs.readFileSync(path.join(root,'package-lock.json'),'utf8'));
+const supplementFile = path.join(root,'licenses/SUPPLEMENTAL_NOTICES.json');
+const supplement = fs.existsSync(supplementFile) ? JSON.parse(fs.readFileSync(supplementFile,'utf8')) : null;
 const groups = new Map(), missing = [], inventory = [];
 for(const [relative,locked] of Object.entries(lock.packages)) {
   if(!relative) continue;
@@ -24,7 +26,13 @@ const output=[
   'This includes build-time packages as well as application dependencies. Inclusion does not imply every listed package executes in the APK.',
   'No license for AndroidMetro-owned code is granted by this document. Third-party terms below remain applicable.',
   ...[...groups].map(([text,packages])=>'='.repeat(72)+'\n'+[...packages].sort().join('\n')+'\n\n'+text),
-  ...(missing.length?['='.repeat(72)+'\nPackages without a root license/notice file in the installed distribution; see their package metadata and upstream terms:\n'+missing.sort().join('\n')]:[]),
+  ...(supplement ? [
+    '='.repeat(72)+'\nSupplemental upstream licenses (including missing root notices of bundled runtime packages):\n'+supplement.provenance,
+    ...supplement.upstream.map(record=>record.name+'\nSource: '+record.url+'\n\n'+record.text),
+    '='.repeat(72)+'\nAndroid runtime components (resolved Maven coordinates; Expo prebuilt components inherit Expo MIT terms):\n'+supplement.maven.map(record=>record.package+'@'+record.version+' — '+record.licenses.filter(Boolean).map(item=>item.name).join('; ')).join('\n'),
+    ...supplement.embedded.map(record=>'='.repeat(72)+'\n'+record.package+'@'+record.version+' — '+record.file+'\n\n'+record.text),
+  ] : []),
+  ...(missing.length?['='.repeat(72)+'\nPackages without a root license/notice file in the installed distribution. Bundled runtime cases have upstream texts above; other entries may be build-time tools only:\n'+missing.sort().join('\n')]:[]),
 ].join('\n\n')+'\n';
 fs.writeFileSync(path.join(root,'THIRD_PARTY_NOTICES.txt'),output);
 if(process.argv[2]) fs.writeFileSync(process.argv[2],JSON.stringify({packages:inventory,missingRootNotice:missing},null,2));

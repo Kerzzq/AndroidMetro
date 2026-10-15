@@ -2,6 +2,7 @@ const { withAndroidManifest, withAppBuildGradle, withDangerousMod } = require('@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const { secureWidgetImageProvider } = require('./widgetImageSecurity');
 const GRADLE_ZIP_SHA256 = '8fad3d78296ca518113f3d29016617c7f9367dc005f932bd9d93bf45ba46072b';
 const GRADLE_WRAPPER_SHA256 = '76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3';
 
@@ -26,6 +27,8 @@ module.exports = function withReleaseSafety(config) {
     });
   }
   return withDangerousMod(config, ['android', async mod => {
+    const provider = path.join(mod.modRequest.projectRoot, 'node_modules/react-native-android-widget/android/src/main/java/com/reactnativeandroidwidget/RNWidgetImageProvider.java');
+    fs.writeFileSync(provider, secureWidgetImageProvider(fs.readFileSync(provider, 'utf8')));
     // Checksums published at services.gradle.org/distributions/ for Gradle9.0.0.
     // Fail on upstream template changes rather than pinning the wrong archive.
     const wrapper = path.join(mod.modRequest.platformProjectRoot, 'gradle/wrapper');

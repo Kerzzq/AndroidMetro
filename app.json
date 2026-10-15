@@ -18,6 +18,7 @@
         "monochromeImage": "./assets/androidmetro-icon-monochrome.png"
       },
       "package": "com.metrobilbao.widget",
+      "versionCode": 2,
       "blockedPermissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",

@@ -5,6 +5,8 @@ const { hardenManifest, disableTemplateReleaseSigning } = require('../plugins/wi
 const config = require('../app.json').expo;
 assert.equal(config.android.package,'com.metrobilbao.widget');
 assert.equal(config.version,'2.0.0');
+assert.equal(config.android.versionCode,2);
+assert.equal(require('../eas.json').cli.appVersionSource,'local');
 for (const name of ['READ_EXTERNAL_STORAGE','WRITE_EXTERNAL_STORAGE','SYSTEM_ALERT_WINDOW','VIBRATE']) assert.ok(config.android.blockedPermissions.includes(`android.permission.${name}`));
 const manifest={manifest:{application:[{$:{}}]}};
 assert.equal(hardenManifest(manifest).manifest.application[0].$['android:usesCleartextTraffic'],'false');

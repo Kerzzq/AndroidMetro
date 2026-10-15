@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {secureWidgetImageProvider}=require('../plugins/widgetImageSecurity');
+const source=fs.readFileSync(path.join(__dirname,'../node_modules/react-native-android-widget/android/src/main/java/com/reactnativeandroidwidget/RNWidgetImageProvider.java'),'utf8');
+const secured=secureWidgetImageProvider(source);
+assert.equal(secureWidgetImageProvider(secured),secured,'prebuild can safely run repeatedly');
+assert.throws(()=>secureWidgetImageProvider(secured.replace('Image access denied.','tampered')),/changed/,'a marker cannot bypass dependency integrity verification');
+assert.ok(secured.includes('MessageDigest.isEqual'));
+assert.ok(secured.includes('androidmetro_image_access_v1'));
+assert.ok(secured.includes('getParentFile()'));
+assert.ok(secured.includes('deleteImages(context, "widget_" + widgetId + "_")'));
+console.log('PASS: audited widget provider patch, repeat prebuild, tamper rejection and per-widget image cleanup. Native authorization is tested separately on emulator.');
