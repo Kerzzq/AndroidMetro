@@ -8,7 +8,7 @@ Los horarios proceden del [servicio de Metro Bilbao](https://www.metrobilbao.eus
 
 Descarga sólo el APK estable de [Releases](https://github.com/Kerzzq/AndroidMetro/releases). Android 7.0/API24 o posterior. Para actualizar la versión oficial, instala el APK sobre la instalación anterior **sin desinstalar ni borrar datos**. Debe conservar el paquete `com.metrobilbao.widget` y su certificado original. Las pre-releases `.pruebas` son instalaciones separadas: sus favoritos no se transfieren automáticamente a la oficial.
 
-**2.0.0 aún no se ha publicado:** el candidato firmado con el certificado original y su actualización desde 1.0.0 se documentan en el [informe de entrega previa](docs/INFORME_FINAL_RELEASE_2.0.0.md). La publicación requiere aprobación del propietario; app.json no es un anuncio de release.
+La versión oficial [AndroidMetro 2.0.0](https://github.com/Kerzzq/AndroidMetro/releases/tag/v2.0.0) utiliza el APK RC2 firmado con el certificado original. Su actualización desde 1.0.0, las pruebas realizadas y los riesgos residuales aceptados se documentan en el [informe de entrega previa](docs/INFORME_FINAL_RELEASE_2.0.0.md), conservado como registro de la auditoría anterior a la publicación.
 
 ## Privacidad y permisos
 
