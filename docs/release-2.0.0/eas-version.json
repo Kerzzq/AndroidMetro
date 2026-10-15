@@ -1,0 +1,8 @@
+{
+  "projectId": "990b536c-ce8d-4a17-82f6-412aeee0e317",
+  "package": "com.metrobilbao.widget",
+  "versionCode": 1,
+  "storeVersion": "1.0.0",
+  "queriedAt": "2026-10-15T17:16:33.161Z",
+  "method": "Same read-only AppVersionQuery used by eas build:version:get; local configuration unchanged"
+}

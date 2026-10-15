@@ -124,6 +124,8 @@ Reconstrucción: checkout del commit compilado, npm ci, generar Android mediante
 
 Remoto reconsultado directamente el 15-10-2026: cuatro ramas de desarrollo más main; main sigue `339def20985e0fc2f2493ed593836472c96240b5`; no existe tag oficial v2.0.0. Main es ancestro de release: una integración futura sin reescribir historial es viable. Debe reconsultarse justo antes de ejecutarla. No se han hecho push, merge en main, tags ni mutaciones de releases. Exclusiones protegen APK/AAB, firmas auxiliares, keystores/copias, credentials*.json, .env, caches y Android generado. El escaneo alcanzable no cubre objetos huérfanos, credenciales codificadas o caches de terceros.
 
+Escaneo de las refs alcanzables hasta `4aec140`: **797 objetos,608 blobs,385 textos; cero coincidencias de patrones y cero nombres de archivos de credenciales**. Registro sin valores sensibles en `release-2.0.0/history-scan.json`. No se infiere ausencia universal de secretos. Reconsulta final EAS a17:16UTC confirma contador oficial1 mediante la misma AppVersionQuery de lectura de la CLI, sin cambiar `appVersionSource=local`; registro público en `release-2.0.0/eas-version.json`.
+
 Propuesta exacta de retirada **sólo después de aprobación, publicación y verificación oficial**:
 
 | ID | Pre-release/tag | APK publicado |

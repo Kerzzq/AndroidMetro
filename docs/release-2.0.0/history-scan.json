@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-15T17:15:12.755Z",
+  "scope": "All reachable refs in local Git, unique blobs; patterns only, no secret values emitted",
+  "objects": 797,
+  "blobs": 608,
+  "textBlobs": 385,
+  "sensitiveNames": [],
+  "findings": [],
+  "limitations": [
+    "Not entropy based; does not prove absence of secrets",
+    "Unreachable objects, GitHub caches, deleted remote refs and encoded secrets are not covered"
+  ]
+}
