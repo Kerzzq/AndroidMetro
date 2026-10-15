@@ -16,7 +16,7 @@ for(const timeRounded of ['00:00','09:02','23:59']) {
 }
 function load(file,mocks){
   const abs=path.join(__dirname,'..',file),m={exports:{}};
-  const code=babel.transformFileSync(abs,{plugins:['@babel/plugin-transform-react-jsx','@babel/plugin-transform-modules-commonjs'],babelrc:false,configFile:false}).code;
+  const code=babel.transformFileSync(abs,{plugins:[require.resolve('@babel/plugin-transform-react-jsx'),require.resolve('@babel/plugin-transform-modules-commonjs')],babelrc:false,configFile:false}).code;
   vm.runInNewContext(code,{module:m,exports:m.exports,require:n=>mocks[n]||require(path.resolve(path.dirname(abs),n)),Map,Promise,JSON,console});
   return m.exports;
 }
@@ -35,24 +35,26 @@ const tick=()=>new Promise(r=>setImmediate(r));
   let state={favoriteId:'a',view:'trains'},hold=null,loads=0;
   const doc={revision:1,favorites:[{id:'a',from:'ABA',to:'MOY'}]};
   const mocks={react:{createElement:(type,props)=>({type,props})},'react-native-android-widget':{},'../data/stations':{STATION_MAP:map},'./MetroWidget':()=>null,
-    '../services/favoritesRepository':{loadFavorites:async()=>{loads++;if(hold){const pending=hold;hold=null;return pending.promise}return doc},loadInstance:async()=>({...state}),loadSettings:async()=>({})},
-    '../services/trainService':{loadCachedRoute:async()=>null,queryTrains:async()=>({status:'empty',trains:[]})}};
+    '../services/favoritesRepository':{loadFavorites:async()=>doc,loadInstance:async()=>({...state}),loadSettings:async()=>({})},
+    '../services/trainService':{loadCachedRoute:async()=>{loads++;if(hold){const pending=hold;hold=null;return pending.promise}return null},queryTrains:async()=>({status:'empty',trains:[]})}};
   const runtime=load('src/widgets/widgetRuntime.js',mocks),draws=[],info={widgetId:2};
   hold=deferred();const pending=hold;
   const old=runtime.refreshWidget(info,v=>draws.push(v.props),false);await tick();
   state={favoriteId:'a',view:'favorites'};
   await runtime.refreshWidget(info,v=>draws.push(v.props),false);
-  const count=draws.length;pending.resolve(doc);await old;
+  const count=draws.length;pending.resolve(null);await old;
   assert.equal(draws.length,count,'old cached snapshot cannot overwrite a newer render');
+  assert.equal(draws.at(-1).state.view,'favorites');
   // A generation may also change during the post-network snapshot.
   let queryDone=deferred(),calls=0;
   mocks['../services/trainService'].queryTrains=()=>queryDone.promise;
   const stalePost=deferred();
-  mocks['../services/favoritesRepository'].loadFavorites=async()=>{calls++;return calls===2?stalePost.promise:doc};
+  mocks['../services/trainService'].loadCachedRoute=async()=>{calls++;return calls===2?stalePost.promise:null};
   state={favoriteId:'a',view:'trains'};
   const older=runtime.refreshWidget(info,v=>draws.push(v.props),true);await tick();queryDone.resolve({status:'empty',trains:[]});await tick();
   state={favoriteId:'a',view:'favorites'};await runtime.refreshWidget(info,v=>draws.push(v.props),false);
-  const after=draws.length;stalePost.resolve(doc);await older;
+  const after=draws.length;stalePost.resolve(null);await older;
   assert.equal(draws.length,after,'generation is checked after the post-network snapshot');
+  assert.equal(draws.at(-1).state.view,'favorites');
   console.log('PASS: null/malformed preferences preserved, own station IDs, valid clock values, stale widget snapshots before/after network.');
 })().catch(error=>{console.error(error);process.exitCode=1});

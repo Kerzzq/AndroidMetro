@@ -1,0 +1,5 @@
+- Nueva aplicación de consulta con trayectos favoritos.
+- Widget rediseñado para cambiar de ruta y ver todos los trenes.
+- Mapa interactivo de las líneas L1 y L2.
+- Hasta 10 favoritos con acceso rápido a horarios.
+- Mejoras de estabilidad, navegación y gestión de errores.
