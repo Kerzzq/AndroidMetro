@@ -1,5 +1,7 @@
 # Estado de preparación, 15-10-2026
 
+> Estado intermedio conservado para trazabilidad. Sustituido por el [informe final de entrega previa](INFORME_FINAL_RELEASE_2.0.0.md): autenticación/firma, S01, atribuciones y actualización del candidato se verificaron posteriormente. No repetir las solicitudes de autenticación de este registro.
+
 **Trabajo pendiente. No apto todavía para publicar ni para pedir aprobación de publicación.** El [informe inicial](AUDITORIA_RELEASE_2.0.0.md) se guardó antes de corregir código en `a36d82a`. Este documento registra los resultados posteriores; no sustituye las puertas de firma y actualización real.
 
 ## Cambios preparados

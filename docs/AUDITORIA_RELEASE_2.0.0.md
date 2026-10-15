@@ -1,5 +1,7 @@
 # Auditoría de preparación AndroidMetro 2.0.0
 
+> Registro histórico anterior a las correcciones. Para firma recuperada, S01, candidato definitivo y pruebas de actualización, consultar el [informe final de entrega previa](INFORME_FINAL_RELEASE_2.0.0.md). Los pendientes de este registro no describen el estado actual.
+
 Fecha: 15-10-2026, Europe/Madrid. **Preparación en curso; publicación NO autorizada ni validada.**
 
 ## Alcance y trazabilidad inicial (antes de corregir código)

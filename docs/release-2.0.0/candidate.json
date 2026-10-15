@@ -1,0 +1,28 @@
+{
+  "commit": "bae3c09bd634b93c2c13cdcdfea2eabb34f91c86",
+  "package": "com.metrobilbao.widget",
+  "versionName": "2.0.0",
+  "versionCode": 2,
+  "sha256": "3c99de40d3644961fa1c413ea5e07584d8266e8cecb1c67e8739a38dba6486b9",
+  "certificateSha256": "91bc77ae484bc3ff3408f13950894e4ed7a3d49674a20f7a634b798747e026c0",
+  "bytes": 79717800,
+  "apksignerVerified": true,
+  "zipalign16kVerified": true,
+  "debuggable": false,
+  "officialUpdateTest": {
+    "device": "emulator-5562",
+    "historicalVersion": "1.0.0 (1)",
+    "candidateVersion": "2.0.0 (2)",
+    "candidateSha256": "3c99de40d3644961fa1c413ea5e07584d8266e8cecb1c67e8739a38dba6486b9",
+    "appId": "10216",
+    "firstInstallTimeUnchanged": "2026-10-15 16:56:38",
+    "widgetIdPreserved": 2,
+    "migratedRoute": "ABA/MOY",
+    "afterRebootAndRefresh": true,
+    "uninstallOrDataClear": false,
+    "installedApkMatches": true
+  },
+  "bundleSha256": "ec128a7b89bb753ac27a69810b17e768fb7553f42d942db23f6d0ed2c88ef84a",
+  "noticesSha256": "b2349c81389547046569f9e77efd3e86a611cd0bb407f0cbfaffd31d2daf6ef7",
+  "notice": "Pre-publication candidate; no release/main changes authorized."
+}

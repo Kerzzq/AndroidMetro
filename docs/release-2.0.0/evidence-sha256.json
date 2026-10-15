@@ -1,0 +1,196 @@
+{
+  "root": "Local sibling auditoria/release-2.0.0 (outside Git); explicit public evidence allowlist only",
+  "candidateSha256": "3c99de40d3644961fa1c413ea5e07584d8266e8cecb1c67e8739a38dba6486b9",
+  "files": [
+    {
+      "file": "rc2-metadata.json",
+      "bytes": 910,
+      "sha256": "66eb6d4c098585b7799ef8127b6fc89ee7e04ed8fc6b3c8da278b188eb2abaf8"
+    },
+    {
+      "file": "rc2-apksigner.txt",
+      "bytes": 965,
+      "sha256": "3b7d5fd7277c9b6a8a3eebd1a0c9e4e9a8ee8b9c37091cb639595032292ee9f2"
+    },
+    {
+      "file": "rc2-badging.txt",
+      "bytes": 5222,
+      "sha256": "7f3500b2ff6cb58422f2f14c1d04b4b579d3c19100018a6b4d78a5265219112d"
+    },
+    {
+      "file": "rc2-manifest.txt",
+      "bytes": 23425,
+      "sha256": "6f7988392c96f28e609f2ca2f3fd9bbbca31010b64c2073ec10355f4d78a84ab"
+    },
+    {
+      "file": "rc2-content-check.json",
+      "bytes": 6184,
+      "sha256": "e7da041aa735d6e016d262bf2335ae840f1b1007049f41ff426a70e227fb2ba4"
+    },
+    {
+      "file": "rc2-bundle-secret-scan.json",
+      "bytes": 179,
+      "sha256": "86944427d192b08e79d132d3d9e9695dd97abaab35128e0d1ed03626e07deadd"
+    },
+    {
+      "file": "build-final.log",
+      "bytes": 55681,
+      "sha256": "1be73c0a20c57717c1dfde765839653c22a8f1ab132aad6b6b34cf42d54f8e8c"
+    },
+    {
+      "file": "tests-final.log",
+      "bytes": 1476,
+      "sha256": "4cffe4a45e20cc19b1e98c4752056605be12bc54f445e428f67ebb0aac2e834d"
+    },
+    {
+      "file": "prebuild-final.log",
+      "bytes": 516,
+      "sha256": "97e5583fcf98bad77d3cac132ab020aff3db30991fafaf01740bb573d64b8a2d"
+    },
+    {
+      "file": "s01-rc2-results.json",
+      "bytes": 433,
+      "sha256": "5cbeb14a6741e3421935b30d57a929aaea41c9ed43f9569ee32f40fbe6a0d501"
+    },
+    {
+      "file": "s01-api24-results.json",
+      "bytes": 433,
+      "sha256": "9c5e92e67dfa9e1a6eb013d0e04479f5aed9f68fb9ad01555dac3f43ea25561a"
+    },
+    {
+      "file": "favorites-ui-results.json",
+      "bytes": 812,
+      "sha256": "8244c26923a99704d47f9ee09f588c8dedf87d391992f4da36eba932b009c99c"
+    },
+    {
+      "file": "favoritos-despues-reinicio-rc2.xml",
+      "bytes": 27043,
+      "sha256": "73c8ddf245257d066b1c467330c1f365e819e9d7e2d0708ce13ad52b4043c59a"
+    },
+    {
+      "file": "widget-full-list-rc2.json",
+      "bytes": 395,
+      "sha256": "5a276e02dc57c8db3250906aa9a065de566e58ba347b8723f90c979be4922c8f"
+    },
+    {
+      "file": "widget6-reinicio-rc2.xml",
+      "bytes": 24461,
+      "sha256": "3e3d68f89a54cfee72755d3390e08f01786f8509a39366786d4ad2f75e1cd337"
+    },
+    {
+      "file": "widget8-reinicio-rc2.xml",
+      "bytes": 21279,
+      "sha256": "6f9bb0643fe72e3528b6e9d69b90c0098b2c42515b14269595a833ce2d5578b9"
+    },
+    {
+      "file": "home-cache-sin-red-rc2.xml",
+      "bytes": 19282,
+      "sha256": "4281bdfe478cf351ab8d6d78853b1f00f28c4b96eb137af83c455bc56c3c6293"
+    },
+    {
+      "file": "consulta-nueva-sin-red-rc2.json",
+      "bytes": 478,
+      "sha256": "9db3c62c8c5fd17f8be6ce216f2660be5edce997a2da3f589cfb4431f9154274"
+    },
+    {
+      "file": "consulta-recuperada-rc2.xml",
+      "bytes": 14078,
+      "sha256": "1bab534c95f9f1d7cde4bfdd43b3484daccfe68059e99ea1102d65aeb6e71277"
+    },
+    {
+      "file": "api24/consulta-rc2.xml",
+      "bytes": 14198,
+      "sha256": "59fe4f2d52a485c1684e177b850c186daf64d9a4f2d692687091dbf1addc9016"
+    },
+    {
+      "file": "api24/widget-protegido-rc2.xml",
+      "bytes": 27075,
+      "sha256": "a7821eda84b7dcaa8966e7e6509aed1a35b4721b31feeef0c26a61feffbf36d1"
+    },
+    {
+      "file": "pages16k/consulta-rc2-sin-compat.json",
+      "bytes": 603,
+      "sha256": "a0040d41310f43078e966bd52ebb546585b925896e79578d7765f421c41ffa22"
+    },
+    {
+      "file": "final-update/verified-update.json",
+      "bytes": 430,
+      "sha256": "8034dce9e80596664e61cadd304d4cd8f7718942cde4ad9592d0ec5ad1764206"
+    },
+    {
+      "file": "final-update/package-before.txt",
+      "bytes": 12843,
+      "sha256": "c861d7d58fff0b801677775d90acd0eb6183bdb912a366ec95c221d7fbcb15f2"
+    },
+    {
+      "file": "final-update/package-after.txt",
+      "bytes": 11799,
+      "sha256": "043585da536e9dbbf1d8cbd4b0b4e40a4fc7f8a39d6c11b4c59bf6eb52462882"
+    },
+    {
+      "file": "final-update/widgets-before.txt",
+      "bytes": 13116,
+      "sha256": "35bf9020429c2fd889ef1c984b3694d4b84ab29ddc1afa3cb3b2335987dc7d4d"
+    },
+    {
+      "file": "final-update/widgets-after.txt",
+      "bytes": 13043,
+      "sha256": "9e27e42c242e0965af23ab3b049cd2d1ba0a79356f591d797cc42b0acebc4365"
+    },
+    {
+      "file": "final-update/installed-sha256.txt",
+      "bytes": 161,
+      "sha256": "8d8063bf40c3a1d6d6dd553f5130584b1a67633a54dd1986514d2d11d690c90a"
+    },
+    {
+      "file": "final-update/widget-refresco-reinicio.xml",
+      "bytes": 24441,
+      "sha256": "c3c9fddd474b3850bdfd6dcf734e8defc340a348358c2011a07ad939a343e41f"
+    },
+    {
+      "file": "mapa-rc2/gestos-resultados.json",
+      "bytes": 5458,
+      "sha256": "8752410de42a1f97432529c579bbffdac83d355c7d58a1a0f22019a20b1d3f8c"
+    },
+    {
+      "file": "matrix-rc2.log",
+      "bytes": 4405,
+      "sha256": "9879f8b4be28ed8f41ccdcd7441449eb35aecbe64849ac1d0ce14b927cfc4c5d"
+    },
+    {
+      "file": "gestures-rc2.log",
+      "bytes": 3322,
+      "sha256": "a7100ba7d1db445b603b91f6170c9e9e49dd051bca45f7068c3b983f29ec2fc9"
+    },
+    {
+      "file": "native-map-rc2-verification.log",
+      "bytes": 412,
+      "sha256": "973e3cefd6ab3799bc1b3bf3e6b5c7defd2a080c60b907e79c40775d1ab9d8e8"
+    },
+    {
+      "file": "npm-audit.json",
+      "bytes": 55648,
+      "sha256": "2c4e54876d84573f5a54028de52e1d872cc60e9fb7301ace99347ef25808f27b"
+    },
+    {
+      "file": "maven-components-exact.json",
+      "bytes": 14727,
+      "sha256": "7cf0b8bb0f85eb9545c102c0ccbedeacf1bc1ae8fb78b08110efd33f07b15f0a"
+    },
+    {
+      "file": "maven-osv-exact.json",
+      "bytes": 1624,
+      "sha256": "723d0a541e7548c3346b0aaa6ef24ae301023143f4b15ef4c97b8f2514b838fa"
+    },
+    {
+      "file": "github-releases-final.json",
+      "bytes": 21356,
+      "sha256": "260364e385090d69acf441b2b76112e8bece883c36901979dfb9c15713202601"
+    },
+    {
+      "file": "github-refs-final.txt",
+      "bytes": 793,
+      "sha256": "629e27ea1a279230bbd0530e3780430ba75dc77d0ca1cb5d185203e4452d037e"
+    }
+  ]
+}
