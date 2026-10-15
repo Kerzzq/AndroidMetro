@@ -1,7 +1,7 @@
 function normalizeResponse(data, fetchedAt) {
   if (!data || !Array.isArray(data.trains)) throw new Error('invalid_data');
   const trains = data.trains.map(train => {
-    if (!train || typeof train.timeRounded !== 'string' || !/^\d{2}:\d{2}$/.test(train.timeRounded) || typeof train.direction !== 'string') throw new Error('invalid_data');
+    if (!train || typeof train.timeRounded !== 'string' || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(train.timeRounded) || typeof train.direction !== 'string') throw new Error('invalid_data');
     return {
       time: train.timeRounded,
       serviceTime: typeof train.time === 'string' ? train.time : null,

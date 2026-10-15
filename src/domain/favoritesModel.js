@@ -28,7 +28,7 @@ function validateDocument(doc) {
 }
 function routeProblem(f, stationMap) {
   if (!f?.from || !f?.to) return 'Completa origen y destino.';
-  if (!stationMap[f.from] || !stationMap[f.to]) return 'Revisa las estaciones de este trayecto.';
+  if (!Object.hasOwn(stationMap, f.from) || !Object.hasOwn(stationMap, f.to)) return 'Revisa las estaciones de este trayecto.';
   if (f.from === f.to) return 'Origen y destino deben ser diferentes.';
   return null;
 }

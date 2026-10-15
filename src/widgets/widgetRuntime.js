@@ -19,12 +19,14 @@ export async function refreshWidget(info, draw, network = true) {
   const token = (generations.get(info.widgetId) || 0) + 1;
   generations.set(info.widgetId, token);
   const snapshot = await widgetSnapshot(info);
+  if (generations.get(info.widgetId) !== token) return;
   const route = snapshot.favorite;
   if (!network || !route || snapshot.state.view === 'favorites' || routeProblem(route, STATION_MAP)) { await draw(representation(snapshot)); return; }
   await draw(representation({ ...snapshot, result: { ...snapshot.result, status: 'loading' } }));
   const response = await queryTrains(route);
   if (generations.get(info.widgetId) !== token) return;
   const current = await widgetSnapshot(info);
+  if (generations.get(info.widgetId) !== token) return;
   if (current.favorite?.id !== route.id || routeKey(current.favorite) !== routeKey(route) || current.document.revision !== snapshot.document.revision) { await draw(representation(current)); return; }
   current.result = response.status === 'error' ? { ...current.result, ...response } : response;
   await draw(representation(current));

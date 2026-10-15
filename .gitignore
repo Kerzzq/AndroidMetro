@@ -50,3 +50,9 @@ yarn-error.*
 !.env.example
 local.properties
 .gradle/
+credentials.json
+credentials.*.json
+*.pfx
+*.keystore.*
+*.jks.*
+*.apk.idsig

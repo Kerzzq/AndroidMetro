@@ -47,6 +47,7 @@ export async function loadSettings() {
   const raw = await AsyncStorage.getItem('metro_widget_settings');
   let settings = {};
   try { settings = raw ? JSON.parse(raw) : {}; } catch { /* Does not overwrite malformed legacy preferences. */ }
+  if (!settings || typeof settings !== 'object' || Array.isArray(settings)) settings = {};
   return { showWagons: settings.showWagons !== false, timeDisplayMode: settings.timeDisplayMode === 'minutes' ? 'minutes' : 'clock' };
 }
 export const saveSettings = settings => serial(() => AsyncStorage.setItem('metro_widget_settings', JSON.stringify(settings)));
