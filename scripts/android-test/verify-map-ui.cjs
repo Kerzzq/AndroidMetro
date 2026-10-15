@@ -1,10 +1,12 @@
-// CLI test driver: always targets the authorised emulator, never a physical device.
+// CLI test driver: controlled emulator allowlist; never a physical device.
 const {execFileSync}=require('child_process'),fs=require('fs');
 const path=require('path'),root=path.resolve(__dirname,'../..');
 const adb=path.join(process.env.ANDROID_HOME||'C:/Users/W11/AMetro/sdk','platform-tools/adb.exe');
 const dir=process.env.MAPA_EVIDENCE_DIR||'C:/Users/W11/AMetro/evidencias/mapa-android';fs.mkdirSync(dir,{recursive:true});
-function run(args){return execFileSync(adb,['-s','emulator-5556',...args],{encoding:'utf8'});}
-function dump(){let fresh='';for(let attempt=0;attempt<3;attempt++){fresh=run(['shell','uiautomator','dump','/sdcard/metro-ui.xml']);if(fresh.includes('dumped to:'))break;}if(!fresh.includes('dumped to:'))throw Error('No fresh native UI dump');const xml=run(['shell','cat','/sdcard/metro-ui.xml']);fs.writeFileSync(dir+'/latest.xml',xml);return [...xml.matchAll(/<node\b[^>]*>/g)].map(m=>Object.fromEntries([...m[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(a=>[a[1],a[2].replace(/&amp;/g,'&')])));}
+const serial=process.env.ANDROIDMETRO_TEST_SERIAL||'emulator-5556';
+if(!['emulator-5556','emulator-5558','emulator-5560'].includes(serial))throw Error('Unsupported test emulator');
+function run(args){return execFileSync(adb,['-s',serial,...args],{encoding:'utf8',stdio:['ignore','pipe','pipe']});}
+function dump(){let fresh='';for(let attempt=0;attempt<3;attempt++){fresh=run(['shell','uiautomator','dump','/sdcard/metro-ui.xml']);if(fresh.includes('dumped to:'))break;}if(!fresh.includes('dumped to:'))throw Error('No fresh native UI dump');run(['pull','/sdcard/metro-ui.xml',dir+'/latest.xml']);const xml=fs.readFileSync(dir+'/latest.xml','utf8');if(!xml.endsWith('</hierarchy>'))throw Error('Incomplete native UI dump');return [...xml.matchAll(/<node\b[^>]*>/g)].map(m=>Object.fromEntries([...m[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(a=>[a[1],a[2].replace(/&amp;/g,'&')])));}
 function click(text){const list=dump(),node=list.find(n=>n['content-desc']===text)||list.find(n=>n.text===text);if(!node)throw Error('No visible UI node: '+text);if(node.enabled==='false')throw Error('Disabled UI node: '+text);const b=node.bounds.match(/\d+/g).map(Number);console.log(text,node.bounds);run(['shell','input','tap',String((b[0]+b[2])/2|0),String((b[1]+b[3])/2|0)]);}
 function choose(field,code){const st=require(path.join(root,'src/domain/mapModel')).stations[code];if(!st)throw Error(code);const button=dump().find(n=>n['content-desc'].startsWith(field+':'));if(!button)throw Error(field);click(button['content-desc']);click('Buscar estación');const search=st.displayName.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ /g,'%s');run(['shell','input','text',search]);run(['shell','input','keyevent','4']);click(st.displayName+', '+st.lines.join(' · '));}
 const cmd=process.argv[2],arg=process.argv.slice(3);

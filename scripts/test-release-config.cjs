@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { hardenManifest, disableTemplateReleaseSigning } = require('../plugins/withReleaseSafety');
+const { hardenManifest, disableTemplateReleaseSigning, configureAndroid7Networking } = require('../plugins/withReleaseSafety');
 const config = require('../app.json').expo;
 assert.equal(config.android.package,'com.metrobilbao.widget');
 assert.equal(config.version,'2.0.0');
@@ -16,6 +16,14 @@ assert.ok(safe.includes('debug { signingConfig signingConfigs.debug }'));
 assert.ok(safe.includes('signingConfig null'));
 assert.equal(disableTemplateReleaseSigning(safe),safe);
 assert.throws(()=>disableTemplateReleaseSigning('changed upstream'),/Unrecognized/);
+const application = 'override fun onCreate() {\n    super.onCreate()\n    loadReactNative(this)\n}';
+const networking = configureAndroid7Networking(application);
+assert.ok(networking.includes('SDK_INT == android.os.Build.VERSION_CODES.N'));
+assert.ok(networking.includes('.protocols(listOf(okhttp3.Protocol.HTTP_1_1))'));
+assert.ok(networking.includes('createClientBuilder(this)'));
+assert.ok(networking.indexOf('setOkHttpClientFactory') < networking.indexOf('loadReactNative(this)'));
+assert.equal(configureAndroid7Networking(networking), networking);
+assert.throws(()=>configureAndroid7Networking('unknown template'), /Unrecognized/);
 if(fs.existsSync(path.join(__dirname,'../android/app/build.gradle'))){
   const gradle=fs.readFileSync(path.join(__dirname,'../android/app/build.gradle'),'utf8');
   if(gradle.includes("applicationId 'com.metrobilbao.widget'")) assert.ok(gradle.includes('signingConfig null'),'Regenerate production Android after changing plugins');

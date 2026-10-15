@@ -1,4 +1,4 @@
-const { withAndroidManifest, withAppBuildGradle, withDangerousMod } = require('@expo/config-plugins');
+const { withAndroidManifest, withAppBuildGradle, withDangerousMod, withMainApplication } = require('@expo/config-plugins');
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -17,8 +17,28 @@ function disableTemplateReleaseSigning(contents) {
   if (!pattern.test(contents)) throw new Error('Unrecognized Expo release signing template; audit before building.');
   return contents.replace(pattern, '$1// AndroidMetro: unsigned until explicitly signed with the verified original key.\n            signingConfig null');
 }
+function configureAndroid7Networking(contents) {
+  const marker = '// AndroidMetro: API 24 HTTPS requests stall with HTTP/2; retain TLS over HTTP/1.1.';
+  if (contents.includes(marker)) return contents;
+  const anchor = '    super.onCreate()';
+  if (contents.split(anchor).length !== 2) throw new Error('Unrecognized MainApplication onCreate; audit networking initialization.');
+  return contents.replace(anchor, `${anchor}
+    ${marker}
+    if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.N) {
+      com.facebook.react.modules.network.OkHttpClientProvider.setOkHttpClientFactory {
+        com.facebook.react.modules.network.OkHttpClientProvider.createClientBuilder(this)
+          .protocols(listOf(okhttp3.Protocol.HTTP_1_1))
+          .build()
+      }
+    }`);
+}
 module.exports = function withReleaseSafety(config) {
   config = withAndroidManifest(config, mod => { mod.modResults = hardenManifest(mod.modResults); return mod; });
+  config = withMainApplication(config, mod => {
+    if (mod.modResults.language !== 'kt') throw new Error('Expected audited Kotlin MainApplication template.');
+    mod.modResults.contents = configureAndroid7Networking(mod.modResults.contents);
+    return mod;
+  });
   if (config.android?.package === 'com.metrobilbao.widget') {
     config = withAppBuildGradle(config, mod => {
       if (mod.modResults.language !== 'groovy') throw new Error('Expected audited Groovy Gradle template.');
@@ -50,3 +70,4 @@ module.exports = function withReleaseSafety(config) {
 };
 module.exports.hardenManifest = hardenManifest;
 module.exports.disableTemplateReleaseSigning = disableTemplateReleaseSigning;
+module.exports.configureAndroid7Networking = configureAndroid7Networking;

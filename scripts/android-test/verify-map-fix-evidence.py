@@ -1,8 +1,8 @@
 from pathlib import Path
-import json, hashlib, re
+import json, hashlib, re, os
 import xml.etree.ElementTree as ET
 from PIL import Image, ImageChops
-p=Path('C:/Users/W11/AMetro/evidencias/mapa-fix')
+p=Path(os.environ.get('MAPA_EVIDENCE_DIR','C:/Users/W11/AMetro/evidencias/mapa-fix'))
 cases=json.loads((p/'gestos-casos.json').read_text())
 roi=(0,600,1080,1900)
 for c in cases['cases']:

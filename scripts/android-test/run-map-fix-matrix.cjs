@@ -1,5 +1,7 @@
 const {execFileSync}=require('node:child_process'),fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'../..'),adb=path.join(process.env.ANDROID_HOME,'platform-tools/adb.exe');
+const appPackage=process.env.ANDROIDMETRO_PACKAGE||'com.metrobilbao.widget.pruebas';
+if(!['com.metrobilbao.widget','com.metrobilbao.widget.pruebas'].includes(appPackage))throw Error('Unsupported test package');
 const dir=process.env.MAPA_EVIDENCE_DIR;const shell=(...args)=>execFileSync(adb,['-s','emulator-5556','shell',...args],{encoding:'utf8'});
 const ui=(...args)=>execFileSync(process.execPath,[path.join(__dirname,'verify-map-ui.cjs'),...args],{encoding:'utf8'});
 function bounds(name,kind){const out=execFileSync(process.execPath,[path.join(__dirname,'verify-map-insets.cjs'),name,kind],{encoding:'utf8'});fs.appendFileSync(dir+'/matrix.log',out+'\n');}
@@ -8,8 +10,8 @@ for(const nav of ['threebutton','gestural'])for(const font of ['1.0','1.5'])for(
  if(process.env.MAPA_CASES&&!process.env.MAPA_CASES.split(',').includes(name))continue;
  console.log('Start '+name);
  shell('cmd','overlay','enable-exclusive','--category','com.android.internal.systemui.navbar.'+nav);
- shell('am','force-stop','com.metrobilbao.widget.pruebas');shell('settings','put','system','font_scale',font);
- shell('am','start','-n','com.metrobilbao.widget.pruebas/.MainActivity');
+ shell('am','force-stop',appPackage);shell('settings','put','system','font_scale',font);
+ shell('am','start','-n',appPackage+'/.MainActivity');
  ui('settled-home');shell('wm','user-rotation','lock',rotation);
  const deadline=Date.now()+10000;while(!shell('dumpsys','window','displays').includes('mRotation='+rotation+' mDeferredRotationPauseCount')){if(Date.now()>deadline)throw Error('Rotation did not settle '+name);}
 
