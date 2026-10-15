@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Metro Bilbao",
+    "name": "AndroidMetro",
     "slug": "metro-bilbao",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "default",
     "icon": "./assets/androidmetro-icon-minimal-512.png",
     "userInterfaceStyle": "dark",
@@ -18,16 +18,23 @@
         "monochromeImage": "./assets/androidmetro-icon-monochrome.png"
       },
       "package": "com.metrobilbao.widget",
+      "blockedPermissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.VIBRATE"
+      ],
       "icon": "./assets/androidmetro-icon-minimal-512.png"
     },
     "plugins": [
+      "./plugins/withReleaseSafety",
       [
         "react-native-android-widget",
         {
           "widgets": [
             {
               "name": "MetroBilbaoWidget",
-              "label": "Metro Bilbao",
+              "label": "AndroidMetro",
               "minWidth": "240dp",
               "minHeight": "280dp",
               "description": "Consulta todos los trenes de tus trayectos favoritos",

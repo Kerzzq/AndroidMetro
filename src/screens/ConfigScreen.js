@@ -111,7 +111,7 @@ export default function ConfigScreen({ widgetInfo, setResult, renderWidget, onCl
           <Text style={styles.hint}>Las horas previstas permanecen visibles. Los minutos son la estimación de la última consulta, no un contador. El widget indica cuándo se consultó.</Text>
         </View> : null}
       </View> : null}
-      <Text style={styles.hint}>{onClose ? "Los favoritos se comparten con el widget. La opción de vagones y minutos también se aplica a las tarjetas de consulta. Puedes usar la app sin añadir ningún widget." : "Añade «Metro Bilbao (pruebas)» desde los widgets del lanzador. Toca el trayecto para elegir otro favorito y desliza la lista para ver todos los trenes."}</Text>
+      <Text style={styles.hint}>{onClose ? "Los favoritos se comparten con el widget. La opción de vagones y minutos también se aplica a las tarjetas de consulta. Puedes usar la app sin añadir ningún widget." : "Añade el widget de AndroidMetro desde los widgets del lanzador. Toca el trayecto para elegir otro favorito y desliza la lista para ver todos los trenes."}</Text>
       {widgetInfo ? <Button text="Cancelar configuración" onPress={() => setResult('cancel')} disabled={busy} /> : null}
     </ScrollView>
     <Modal visible={!!editor} animationType="slide" onRequestClose={closeEditor}>
